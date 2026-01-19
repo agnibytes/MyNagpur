@@ -2,6 +2,7 @@ import './globals.css'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import dynamic from 'next/dynamic'
+import { SettingsProvider } from '../contexts/SettingsContext'
 
 const ChatWidget = dynamic(() => import('../components/ChatWidget'), { ssr: false })
 
@@ -20,16 +21,20 @@ export default function RootLayout({ children }) {
                 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
             </head>
             <body>
-                <div className="flex flex-col min-h-screen">
-                    <Navbar />
-                    <main className="flex-grow">
-                        {children}
-                    </main>
-                    <Footer />
-                </div>
-                <ChatWidget />
+                <SettingsProvider>
+                    <div className="flex flex-col min-h-screen">
+                        <Navbar />
+                        <main className="flex-grow">
+                            {children}
+                        </main>
+                        <Footer />
+                    </div>
+                    <ChatWidget />
+                </SettingsProvider>
             </body>
         </html>
     )
 }
+
+
 

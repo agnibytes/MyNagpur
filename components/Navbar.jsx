@@ -16,6 +16,8 @@ import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import InputBase from '@mui/material/InputBase';
 import { styled, alpha } from '@mui/material/styles';
+import { useSettings } from '../contexts/SettingsContext';
+import { getTranslation, translations } from '../utils/translations';
 
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
@@ -62,7 +64,9 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 export default function Navbar() {
     const [user, setUser] = useState(null);
     const [anchorElNav, setAnchorElNav] = useState(null);
+    const [anchorElLang, setAnchorElLang] = useState(null);
     const router = useRouter();
+    const { language, changeLanguage, fontSize, changeFontSize } = useSettings();
 
     useEffect(() => {
         const storedUser = localStorage.getItem('userInfo');
@@ -85,13 +89,34 @@ export default function Navbar() {
         setAnchorElNav(null);
     };
 
-    // Navigation Links Data - Active Links
+    const handleOpenLangMenu = (event) => {
+        setAnchorElLang(event.currentTarget);
+    };
+
+    const handleCloseLangMenu = () => {
+        setAnchorElLang(null);
+    };
+
+    const handleLanguageChange = (lang) => {
+        changeLanguage(lang);
+        handleCloseLangMenu();
+    };
+
+    const handleFontSizeChange = (size) => {
+        changeFontSize(size);
+    };
+
+    const handleSkipToContent = () => {
+        router.push('/services');
+    };
+
+    // Navigation Links Data - Active Links (translated)
     const pages = [
-        { name: 'Home', path: '/' },
-        { name: 'Services', path: '/services' }, // Consolidated services
-        { name: 'Dashboard', path: '/dashboard' },
-        { name: 'About Us', path: '/about' },
-        { name: 'Contact', path: '/contact' },
+        { name: getTranslation(language, 'home'), path: '/' },
+        { name: getTranslation(language, 'services'), path: '/services' },
+        { name: getTranslation(language, 'dashboard'), path: '/dashboard' },
+        { name: getTranslation(language, 'about'), path: '/about' },
+        { name: getTranslation(language, 'contact'), path: '/contact' },
     ];
 
     return (
@@ -105,14 +130,108 @@ export default function Navbar() {
                         <a href="https://india.gov.in" target="_blank" rel="noopener noreferrer" style={{ color: '#ddd', textDecoration: 'none' }}>India.gov.in</a>
                     </Box>
                     <Box sx={{ display: 'flex', gap: 2, alignItems: 'center', mt: { xs: 1, sm: 0 } }}>
-                        <span role="button" aria-label="Skip to main content" style={{ cursor: 'pointer' }}>Skip to Main Content</span>
-                        <span style={{ cursor: 'pointer', fontWeight: 'bold' }}>A+</span>
-                        <span style={{ cursor: 'pointer' }}>A</span>
-                        <span style={{ cursor: 'pointer' }}>A-</span>
-                        <Box sx={{ display: 'flex', alignItems: 'center', border: '1px solid #777', borderRadius: 1, px: 1 }}>
-                            <span style={{ cursor: 'pointer', fontWeight: 'bold', marginRight: 5 }}>English</span>
+                        <span
+                            role="button"
+                            aria-label="Skip to main content"
+                            onClick={handleSkipToContent}
+                            style={{ cursor: 'pointer', transition: 'color 0.2s' }}
+                            onMouseEnter={(e) => e.target.style.color = '#FF9933'}
+                            onMouseLeave={(e) => e.target.style.color = '#fff'}
+                        >
+                            {getTranslation(language, 'skipToContent')}
+                        </span>
+                        <span
+                            onClick={() => handleFontSizeChange('large')}
+                            style={{
+                                cursor: 'pointer',
+                                fontWeight: fontSize === 'large' ? 'bold' : 'normal',
+                                color: fontSize === 'large' ? '#FF9933' : '#fff',
+                                transition: 'all 0.2s'
+                            }}
+                        >
+                            A+
+                        </span>
+                        <span
+                            onClick={() => handleFontSizeChange('medium')}
+                            style={{
+                                cursor: 'pointer',
+                                fontWeight: fontSize === 'medium' ? 'bold' : 'normal',
+                                color: fontSize === 'medium' ? '#FF9933' : '#fff',
+                                transition: 'all 0.2s'
+                            }}
+                        >
+                            A
+                        </span>
+                        <span
+                            onClick={() => handleFontSizeChange('small')}
+                            style={{
+                                cursor: 'pointer',
+                                fontWeight: fontSize === 'small' ? 'bold' : 'normal',
+                                color: fontSize === 'small' ? '#FF9933' : '#fff',
+                                transition: 'all 0.2s'
+                            }}
+                        >
+                            A-
+                        </span>
+                        <Box
+                            onClick={handleOpenLangMenu}
+                            sx={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                border: '1px solid #777',
+                                borderRadius: 1,
+                                px: 1,
+                                cursor: 'pointer',
+                                transition: 'all 0.2s',
+                                '&:hover': {
+                                    borderColor: '#FF9933',
+                                    bgcolor: 'rgba(255, 153, 51, 0.1)'
+                                }
+                            }}
+                        >
+                            <span style={{ fontWeight: 'bold', marginRight: 5 }}>
+                                {translations[language]?.name || 'English'}
+                            </span>
                             <span style={{ fontSize: '0.8rem' }}>▼</span>
                         </Box>
+                        <Menu
+                            anchorEl={anchorElLang}
+                            open={Boolean(anchorElLang)}
+                            onClose={handleCloseLangMenu}
+                            anchorOrigin={{
+                                vertical: 'bottom',
+                                horizontal: 'right',
+                            }}
+                            transformOrigin={{
+                                vertical: 'top',
+                                horizontal: 'right',
+                            }}
+                        >
+                            <MenuItem
+                                onClick={() => handleLanguageChange('english')}
+                                selected={language === 'english'}
+                            >
+                                English
+                            </MenuItem>
+                            <MenuItem
+                                onClick={() => handleLanguageChange('hindi')}
+                                selected={language === 'hindi'}
+                            >
+                                हिंदी (Hindi)
+                            </MenuItem>
+                            <MenuItem
+                                onClick={() => handleLanguageChange('marathi')}
+                                selected={language === 'marathi'}
+                            >
+                                मराठी (Marathi)
+                            </MenuItem>
+                            <MenuItem
+                                onClick={() => handleLanguageChange('varhadi')}
+                                selected={language === 'varhadi'}
+                            >
+                                वरहाडी (Varhadi)
+                            </MenuItem>
+                        </Menu>
                     </Box>
                 </Container>
             </Box>
@@ -142,119 +261,62 @@ export default function Navbar() {
                         </Box>
                     </Box>
 
-                    {/* Right: Leadership Avatars */}
-                    <Box sx={{ display: 'flex', gap: 2, alignItems: 'center', flexWrap: 'nowrap' }}>
-                        {/* PM Modi */}
-                        <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', mx: 0.5 }}>
-                            <Box sx={{
-                                height: '64px', width: '64px', borderRadius: '50%', overflow: 'hidden',
-                                border: '3px solid #f0f0f0', boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
-                            }}>
-                                <img
-                                    src="/images/Shri Narendra Modi.jpeg"
-                                    alt="Shri Narendra Modi"
-                                    style={{ height: '100%', width: '100%', objectFit: 'cover' }}
-                                />
-                            </Box>
-                            <Typography variant="caption" sx={{ fontSize: '0.65rem', fontWeight: 'bold', mt: 0.5, lineHeight: 1.2, textAlign: 'center' }}>Shri Narendra Modi</Typography>
-                            <Typography variant="caption" sx={{ fontSize: '0.6rem', color: '#666', lineHeight: 1, textAlign: 'center' }}>Hon'ble PM</Typography>
-                        </Box>
-
-                        {/* Nitin Gadkari */}
-                        <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', mx: 0.5 }}>
-                            <Box sx={{
-                                height: '64px', width: '64px', borderRadius: '50%', overflow: 'hidden',
-                                border: '3px solid #f0f0f0', boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
-                            }}>
-                                <img
-                                    src="/images/Nitin_Sir_Picture.webp"
-                                    alt="Nitin Gadkari"
-                                    style={{ height: '100%', width: '100%', objectFit: 'cover' }}
-                                />
-                            </Box>
-                            <Typography variant="caption" sx={{ fontSize: '0.65rem', fontWeight: 'bold', mt: 0.5, lineHeight: 1.2, textAlign: 'center' }}>Shri Nitin Gadkari</Typography>
-                            <Typography variant="caption" sx={{ fontSize: '0.6rem', color: '#666', lineHeight: 1, textAlign: 'center' }}>Hon'ble Minister</Typography>
-                        </Box>
-
-                        {/* Devendra Fadnavis */}
-                        <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', mx: 0.5 }}>
-                            <Box sx={{
-                                height: '64px', width: '64px', borderRadius: '50%', overflow: 'hidden',
-                                border: '3px solid #f0f0f0', boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
-                            }}>
-                                <img
-                                    src="/images/devendra.jpeg"
-                                    alt="Devendra Fadnavis"
-                                    style={{ height: '100%', width: '100%', objectFit: 'cover' }}
-                                />
-                            </Box>
-                            <Typography variant="caption" sx={{ fontSize: '0.65rem', fontWeight: 'bold', mt: 0.5, lineHeight: 1.2, textAlign: 'center' }}>Shri Devendra Fadnavis</Typography>
-                            <Typography variant="caption" sx={{ fontSize: '0.6rem', color: '#666', lineHeight: 1, textAlign: 'center' }}>Hon'ble CM</Typography>
-                        </Box>
-
-                        {/* Rohit Karoo */}
-                        <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', mx: 0.5 }}>
-                            <Box sx={{
-                                height: '64px', width: '64px', borderRadius: '50%', overflow: 'hidden',
-                                border: '3px solid #FF9933', boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
-                            }}>
-                                <img
-                                    src="/images/rohiy.jpeg"
-                                    alt="Rohit Karoo"
-                                    style={{ height: '100%', width: '100%', objectFit: 'cover' }}
-                                />
-                            </Box>
-                            <Typography variant="caption" sx={{ fontSize: '0.65rem', fontWeight: 'bold', mt: 0.5, lineHeight: 1.2, textAlign: 'center' }}>Rohit Karoo</Typography>
-                            <Typography variant="caption" sx={{ fontSize: '0.6rem', color: '#666', lineHeight: 1, textAlign: 'center' }}>Karhandla Secretary</Typography>
-                        </Box>
-
-                        <Box sx={{ height: '50px', width: '1px', bgcolor: '#ddd', mx: 1.5, display: { xs: 'none', md: 'block' } }} />
-
-                        {/* Government Initiative Logos */}
+                    {/* Right: Government Initiative Logos */}
+                    <Box sx={{
+                        display: 'flex',
+                        gap: 3,
+                        alignItems: 'center',
+                        ml: 2
+                    }}>
+                        {/* Digital India */}
                         <Box sx={{
-                            display: { xs: 'none', md: 'flex' },
-                            gap: 1.5,
+                            height: '63px',
+                            display: 'flex',
                             alignItems: 'center',
-                            bgcolor: 'rgba(255, 153, 51, 0.08)',
-                            borderRadius: 2,
-                            px: 1.5,
-                            py: 0.8,
-                            border: '1px solid rgba(255, 153, 51, 0.2)'
+                            transition: 'transform 0.2s',
+                            '&:hover': { transform: 'scale(1.05)' }
                         }}>
-                            <Box sx={{
-                                height: '48px',
-                                width: '48px',
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'center',
-                                bgcolor: '#fff',
-                                borderRadius: '8px',
-                                boxShadow: '0 1px 3px rgba(0,0,0,0.1)',
-                                p: 0.5
-                            }}>
-                                <img
-                                    src="/g20.png"
-                                    alt="G20 India 2023"
-                                    style={{ height: '100%', width: '100%', objectFit: 'contain' }}
-                                />
-                            </Box>
-                            <Box sx={{
-                                height: '48px',
-                                width: '48px',
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'center',
-                                bgcolor: '#fff',
-                                borderRadius: '8px',
-                                boxShadow: '0 1px 3px rgba(0,0,0,0.1)',
-                                p: 0.5
-                            }}>
-                                <img
-                                    src="/swachh_bharat.png"
-                                    alt="Swachh Bharat Abhiyan"
-                                    style={{ height: '100%', width: '100%', objectFit: 'contain' }}
-                                />
-                            </Box>
+                            <img
+                                src="/images/logo/Digital_India_logo.svg.png"
+                                alt="Digital India"
+                                style={{ height: '100%', width: 'auto', objectFit: 'contain' }}
+                            />
+                        </Box>
+
+                        {/* Vertical Divider */}
+                        <Box sx={{ height: '30px', width: '1px', bgcolor: '#e0e0e0' }} />
+
+                        {/* logo of umred nagar parishad */}
+                        <Box sx={{
+                            height: '78px',
+                            display: 'flex',
+                            alignItems: 'center',
+                            transition: 'transform 0.2s',
+                            '&:hover': { transform: 'scale(1.05)' }
+                        }}>
+                            <img
+                                src="/images/logo/umrednagarparishd.png"
+                                alt="G20 India 2023"
+                                style={{ height: '100%', width: 'auto', objectFit: 'contain' }}
+                            />
+                        </Box>
+
+                        {/* Vertical Divider */}
+                        <Box sx={{ height: '30px', width: '1px', bgcolor: '#e0e0e0' }} />
+
+                        {/* Swachh Bharat */}
+                        <Box sx={{
+                            height: '99px',
+                            display: 'flex',
+                            alignItems: 'center',
+                            transition: 'transform 0.2s',
+                            '&:hover': { transform: 'scale(1.05)' }
+                        }}>
+                            <img
+                                src="/swachh_bharat.png"
+                                alt="Swachh Bharat Abhiyan"
+                                style={{ height: '100%', width: 'auto', objectFit: 'contain' }}
+                            />
                         </Box>
                     </Box>
                 </Box>
@@ -295,11 +357,11 @@ export default function Navbar() {
                                 <Divider />
                                 {!user ? (
                                     <>
-                                        <MenuItem onClick={handleCloseNavMenu} component={Link} href="/auth/login"><Typography>Login</Typography></MenuItem>
-                                        <MenuItem onClick={handleCloseNavMenu} component={Link} href="/auth/register"><Typography>Register</Typography></MenuItem>
+                                        <MenuItem onClick={handleCloseNavMenu} component={Link} href="/auth/login"><Typography>{getTranslation(language, 'login')}</Typography></MenuItem>
+                                        <MenuItem onClick={handleCloseNavMenu} component={Link} href="/auth/register"><Typography>{getTranslation(language, 'register')}</Typography></MenuItem>
                                     </>
                                 ) : (
-                                    <MenuItem onClick={() => { handleCloseNavMenu(); handleLogout(); }}><Typography color="error">Logout</Typography></MenuItem>
+                                    <MenuItem onClick={() => { handleCloseNavMenu(); handleLogout(); }}><Typography color="error">{getTranslation(language, 'logout')}</Typography></MenuItem>
                                 )}
                             </Menu>
                         </Box>
@@ -334,7 +396,7 @@ export default function Navbar() {
                                     <SearchIcon />
                                 </SearchIconWrapper>
                                 <StyledInputBase
-                                    placeholder="Search..."
+                                    placeholder={getTranslation(language, 'search')}
                                     inputProps={{ 'aria-label': 'search' }}
                                 />
                             </Search>
@@ -345,13 +407,13 @@ export default function Navbar() {
                                         {user.name}
                                     </Typography>
                                     <Button sx={{ color: '#fff', textTransform: 'none', bgcolor: '#b71c1c', '&:hover': { bgcolor: '#aa1919' }, borderRadius: 0 }} size="small" onClick={handleLogout}>
-                                        Logout
+                                        {getTranslation(language, 'logout')}
                                     </Button>
                                 </Box>
                             ) : (
                                 <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 1 }}>
-                                    <Button color="inherit" component={Link} href="/auth/login" size="small" sx={{ borderColor: 'rgba(255,255,255,0.5)', border: '1px solid' }}>Login</Button>
-                                    <Button variant="contained" size="small" component={Link} href="/auth/register" sx={{ bgcolor: '#FF9933', color: '#000', fontWeight: 'bold', '&:hover': { bgcolor: '#e68a00' }, borderRadius: 0 }}>Register</Button>
+                                    <Button color="inherit" component={Link} href="/auth/login" size="small" sx={{ borderColor: 'rgba(255,255,255,0.5)', border: '1px solid' }}>{getTranslation(language, 'login')}</Button>
+                                    <Button variant="contained" size="small" component={Link} href="/auth/register" sx={{ bgcolor: '#FF9933', color: '#000', fontWeight: 'bold', '&:hover': { bgcolor: '#e68a00' }, borderRadius: 0 }}>{getTranslation(language, 'register')}</Button>
                                 </Box>
                             )}
                         </Box>

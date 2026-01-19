@@ -9,13 +9,20 @@ import EngineeringIcon from '@mui/icons-material/Engineering';
 import UpdateIcon from '@mui/icons-material/Update';
 import SupportAgentIcon from '@mui/icons-material/SupportAgent';
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
+import EditNoteIcon from '@mui/icons-material/EditNote';
+import BarChartIcon from '@mui/icons-material/BarChart';
+import PhoneIcon from '@mui/icons-material/Phone';
+import InfoIcon from '@mui/icons-material/Info';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import EmailIcon from '@mui/icons-material/Email';
+import ScheduleIcon from '@mui/icons-material/Schedule';
 
 export default function UnderConstruction() {
     const availableServices = [
-        { name: 'File Complaint', href: '/services', icon: '📝' },
-        { name: 'View Dashboard', href: '/dashboard', icon: '📊' },
-        { name: 'Contact Us', href: '/contact', icon: '📞' },
-        { name: 'About Us', href: '/about', icon: 'ℹ️' },
+        { name: 'File Complaint', href: '/services', icon: <EditNoteIcon /> },
+        { name: 'View Dashboard', href: '/dashboard', icon: <BarChartIcon /> },
+        { name: 'Contact Us', href: '/contact', icon: <PhoneIcon /> },
+        { name: 'About Us', href: '/about', icon: <InfoIcon /> },
     ];
 
     return (
@@ -202,9 +209,10 @@ export default function UnderConstruction() {
                                 borderRadius: 0,
                                 border: '1px solid #ddd'
                             }}>
-                                <Box sx={{ bgcolor: '#1a4e8e', p: 2, color: '#fff' }}>
+                                <Box sx={{ bgcolor: '#1a4e8e', p: 2, color: '#fff', display: 'flex', alignItems: 'center', gap: 1 }}>
+                                    <CheckCircleIcon />
                                     <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
-                                        ✅ Available Services
+                                        Available Services
                                     </Typography>
                                     <Typography variant="caption" sx={{ opacity: 0.9 }}>
                                         उपलब्ध सेवा
@@ -232,7 +240,7 @@ export default function UnderConstruction() {
                                                 }
                                             }}
                                         >
-                                            <Typography sx={{ fontSize: '1.5rem' }}>{service.icon}</Typography>
+                                            <Box sx={{ color: '#1a4e8e' }}>{service.icon}</Box>
                                             <Typography variant="body1" sx={{ fontWeight: 500, flexGrow: 1 }}>
                                                 {service.name}
                                             </Typography>
@@ -256,14 +264,14 @@ export default function UnderConstruction() {
                                     </Typography>
                                 </Box>
                                 <Box sx={{ p: 2, bgcolor: '#fff' }}>
-                                    <Typography variant="body2" sx={{ mb: 1 }}>
-                                        <strong>📞 Toll Free:</strong> 1800-XXX-XXXX
+                                    <Typography variant="body2" sx={{ mb: 1, display: 'flex', alignItems: 'center', gap: 0.5 }}>
+                                        <PhoneIcon fontSize="small" /> <strong>Toll Free:</strong> 1800-XXX-XXXX
                                     </Typography>
-                                    <Typography variant="body2" sx={{ mb: 1 }}>
-                                        <strong>📧 Email:</strong> helpdesk@umrednp.gov.in
+                                    <Typography variant="body2" sx={{ mb: 1, display: 'flex', alignItems: 'center', gap: 0.5 }}>
+                                        <EmailIcon fontSize="small" /> <strong>Email:</strong> helpdesk@umrednp.gov.in
                                     </Typography>
-                                    <Typography variant="body2">
-                                        <strong>🕒 Hours:</strong> Mon-Sat, 10AM - 5PM
+                                    <Typography variant="body2" sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
+                                        <ScheduleIcon fontSize="small" /> <strong>Hours:</strong> Mon-Sat, 10AM - 5PM
                                     </Typography>
                                 </Box>
                             </Paper>

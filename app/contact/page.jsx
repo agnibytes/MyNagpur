@@ -12,6 +12,9 @@ import ContactSupportIcon from '@mui/icons-material/ContactSupport';
 import LocalPoliceIcon from '@mui/icons-material/LocalPolice';
 import LocalHospitalIcon from '@mui/icons-material/LocalHospital';
 import FireExtinguisherIcon from '@mui/icons-material/FireExtinguisher';
+import WarningIcon from '@mui/icons-material/Warning';
+import LinkIcon from '@mui/icons-material/Link';
+import PublicIcon from '@mui/icons-material/Public';
 import Link from 'next/link';
 
 export default function ContactPage() {
@@ -153,8 +156,8 @@ export default function ContactPage() {
                 <Container maxWidth="xl">
                     <Grid container spacing={2} justifyContent="center" alignItems="center">
                         <Grid item>
-                            <Typography variant="subtitle2" sx={{ color: '#fff', fontWeight: 'bold', mr: 2 }}>
-                                🚨 Emergency Numbers:
+                            <Typography variant="subtitle2" sx={{ color: '#fff', fontWeight: 'bold', mr: 2, display: 'flex', alignItems: 'center', gap: 0.5 }}>
+                                <WarningIcon fontSize="small" /> Emergency Numbers:
                             </Typography>
                         </Grid>
                         {emergencyContacts.map((contact, i) => (
@@ -354,8 +357,9 @@ export default function ContactPage() {
 
                         {/* Quick Links */}
                         <Paper sx={{ mt: 3, overflow: 'hidden', borderRadius: 0, boxShadow: 3, border: '1px solid #ddd' }}>
-                            <Box sx={{ bgcolor: '#138808', color: '#fff', p: 2, borderLeft: '5px solid #FF9933' }}>
-                                <Typography variant="h6" sx={{ fontWeight: 'bold' }}>🔗 Quick Links</Typography>
+                            <Box sx={{ bgcolor: '#138808', color: '#fff', p: 2, borderLeft: '5px solid #FF9933', display: 'flex', alignItems: 'center', gap: 1 }}>
+                                <LinkIcon />
+                                <Typography variant="h6" sx={{ fontWeight: 'bold' }}>Quick Links</Typography>
                             </Box>
                             <List dense sx={{ py: 0 }}>
                                 {quickLinks.map((link, i) => (
@@ -382,8 +386,9 @@ export default function ContactPage() {
 
                         {/* Important Links */}
                         <Paper sx={{ mt: 3, overflow: 'hidden', borderRadius: 0, boxShadow: 3, border: '1px solid #ddd' }}>
-                            <Box sx={{ bgcolor: '#1a4e8e', color: '#fff', p: 2, borderLeft: '5px solid #FF9933' }}>
-                                <Typography variant="h6" sx={{ fontWeight: 'bold' }}>🌐 Government Portals</Typography>
+                            <Box sx={{ bgcolor: '#1a4e8e', color: '#fff', p: 2, borderLeft: '5px solid #FF9933', display: 'flex', alignItems: 'center', gap: 1 }}>
+                                <PublicIcon />
+                                <Typography variant="h6" sx={{ fontWeight: 'bold' }}>Government Portals</Typography>
                             </Box>
                             <Box sx={{ p: 2 }}>
                                 {[

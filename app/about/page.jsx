@@ -11,16 +11,27 @@ import GroupsIcon from '@mui/icons-material/Groups';
 import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 import HistoryEduIcon from '@mui/icons-material/HistoryEdu';
 import StarIcon from '@mui/icons-material/Star';
+import HandshakeIcon from '@mui/icons-material/Handshake';
+import BoltIcon from '@mui/icons-material/Bolt';
+import ParkIcon from '@mui/icons-material/Park';
+import LightbulbIcon from '@mui/icons-material/Lightbulb';
+import GpsFixedIcon from '@mui/icons-material/GpsFixed';
+import BarChartIcon from '@mui/icons-material/BarChart';
+import LocationOnIcon from '@mui/icons-material/LocationOn';
+import PhoneIcon from '@mui/icons-material/Phone';
+import EmailIcon from '@mui/icons-material/Email';
+import ScheduleIcon from '@mui/icons-material/Schedule';
+import LinkIcon from '@mui/icons-material/Link';
 
 export default function AboutPage() {
     // Core Values
     const coreValues = [
-        { icon: '🏛️', title: 'Transparency', desc: 'Open governance with complete accountability' },
-        { icon: '🤝', title: 'Service', desc: 'Citizen-first approach in all initiatives' },
-        { icon: '⚡', title: 'Efficiency', desc: 'Swift resolution of civic issues' },
-        { icon: '🌿', title: 'Sustainability', desc: 'Eco-friendly urban development' },
-        { icon: '💡', title: 'Innovation', desc: 'Digital-first governance solutions' },
-        { icon: '🎯', title: 'Integrity', desc: 'Ethical practices in administration' },
+        { icon: <AccountBalanceIcon sx={{ fontSize: 40, color: '#1a4e8e' }} />, title: 'Transparency', desc: 'Open governance with complete accountability' },
+        { icon: <HandshakeIcon sx={{ fontSize: 40, color: '#FF9933' }} />, title: 'Service', desc: 'Citizen-first approach in all initiatives' },
+        { icon: <BoltIcon sx={{ fontSize: 40, color: '#f9a825' }} />, title: 'Efficiency', desc: 'Swift resolution of civic issues' },
+        { icon: <ParkIcon sx={{ fontSize: 40, color: '#388e3c' }} />, title: 'Sustainability', desc: 'Eco-friendly urban development' },
+        { icon: <LightbulbIcon sx={{ fontSize: 40, color: '#e65100' }} />, title: 'Innovation', desc: 'Digital-first governance solutions' },
+        { icon: <GpsFixedIcon sx={{ fontSize: 40, color: '#d32f2f' }} />, title: 'Integrity', desc: 'Ethical practices in administration' },
     ];
 
     // Council Members
@@ -216,7 +227,7 @@ export default function AboutPage() {
                                                 transition: '0.2s',
                                                 '&:hover': { boxShadow: 2, borderColor: '#FF9933', transform: 'translateY(-2px)' }
                                             }}>
-                                                <Typography variant="h4" sx={{ mb: 1 }}>{value.icon}</Typography>
+                                                {value.icon}
                                                 <Typography variant="subtitle2" sx={{ fontWeight: 'bold', color: '#1a4e8e', mb: 0.5 }}>{value.title}</Typography>
                                                 <Typography variant="caption" sx={{ color: '#666' }}>{value.desc}</Typography>
                                             </Paper>
@@ -329,8 +340,9 @@ export default function AboutPage() {
 
                         {/* Statistics */}
                         <Paper sx={{ mb: 3, overflow: 'hidden', borderRadius: 0, boxShadow: 3, border: '1px solid #ddd' }}>
-                            <Box sx={{ bgcolor: '#FF9933', color: '#000', p: 2, borderLeft: '5px solid #138808' }}>
-                                <Typography variant="h6" sx={{ fontWeight: 'bold' }}>📊 At a Glance</Typography>
+                            <Box sx={{ bgcolor: '#FF9933', color: '#000', p: 2, borderLeft: '5px solid #138808', display: 'flex', alignItems: 'center', gap: 1 }}>
+                                <BarChartIcon />
+                                <Typography variant="h6" sx={{ fontWeight: 'bold' }}>At a Glance</Typography>
                             </Box>
                             <Box sx={{ p: 2 }}>
                                 <Grid container spacing={2}>
@@ -357,8 +369,9 @@ export default function AboutPage() {
 
                         {/* Contact Information */}
                         <Paper sx={{ mb: 3, overflow: 'hidden', borderRadius: 0, boxShadow: 3, border: '1px solid #ddd' }}>
-                            <Box sx={{ bgcolor: '#1a4e8e', color: '#fff', p: 2, borderLeft: '5px solid #FF9933' }}>
-                                <Typography variant="h6" sx={{ fontWeight: 'bold' }}>📍 Contact Details</Typography>
+                            <Box sx={{ bgcolor: '#1a4e8e', color: '#fff', p: 2, borderLeft: '5px solid #FF9933', display: 'flex', alignItems: 'center', gap: 1 }}>
+                                <LocationOnIcon />
+                                <Typography variant="h6" sx={{ fontWeight: 'bold' }}>Contact Details</Typography>
                             </Box>
                             <Box sx={{ p: 2 }}>
                                 <Typography variant="body2" sx={{ mb: 2 }}>
@@ -368,22 +381,23 @@ export default function AboutPage() {
                                     District Nagpur, Maharashtra
                                 </Typography>
                                 <Divider sx={{ my: 1.5 }} />
-                                <Typography variant="body2" sx={{ mb: 1 }}>
-                                    <strong>📞 Phone:</strong> 07116-222XXX
+                                <Typography variant="body2" sx={{ mb: 1, display: 'flex', alignItems: 'center', gap: 0.5 }}>
+                                    <PhoneIcon fontSize="small" /> <strong>Phone:</strong> 07116-222XXX
                                 </Typography>
-                                <Typography variant="body2" sx={{ mb: 1 }}>
-                                    <strong>📧 Email:</strong> umrednp@gov.in
+                                <Typography variant="body2" sx={{ mb: 1, display: 'flex', alignItems: 'center', gap: 0.5 }}>
+                                    <EmailIcon fontSize="small" /> <strong>Email:</strong> umrednp@gov.in
                                 </Typography>
-                                <Typography variant="body2">
-                                    <strong>🕐 Office Hours:</strong> Mon-Sat, 10:00 AM - 5:00 PM
+                                <Typography variant="body2" sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
+                                    <ScheduleIcon fontSize="small" /> <strong>Office Hours:</strong> Mon-Sat, 10:00 AM - 5:00 PM
                                 </Typography>
                             </Box>
                         </Paper>
 
                         {/* Important Links */}
                         <Paper sx={{ overflow: 'hidden', borderRadius: 0, boxShadow: 3, border: '1px solid #ddd' }}>
-                            <Box sx={{ bgcolor: '#138808', color: '#fff', p: 2, borderLeft: '5px solid #FF9933' }}>
-                                <Typography variant="h6" sx={{ fontWeight: 'bold' }}>🔗 Related Links</Typography>
+                            <Box sx={{ bgcolor: '#138808', color: '#fff', p: 2, borderLeft: '5px solid #FF9933', display: 'flex', alignItems: 'center', gap: 1 }}>
+                                <LinkIcon />
+                                <Typography variant="h6" sx={{ fontWeight: 'bold' }}>Related Links</Typography>
                             </Box>
                             <List dense sx={{ py: 0 }}>
                                 {[

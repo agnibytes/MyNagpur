@@ -7,13 +7,32 @@ import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import SupportAgentIcon from '@mui/icons-material/SupportAgent';
 import DescriptionIcon from '@mui/icons-material/Description';
+import EditNoteIcon from '@mui/icons-material/EditNote';
+import WaterDropIcon from '@mui/icons-material/WaterDrop';
+import CleaningServicesIcon from '@mui/icons-material/CleaningServices';
+import TrafficIcon from '@mui/icons-material/Traffic';
+import LightbulbIcon from '@mui/icons-material/Lightbulb';
+import LocalHospitalIcon from '@mui/icons-material/LocalHospital';
+import HomeIcon from '@mui/icons-material/Home';
+import ConstructionIcon from '@mui/icons-material/Construction';
+import ArticleIcon from '@mui/icons-material/Article';
+import StoreIcon from '@mui/icons-material/Store';
+import CreditCardIcon from '@mui/icons-material/CreditCard';
+import SecurityIcon from '@mui/icons-material/Security';
+import SearchIcon from '@mui/icons-material/Search';
+import DownloadIcon from '@mui/icons-material/Download';
+import AssignmentIcon from '@mui/icons-material/Assignment';
+import BoltIcon from '@mui/icons-material/Bolt';
+import PhoneIcon from '@mui/icons-material/Phone';
+import EmailIcon from '@mui/icons-material/Email';
+import ScheduleIcon from '@mui/icons-material/Schedule';
 
 export default function ServicesPage() {
     const services = [
         {
             title: 'Grievance Redressal',
             titleHi: 'तक्रार निवारण',
-            icon: '📝',
+            icon: <EditNoteIcon sx={{ fontSize: 40 }} />,
             desc: 'File complaints online and track their status in real-time. Get notifications on resolution progress.',
             link: '/dashboard',
             color: '#1a4e8e'
@@ -21,15 +40,15 @@ export default function ServicesPage() {
         {
             title: 'Water & Drainage',
             titleHi: 'पाणी व निचरा',
-            icon: '💧',
+            icon: <WaterDropIcon sx={{ fontSize: 40, color: '#0288d1' }} />,
             desc: 'Report water supply issues, pipeline leakage, sewer overflow. Check daily water availability.',
-            link: '/under-construction',
+            link: '/services/water-drainage',
             color: '#0288d1'
         },
         {
             title: 'Sanitation Services',
             titleHi: 'स्वच्छता सेवा',
-            icon: '🧹',
+            icon: <CleaningServicesIcon sx={{ fontSize: 40, color: '#388e3c' }} />,
             desc: 'Track garbage collection, report missed pickups, check Swachh Bharat compliance status.',
             link: '/under-construction',
             color: '#388e3c'
@@ -37,7 +56,7 @@ export default function ServicesPage() {
         {
             title: 'Roads & Transport',
             titleHi: 'रस्ते व वाहतूक',
-            icon: '🛣️',
+            icon: <TrafficIcon sx={{ fontSize: 40, color: '#FF9933' }} />,
             desc: 'Report potholes, check road repair schedules, view traffic signal status.',
             link: '/under-construction',
             color: '#FF9933'
@@ -45,7 +64,7 @@ export default function ServicesPage() {
         {
             title: 'Street Lighting',
             titleHi: 'रस्त्यावरील दिवे',
-            icon: '💡',
+            icon: <LightbulbIcon sx={{ fontSize: 40, color: '#f9a825' }} />,
             desc: 'Report non-functional lights, check maintenance schedules, view power outage updates.',
             link: '/under-construction',
             color: '#f9a825'
@@ -53,7 +72,7 @@ export default function ServicesPage() {
         {
             title: 'Health Services',
             titleHi: 'आरोग्य सेवा',
-            icon: '🏥',
+            icon: <LocalHospitalIcon sx={{ fontSize: 40, color: '#d32f2f' }} />,
             desc: 'Find nearby hospitals, check ambulance availability, view Air Quality Index.',
             link: '/under-construction',
             color: '#d32f2f'
@@ -61,7 +80,7 @@ export default function ServicesPage() {
         {
             title: 'Property Tax',
             titleHi: 'मालमत्ता कर',
-            icon: '🏠',
+            icon: <HomeIcon sx={{ fontSize: 40, color: '#7b1fa2' }} />,
             desc: 'Pay property tax online, download receipts, check assessment details.',
             link: '/services/property-tax',
             color: '#7b1fa2'
@@ -69,7 +88,7 @@ export default function ServicesPage() {
         {
             title: 'Building Permissions',
             titleHi: 'बांधकाम परवानगी',
-            icon: '🏗️',
+            icon: <ConstructionIcon sx={{ fontSize: 40, color: '#455a64' }} />,
             desc: 'Apply for building permits, track application status, download approvals.',
             link: '/under-construction',
             color: '#455a64'
@@ -77,7 +96,7 @@ export default function ServicesPage() {
         {
             title: 'Birth/Death Certificates',
             titleHi: 'जन्म/मृत्यू प्रमाणपत्र',
-            icon: '📜',
+            icon: <ArticleIcon sx={{ fontSize: 40, color: '#5d4037' }} />,
             desc: 'Apply for birth and death certificates online. Download certified copies.',
             link: '/services/birth-certificate',
             color: '#5d4037'
@@ -85,7 +104,7 @@ export default function ServicesPage() {
         {
             title: 'Trade License',
             titleHi: 'व्यापार परवाना',
-            icon: '🏪',
+            icon: <StoreIcon sx={{ fontSize: 40, color: '#00695c' }} />,
             desc: 'Apply for new trade license, renew existing licenses, pay fees online.',
             link: '/under-construction',
             color: '#00695c'
@@ -93,7 +112,7 @@ export default function ServicesPage() {
         {
             title: 'Water Tax Payment',
             titleHi: 'पाणी कर भरणा',
-            icon: '💳',
+            icon: <CreditCardIcon sx={{ fontSize: 40, color: '#1565c0' }} />,
             desc: 'Pay water bills online, view consumption history, download payment receipts.',
             link: '/services/water-bill',
             color: '#1565c0'
@@ -101,7 +120,7 @@ export default function ServicesPage() {
         {
             title: 'Public Safety',
             titleHi: 'सार्वजनिक सुरक्षा',
-            icon: '🛡️',
+            icon: <SecurityIcon sx={{ fontSize: 40, color: '#b71c1c' }} />,
             desc: 'View CCTV coverage, report safety concerns, check disaster preparedness status.',
             link: '/under-construction',
             color: '#b71c1c'
@@ -109,11 +128,11 @@ export default function ServicesPage() {
     ];
 
     const quickLinks = [
-        { text: 'File a Complaint', href: '/dashboard', icon: '📝' },
-        { text: 'Track Application', href: '/services/track-application', icon: '🔍' },
-        { text: 'Pay Bills Online', href: '/services/water-bill', icon: '💳' },
-        { text: 'Download Forms', href: '/under-construction', icon: '📥' },
-        { text: 'RTI Application', href: '/under-construction', icon: '📋' },
+        { text: 'File a Complaint', href: '/dashboard', icon: <EditNoteIcon fontSize="small" /> },
+        { text: 'Track Application', href: '/services/track-application', icon: <SearchIcon fontSize="small" /> },
+        { text: 'Pay Bills Online', href: '/services/water-bill', icon: <CreditCardIcon fontSize="small" /> },
+        { text: 'Download Forms', href: '/under-construction', icon: <DownloadIcon fontSize="small" /> },
+        { text: 'RTI Application', href: '/under-construction', icon: <AssignmentIcon fontSize="small" /> },
     ];
 
     return (
@@ -200,8 +219,9 @@ export default function ServicesPage() {
                     {/* Left Sidebar - Quick Links */}
                     <Grid item xs={12} md={3}>
                         <Paper sx={{ overflow: 'hidden', borderRadius: 0, boxShadow: 3, border: '1px solid #ddd', position: 'sticky', top: 20 }}>
-                            <Box sx={{ bgcolor: '#1a4e8e', color: '#fff', p: 2, borderLeft: '5px solid #FF9933' }}>
-                                <Typography variant="h6" sx={{ fontWeight: 'bold' }}>⚡ Quick Access</Typography>
+                            <Box sx={{ bgcolor: '#1a4e8e', color: '#fff', p: 2, borderLeft: '5px solid #FF9933', display: 'flex', alignItems: 'center', gap: 1 }}>
+                                <BoltIcon />
+                                <Typography variant="h6" sx={{ fontWeight: 'bold' }}>Quick Access</Typography>
                             </Box>
                             <List dense sx={{ py: 0 }}>
                                 {quickLinks.map((link, i) => (
@@ -227,8 +247,9 @@ export default function ServicesPage() {
 
                         {/* Service Guidelines */}
                         <Paper sx={{ mt: 3, overflow: 'hidden', borderRadius: 0, boxShadow: 3, border: '1px solid #ddd' }}>
-                            <Box sx={{ bgcolor: '#FF9933', color: '#000', p: 2, borderLeft: '5px solid #138808' }}>
-                                <Typography variant="h6" sx={{ fontWeight: 'bold' }}>📋 Guidelines</Typography>
+                            <Box sx={{ bgcolor: '#FF9933', color: '#000', p: 2, borderLeft: '5px solid #138808', display: 'flex', alignItems: 'center', gap: 1 }}>
+                                <AssignmentIcon />
+                                <Typography variant="h6" sx={{ fontWeight: 'bold' }}>Guidelines</Typography>
                             </Box>
                             <Box sx={{ p: 2 }}>
                                 {[
@@ -274,7 +295,7 @@ export default function ServicesPage() {
                                                 <Box sx={{ bgcolor: service.color, height: 4 }} />
                                                 <CardContent sx={{ flexGrow: 1 }}>
                                                     <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
-                                                        <Typography variant="h3" sx={{ mr: 2 }}>{service.icon}</Typography>
+                                                        <Box sx={{ mr: 2 }}>{service.icon}</Box>
                                                         <Box>
                                                             <Typography variant="subtitle1" sx={{ fontWeight: 'bold', color: '#000080', lineHeight: 1.2 }}>
                                                                 {service.title}
@@ -330,21 +351,21 @@ export default function ServicesPage() {
                         <Grid container spacing={3}>
                             <Grid item xs={12} md={4}>
                                 <Box sx={{ textAlign: 'center', p: 2, bgcolor: '#e8f4fc', borderRadius: 1 }}>
-                                    <Typography variant="body1" sx={{ fontWeight: 'bold', color: '#1a4e8e', mb: 1 }}>📞 Toll Free Helpline</Typography>
+                                    <Typography variant="body1" sx={{ fontWeight: 'bold', color: '#1a4e8e', mb: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 0.5 }}><PhoneIcon fontSize="small" /> Toll Free Helpline</Typography>
                                     <Typography variant="h4" sx={{ color: '#000080', fontWeight: 'bold' }}>1800-XXX-XXXX</Typography>
                                     <Typography variant="caption" sx={{ color: '#666' }}>24x7 Available</Typography>
                                 </Box>
                             </Grid>
                             <Grid item xs={12} md={4}>
                                 <Box sx={{ textAlign: 'center', p: 2, bgcolor: '#fff8e1', borderRadius: 1 }}>
-                                    <Typography variant="body1" sx={{ fontWeight: 'bold', color: '#e65100', mb: 1 }}>📧 Email Support</Typography>
+                                    <Typography variant="body1" sx={{ fontWeight: 'bold', color: '#e65100', mb: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 0.5 }}><EmailIcon fontSize="small" /> Email Support</Typography>
                                     <Typography variant="h6" sx={{ color: '#000080' }}>helpdesk@umrednp.gov.in</Typography>
                                     <Typography variant="caption" sx={{ color: '#666' }}>Response within 24 hours</Typography>
                                 </Box>
                             </Grid>
                             <Grid item xs={12} md={4}>
                                 <Box sx={{ textAlign: 'center', p: 2, bgcolor: '#e8f5e9', borderRadius: 1 }}>
-                                    <Typography variant="body1" sx={{ fontWeight: 'bold', color: '#388e3c', mb: 1 }}>⏰ Office Hours</Typography>
+                                    <Typography variant="body1" sx={{ fontWeight: 'bold', color: '#388e3c', mb: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 0.5 }}><ScheduleIcon fontSize="small" /> Office Hours</Typography>
                                     <Typography variant="h6" sx={{ color: '#000080' }}>Mon - Sat</Typography>
                                     <Typography variant="caption" sx={{ color: '#666' }}>10:00 AM - 5:00 PM</Typography>
                                 </Box>

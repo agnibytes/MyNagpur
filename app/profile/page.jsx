@@ -19,6 +19,10 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import SaveIcon from '@mui/icons-material/Save';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import EmailIcon from '@mui/icons-material/Email';
+import PhoneAndroidIcon from '@mui/icons-material/PhoneAndroid';
+import PeopleIcon from '@mui/icons-material/People';
+import WaterDropIcon from '@mui/icons-material/WaterDrop';
 
 const getApiBaseUrl = () => {
     if (typeof window === 'undefined') return 'http://localhost:5000';
@@ -273,19 +277,19 @@ export default function ProfilePage() {
 
                             <Box sx={{ textAlign: 'left' }}>
                                 {user?.houseName && (
-                                    <Typography variant="body2" sx={{ mb: 1 }}>
-                                        <strong>🏠 House:</strong> {user.houseName}
+                                    <Typography variant="body2" sx={{ mb: 1, display: 'flex', alignItems: 'center', gap: 0.5 }}>
+                                        <HomeIcon fontSize="small" sx={{ color: '#1a4e8e' }} /> <strong>House:</strong> {user.houseName}
                                     </Typography>
                                 )}
-                                <Typography variant="body2" sx={{ mb: 1 }}>
-                                    <strong>👨‍👩‍👧‍👦 Family:</strong> {user?.totalFamilyMembers || 1} members
+                                <Typography variant="body2" sx={{ mb: 1, display: 'flex', alignItems: 'center', gap: 0.5 }}>
+                                    <PeopleIcon fontSize="small" sx={{ color: '#1a4e8e' }} /> <strong>Family:</strong> {user?.totalFamilyMembers || 1} members
                                 </Typography>
-                                <Typography variant="body2" sx={{ mb: 1 }}>
-                                    <strong>📧 Email:</strong> {user?.email}
+                                <Typography variant="body2" sx={{ mb: 1, display: 'flex', alignItems: 'center', gap: 0.5 }}>
+                                    <EmailIcon fontSize="small" sx={{ color: '#1a4e8e' }} /> <strong>Email:</strong> {user?.email}
                                 </Typography>
                                 {user?.phone && (
-                                    <Typography variant="body2">
-                                        <strong>📱 Phone:</strong> {user.phone}
+                                    <Typography variant="body2" sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
+                                        <PhoneAndroidIcon fontSize="small" sx={{ color: '#1a4e8e' }} /> <strong>Phone:</strong> {user.phone}
                                     </Typography>
                                 )}
                             </Box>
@@ -363,8 +367,8 @@ export default function ProfilePage() {
                                                     <Typography variant="subtitle2" sx={{ fontWeight: 'bold' }}>Map Location / नकाशा स्थान</Typography>
                                                 </Box>
                                                 {user?.address?.mapLocation?.lat ? (
-                                                    <Typography variant="body2">
-                                                        📍 Lat: {user.address.mapLocation.lat.toFixed(6)}, Lng: {user.address.mapLocation.lng.toFixed(6)}
+                                                    <Typography variant="body2" sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
+                                                        <LocationOnIcon fontSize="small" color="primary" /> Lat: {user.address.mapLocation.lat.toFixed(6)}, Lng: {user.address.mapLocation.lng.toFixed(6)}
                                                     </Typography>
                                                 ) : (
                                                     <Typography variant="body2" color="text.secondary">
@@ -392,8 +396,9 @@ export default function ProfilePage() {
                                                             );
                                                         }
                                                     }}
+                                                    startIcon={<LocationOnIcon />}
                                                 >
-                                                    📍 Get Current Location
+                                                    Get Current Location
                                                 </Button>
                                             </Paper>
                                         </Grid>
@@ -473,7 +478,7 @@ export default function ProfilePage() {
                                                 label="Water Meter Number / पाणी मीटर क्रमांक"
                                                 value={user?.waterMeterNo || ''}
                                                 onChange={e => setUser({ ...user, waterMeterNo: e.target.value })}
-                                                InputProps={{ startAdornment: <Box sx={{ mr: 1, color: '#0288d1' }}>💧</Box> }}
+                                                InputProps={{ startAdornment: <WaterDropIcon sx={{ mr: 1, color: '#0288d1' }} /> }}
                                             />
                                         </Grid>
                                         <Grid item xs={12}>

@@ -16,28 +16,47 @@ import VisibilityIcon from '@mui/icons-material/Visibility';
 import TrackChangesIcon from '@mui/icons-material/TrackChanges';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import StarIcon from '@mui/icons-material/Star';
+import EditNoteIcon from '@mui/icons-material/EditNote';
+import SearchIcon from '@mui/icons-material/Search';
+import BarChartIcon from '@mui/icons-material/BarChart';
+import PaymentsIcon from '@mui/icons-material/Payments';
+import HomeIcon from '@mui/icons-material/Home';
+import ConstructionIcon from '@mui/icons-material/Construction';
+import DescriptionIcon from '@mui/icons-material/Description';
+import ChildCareIcon from '@mui/icons-material/ChildCare';
+import ArticleIcon from '@mui/icons-material/Article';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import RestaurantIcon from '@mui/icons-material/Restaurant';
+import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
+import LinkIcon from '@mui/icons-material/Link';
+import NewspaperIcon from '@mui/icons-material/Newspaper';
+import PersonIcon from '@mui/icons-material/Person';
+import PhoneIcon from '@mui/icons-material/Phone';
+import BoltIcon from '@mui/icons-material/Bolt';
+import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
 import MainCarousel from './components/MainCarousel';
+import InteractiveWardMap from './components/InteractiveWardMap';
 
 export default function Home() {
     // Quick Links with proper routes
     const quickLinks = [
-        { text: 'File a Complaint', href: '/services', icon: '📝' },
-        { text: 'Track Complaint Status', href: '/dashboard', icon: '🔍' },
-        { text: 'Ward Performance', href: '/dashboard', icon: '📊' },
-        { text: 'Tax Payment', href: '/under-construction', icon: '💰' },
-        { text: 'Water Bill', href: '/under-construction', icon: '💧' },
-        { text: 'Property Tax', href: '/under-construction', icon: '🏠' },
-        { text: 'Building Permissions', href: '/under-construction', icon: '🏗️' },
-        { text: 'Trade License', href: '/under-construction', icon: '📜' },
+        { text: 'File a Complaint', href: '/services', icon: <EditNoteIcon fontSize="small" /> },
+        { text: 'Track Complaint Status', href: '/dashboard', icon: <SearchIcon fontSize="small" /> },
+        { text: 'Ward Performance', href: '/dashboard', icon: <BarChartIcon fontSize="small" /> },
+        { text: 'Tax Payment', href: '/under-construction', icon: <PaymentsIcon fontSize="small" /> },
+        { text: 'Water Bill', href: '/under-construction', icon: <WaterDropIcon fontSize="small" /> },
+        { text: 'Property Tax', href: '/under-construction', icon: <HomeIcon fontSize="small" /> },
+        { text: 'Building Permissions', href: '/under-construction', icon: <ConstructionIcon fontSize="small" /> },
+        { text: 'Trade License', href: '/under-construction', icon: <DescriptionIcon fontSize="small" /> },
     ];
 
     // Citizen Services
     const citizenServices = [
-        { text: 'Birth Certificate', href: '/under-construction', icon: '👶' },
-        { text: 'Death Certificate', href: '/under-construction', icon: '📄' },
-        { text: 'Marriage Registration', href: '/under-construction', icon: '💍' },
-        { text: 'Ration Card', href: '/under-construction', icon: '🍚' },
-        { text: 'Domicile Certificate', href: '/under-construction', icon: '🏛️' },
+        { text: 'Birth Certificate', href: '/under-construction', icon: <ChildCareIcon fontSize="small" /> },
+        { text: 'Death Certificate', href: '/under-construction', icon: <ArticleIcon fontSize="small" /> },
+        { text: 'Marriage Registration', href: '/under-construction', icon: <FavoriteIcon fontSize="small" /> },
+        { text: 'Ration Card', href: '/under-construction', icon: <RestaurantIcon fontSize="small" /> },
+        { text: 'Domicile Certificate', href: '/under-construction', icon: <AccountBalanceIcon fontSize="small" /> },
     ];
 
     const whatsNew = [
@@ -138,8 +157,9 @@ export default function Home() {
                                             transition: 'all 0.2s',
                                             boxShadow: '0 4px 15px rgba(255,153,51,0.4)'
                                         }}
+                                        startIcon={<EditNoteIcon />}
                                     >
-                                        📝 File Complaint
+                                        File Complaint
                                     </Button>
                                     <Button
                                         variant="contained"
@@ -154,8 +174,9 @@ export default function Home() {
                                             transition: 'all 0.2s',
                                             boxShadow: '0 4px 15px rgba(19,136,8,0.4)'
                                         }}
+                                        startIcon={<BarChartIcon />}
                                     >
-                                        📊 View Dashboard
+                                        View Dashboard
                                     </Button>
                                     <Button
                                         variant="outlined"
@@ -202,8 +223,8 @@ export default function Home() {
 
                             {/* Quick Contact */}
                             <Paper sx={{ mt: 2, p: 2, bgcolor: 'rgba(255,255,255,0.1)', borderRadius: 2, border: '1px solid rgba(255,255,255,0.2)' }}>
-                                <Typography variant="subtitle2" sx={{ color: '#FF9933', fontWeight: 'bold', mb: 1 }}>
-                                    📞 Helpline Numbers
+                                <Typography variant="subtitle2" sx={{ color: '#FF9933', fontWeight: 'bold', mb: 1, display: 'flex', alignItems: 'center', gap: 0.5 }}>
+                                    <PhoneIcon fontSize="small" /> Helpline Numbers
                                 </Typography>
                                 <Typography variant="body2" sx={{ color: '#fff' }}>
                                     Emergency: <strong>112</strong> | Grievance: <strong>07116-222XXX</strong>
@@ -318,7 +339,8 @@ export default function Home() {
                         {/* Quick Links Section */}
                         <Paper sx={{ bgcolor: '#fff', overflow: 'hidden', borderRadius: 0, boxShadow: 3, border: '1px solid #ddd' }}>
                             <Box sx={{ bgcolor: '#1a4e8e', color: '#fff', p: 1.5, borderLeft: '4px solid #FF9933', display: 'flex', alignItems: 'center', gap: 1 }}>
-                                <Typography variant="subtitle1" sx={{ fontWeight: 'bold' }}>⚡ Quick Links</Typography>
+                                <BoltIcon fontSize="small" />
+                                <Typography variant="subtitle1" sx={{ fontWeight: 'bold' }}>Quick Links</Typography>
                             </Box>
                             <List dense sx={{ py: 0 }}>
                                 {quickLinks.map((link, i) => (
@@ -345,7 +367,8 @@ export default function Home() {
                         {/* Citizen Services Section */}
                         <Paper sx={{ mt: 2, bgcolor: '#fff', overflow: 'hidden', borderRadius: 0, boxShadow: 3, border: '1px solid #ddd' }}>
                             <Box sx={{ bgcolor: '#e65100', color: '#fff', p: 1.5, borderLeft: '4px solid #1a4e8e', display: 'flex', alignItems: 'center', gap: 1 }}>
-                                <Typography variant="subtitle1" sx={{ fontWeight: 'bold' }}>🏛️ Citizen Services</Typography>
+                                <AccountBalanceIcon fontSize="small" />
+                                <Typography variant="subtitle1" sx={{ fontWeight: 'bold' }}>Citizen Services</Typography>
                             </Box>
                             <List dense sx={{ py: 0 }}>
                                 {citizenServices.map((service, i) => (
@@ -372,7 +395,8 @@ export default function Home() {
                         {/* Downloads Section */}
                         <Paper sx={{ mt: 2, bgcolor: '#fff', overflow: 'hidden', borderRadius: 0, border: '1px solid #ddd', boxShadow: 2 }}>
                             <Box sx={{ bgcolor: '#138808', color: '#fff', p: 1.5, borderLeft: '4px solid #FF9933', display: 'flex', alignItems: 'center', gap: 1 }}>
-                                <Typography variant="subtitle1" sx={{ fontWeight: 'bold' }}>📥 Downloads</Typography>
+                                <DownloadIcon fontSize="small" />
+                                <Typography variant="subtitle1" sx={{ fontWeight: 'bold' }}>Downloads</Typography>
                             </Box>
                             <List dense sx={{ py: 0, maxHeight: 200, overflow: 'auto' }}>
                                 {downloads.map((item, i) => (
@@ -397,7 +421,8 @@ export default function Home() {
                         {/* Important Links Section */}
                         <Paper sx={{ mt: 2, bgcolor: '#fff', overflow: 'hidden', borderRadius: 0, border: '1px solid #ddd', boxShadow: 2 }}>
                             <Box sx={{ bgcolor: '#FF9933', color: '#fff', p: 1.5, borderLeft: '4px solid #138808', display: 'flex', alignItems: 'center', gap: 1 }}>
-                                <Typography variant="subtitle1" sx={{ fontWeight: 'bold' }}>🔗 Important Links</Typography>
+                                <LinkIcon fontSize="small" />
+                                <Typography variant="subtitle1" sx={{ fontWeight: 'bold' }}>Important Links</Typography>
                             </Box>
                             <List dense sx={{ py: 0 }}>
                                 {importantLinks.map((link, i) => (
@@ -436,8 +461,9 @@ export default function Home() {
 
                         {/* Civic Services */}
                         <Paper sx={{ mb: 3, overflow: 'hidden', borderRadius: 0, boxShadow: 3, border: '1px solid #ddd' }}>
-                            <Box sx={{ bgcolor: '#1a4e8e', color: '#fff', p: 2, borderLeft: '5px solid #FF9933' }}>
-                                <Typography variant="h6" sx={{ fontWeight: 'bold' }}>🏛️ Civic Services</Typography>
+                            <Box sx={{ bgcolor: '#1a4e8e', color: '#fff', p: 2, borderLeft: '5px solid #FF9933', display: 'flex', alignItems: 'center', gap: 1 }}>
+                                <AccountBalanceIcon />
+                                <Typography variant="h6" sx={{ fontWeight: 'bold' }}>Civic Services</Typography>
                             </Box>
                             <Box sx={{ p: 2 }}>
                                 <Grid container spacing={2}>
@@ -472,127 +498,17 @@ export default function Home() {
                             </Box>
                         </Paper>
 
-                        {/* Mini Ward Map */}
-                        <Paper sx={{ p: 2, border: '1px solid #eee', borderRadius: 0, boxShadow: 3, '&:hover': { boxShadow: 4 } }}>
-                            <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2, borderBottom: '2px solid #FF9933', pb: 1 }}>
-                                <Typography variant="h6" sx={{ fontWeight: 'bold', color: '#000080' }}>
-                                    🗺️ Ward Map - Umred
-                                </Typography>
-                                <Typography variant="caption" sx={{ color: '#666' }}>
-                                    13 Administrative Wards
-                                </Typography>
-                            </Box>
-
-                            <Box sx={{ position: 'relative', width: '100%', bgcolor: '#e8f4fc', borderRadius: 1, overflow: 'hidden', display: 'flex', justifyContent: 'center' }}>
-                                <svg viewBox="0 0 600 500" style={{ width: '100%', maxWidth: 400, height: 'auto' }}>
-                                    {/* Ward 1 */}
-                                    <polygon points="50,80 150,60 180,120 120,160 40,140" fill="#FF6B6B" stroke="#333" strokeWidth="2" style={{ cursor: 'pointer' }}>
-                                        <title>Ward 1</title>
-                                    </polygon>
-                                    <text x="100" y="110" textAnchor="middle" fontSize="16" fontWeight="bold" fill="#fff">1</text>
-
-                                    {/* Ward 2 */}
-                                    <polygon points="150,60 280,50 300,100 180,120" fill="#4ECDC4" stroke="#333" strokeWidth="2" style={{ cursor: 'pointer' }}>
-                                        <title>Ward 2</title>
-                                    </polygon>
-                                    <text x="215" y="90" textAnchor="middle" fontSize="16" fontWeight="bold" fill="#fff">2</text>
-
-                                    {/* Ward 3 */}
-                                    <polygon points="280,50 400,55 420,110 300,100" fill="#45B7D1" stroke="#333" strokeWidth="2" style={{ cursor: 'pointer' }}>
-                                        <title>Ward 3</title>
-                                    </polygon>
-                                    <text x="350" y="85" textAnchor="middle" fontSize="16" fontWeight="bold" fill="#fff">3</text>
-
-                                    {/* Ward 4 */}
-                                    <polygon points="400,55 530,70 550,140 420,110" fill="#96CEB4" stroke="#333" strokeWidth="2" style={{ cursor: 'pointer' }}>
-                                        <title>Ward 4</title>
-                                    </polygon>
-                                    <text x="475" y="100" textAnchor="middle" fontSize="16" fontWeight="bold" fill="#fff">4</text>
-
-                                    {/* Ward 5 */}
-                                    <polygon points="40,140 120,160 100,240 30,210" fill="#FFEAA7" stroke="#333" strokeWidth="2" style={{ cursor: 'pointer' }}>
-                                        <title>Ward 5</title>
-                                    </polygon>
-                                    <text x="70" y="190" textAnchor="middle" fontSize="16" fontWeight="bold" fill="#333">5</text>
-
-                                    {/* Ward 6 */}
-                                    <polygon points="120,160 180,120 300,100 280,180 200,220 100,240" fill="#DDA0DD" stroke="#333" strokeWidth="2" style={{ cursor: 'pointer' }}>
-                                        <title>Ward 6</title>
-                                    </polygon>
-                                    <text x="190" y="175" textAnchor="middle" fontSize="16" fontWeight="bold" fill="#fff">6</text>
-
-                                    {/* Ward 7 */}
-                                    <polygon points="300,100 420,110 440,200 350,220 280,180" fill="#F0A500" stroke="#333" strokeWidth="2" style={{ cursor: 'pointer' }}>
-                                        <title>Ward 7</title>
-                                    </polygon>
-                                    <text x="360" y="165" textAnchor="middle" fontSize="16" fontWeight="bold" fill="#fff">7</text>
-
-                                    {/* Ward 8 */}
-                                    <polygon points="420,110 550,140 560,230 440,200" fill="#E17055" stroke="#333" strokeWidth="2" style={{ cursor: 'pointer' }}>
-                                        <title>Ward 8</title>
-                                    </polygon>
-                                    <text x="495" y="170" textAnchor="middle" fontSize="16" fontWeight="bold" fill="#fff">8</text>
-
-                                    {/* Ward 9 */}
-                                    <polygon points="30,210 100,240 80,330 25,300" fill="#74B9FF" stroke="#333" strokeWidth="2" style={{ cursor: 'pointer' }}>
-                                        <title>Ward 9</title>
-                                    </polygon>
-                                    <text x="60" y="275" textAnchor="middle" fontSize="16" fontWeight="bold" fill="#fff">9</text>
-
-                                    {/* Ward 10 */}
-                                    <polygon points="100,240 200,220 280,180 350,220 320,310 200,340 80,330" fill="#A29BFE" stroke="#333" strokeWidth="2" style={{ cursor: 'pointer' }}>
-                                        <title>Ward 10</title>
-                                    </polygon>
-                                    <text x="200" y="280" textAnchor="middle" fontSize="18" fontWeight="bold" fill="#fff">10</text>
-
-                                    {/* Ward 11 */}
-                                    <polygon points="350,220 440,200 480,300 420,340 320,310" fill="#00B894" stroke="#333" strokeWidth="2" style={{ cursor: 'pointer' }}>
-                                        <title>Ward 11</title>
-                                    </polygon>
-                                    <text x="400" y="275" textAnchor="middle" fontSize="18" fontWeight="bold" fill="#fff">11</text>
-
-                                    {/* Ward 12 */}
-                                    <polygon points="440,200 560,230 570,320 480,300" fill="#FDCB6E" stroke="#333" strokeWidth="2" style={{ cursor: 'pointer' }}>
-                                        <title>Ward 12</title>
-                                    </polygon>
-                                    <text x="510" y="270" textAnchor="middle" fontSize="18" fontWeight="bold" fill="#333">12</text>
-
-                                    {/* Ward 13 */}
-                                    <polygon points="80,330 200,340 320,310 420,340 480,300 570,320 560,420 400,450 200,440 50,400 25,300" fill="#FF7675" stroke="#333" strokeWidth="2" style={{ cursor: 'pointer' }}>
-                                        <title>Ward 13</title>
-                                    </polygon>
-                                    <text x="300" y="385" textAnchor="middle" fontSize="20" fontWeight="bold" fill="#fff">13</text>
-                                </svg>
-                            </Box>
-
-                            <Box sx={{ mt: 2, pt: 1, borderTop: '1px solid #eee' }}>
-                                <Typography variant="caption" sx={{ fontWeight: 'bold', mb: 1, display: 'block' }}>Ward Legend:</Typography>
-                                <Grid container spacing={0.5}>
-                                    {[
-                                        { ward: 1, color: '#FF6B6B' }, { ward: 2, color: '#4ECDC4' }, { ward: 3, color: '#45B7D1' },
-                                        { ward: 4, color: '#96CEB4' }, { ward: 5, color: '#FFEAA7' }, { ward: 6, color: '#DDA0DD' },
-                                        { ward: 7, color: '#F0A500' }, { ward: 8, color: '#E17055' }, { ward: 9, color: '#74B9FF' },
-                                        { ward: 10, color: '#A29BFE' }, { ward: 11, color: '#00B894' },
-                                        { ward: 12, color: '#FDCB6E' }, { ward: 13, color: '#FF7675' },
-                                    ].map((item) => (
-                                        <Grid item key={item.ward}>
-                                            <Box sx={{ display: 'flex', alignItems: 'center', mr: 1, mb: 0.5, border: '1px solid #ddd', borderRadius: 1, px: 0.5, bgcolor: '#fafafa' }}>
-                                                <Box sx={{ width: 8, height: 8, bgcolor: item.color, borderRadius: '50%', mr: 0.5 }} />
-                                                <Typography variant="caption" sx={{ fontSize: '0.7rem' }}>W{item.ward}</Typography>
-                                            </Box>
-                                        </Grid>
-                                    ))}
-                                </Grid>
-                            </Box>
-                        </Paper>
+                        {/* Interactive Ward Map */}
+                        <InteractiveWardMap />
                     </Grid>
 
                     {/* Right Sidebar - Officials & News */}
                     <Grid item xs={12} md={3} order={{ xs: 3, md: 3 }}>
                         {/* Officials Section */}
                         <Paper sx={{ overflow: 'hidden', mb: 3, boxShadow: 3, border: '1px solid #ddd' }}>
-                            <Box sx={{ bgcolor: '#b71c1c', color: '#fff', p: 2 }}>
-                                <Typography variant="h6" sx={{ fontWeight: 'bold' }}>👤 Our Leadership</Typography>
+                            <Box sx={{ bgcolor: '#b71c1c', color: '#fff', p: 2, display: 'flex', alignItems: 'center', gap: 1 }}>
+                                <PersonIcon />
+                                <Typography variant="h6" sx={{ fontWeight: 'bold' }}>Our Leadership</Typography>
                             </Box>
                             <Box sx={{ p: 0 }}>
                                 <Card sx={{ mb: 0, borderRadius: 0 }}>
@@ -625,14 +541,14 @@ export default function Home() {
                                         <Divider sx={{ my: 1 }} />
 
                                         <Box sx={{ mt: 1 }}>
-                                            <Typography variant="caption" display="block" sx={{ fontWeight: 'bold', color: '#333' }}>
-                                                ✨ युवा उद्योजिका
+                                            <Typography variant="caption" display="block" sx={{ fontWeight: 'bold', color: '#333', display: 'flex', alignItems: 'center', gap: 0.5 }}>
+                                                <AutoAwesomeIcon sx={{ fontSize: 14, color: '#FF9933' }} /> युवा उद्योजिका
                                             </Typography>
-                                            <Typography variant="caption" display="block" sx={{ fontWeight: 'bold', color: '#333' }}>
-                                                ✨ सामाजिक कार्यकर्त्या
+                                            <Typography variant="caption" display="block" sx={{ fontWeight: 'bold', color: '#333', display: 'flex', alignItems: 'center', gap: 0.5 }}>
+                                                <AutoAwesomeIcon sx={{ fontSize: 14, color: '#FF9933' }} /> सामाजिक कार्यकर्त्या
                                             </Typography>
-                                            <Typography variant="caption" display="block" sx={{ fontWeight: 'bold', color: '#333' }}>
-                                                ✨ महिला सशक्तीकरण
+                                            <Typography variant="caption" display="block" sx={{ fontWeight: 'bold', color: '#333', display: 'flex', alignItems: 'center', gap: 0.5 }}>
+                                                <AutoAwesomeIcon sx={{ fontSize: 14, color: '#FF9933' }} /> महिला सशक्तीकरण
                                             </Typography>
                                         </Box>
                                     </Box>
@@ -666,8 +582,9 @@ export default function Home() {
 
                         {/* What's New */}
                         <Paper sx={{ overflow: 'hidden', borderRadius: 0, border: '1px solid #ddd', boxShadow: 3 }}>
-                            <Box sx={{ bgcolor: '#FF9933', color: '#000', p: 2, borderLeft: '4px solid #138808' }}>
-                                <Typography variant="h6" sx={{ fontWeight: 'bold' }}>📰 What's New</Typography>
+                            <Box sx={{ bgcolor: '#FF9933', color: '#000', p: 2, borderLeft: '4px solid #138808', display: 'flex', alignItems: 'center', gap: 1 }}>
+                                <NewspaperIcon />
+                                <Typography variant="h6" sx={{ fontWeight: 'bold' }}>What's New</Typography>
                             </Box>
                             <List dense sx={{ maxHeight: 250, overflow: 'auto' }}>
                                 {whatsNew.map((item, i) => (
