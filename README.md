@@ -6,6 +6,7 @@
 [![Platform](https://img.shields.io/badge/Platform-Web%20%7C%20Mobile%20%7C%20API-green.svg)]()
 
 ---
+http://localhost:3001/admin-dashboard
 
 ## 📑 Table of Contents
 - [Overview](#-overview)

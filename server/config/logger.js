@@ -63,26 +63,26 @@ const transports = [
     }),
 ];
 
-// Add file transports in production
-if (process.env.NODE_ENV === 'production') {
-    transports.push(
-        // Error logs
-        new winston.transports.File({
-            filename: path.join(__dirname, '../../logs/error.log'),
-            level: 'error',
-            format,
-            maxsize: 5242880, // 5MB
-            maxFiles: 5,
-        }),
-        // Combined logs
-        new winston.transports.File({
-            filename: path.join(__dirname, '../../logs/combined.log'),
-            format,
-            maxsize: 5242880, // 5MB
-            maxFiles: 5,
-        })
-    );
-}
+// Add file transports in all environments for "View Logs" feature
+// if (process.env.NODE_ENV === 'production') {
+transports.push(
+    // Error logs
+    new winston.transports.File({
+        filename: path.join(__dirname, '../../logs/error.log'),
+        level: 'error',
+        format,
+        maxsize: 5242880, // 5MB
+        maxFiles: 5,
+    }),
+    // Combined logs
+    new winston.transports.File({
+        filename: path.join(__dirname, '../../logs/combined.log'),
+        format,
+        maxsize: 5242880, // 5MB
+        maxFiles: 5,
+    })
+);
+// }
 
 // Create logger instance
 const logger = winston.createLogger({

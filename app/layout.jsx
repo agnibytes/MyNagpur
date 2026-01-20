@@ -1,10 +1,6 @@
 import './globals.css'
-import Navbar from '../components/Navbar'
-import Footer from '../components/Footer'
-import dynamic from 'next/dynamic'
 import { SettingsProvider } from '../contexts/SettingsContext'
-
-const ChatWidget = dynamic(() => import('../components/ChatWidget'), { ssr: false })
+import LayoutWrapper from './LayoutWrapper'
 
 export const metadata = {
     title: 'Majha Umred - National E-Governance Platform',
@@ -22,19 +18,11 @@ export default function RootLayout({ children }) {
             </head>
             <body>
                 <SettingsProvider>
-                    <div className="flex flex-col min-h-screen">
-                        <Navbar />
-                        <main className="flex-grow">
-                            {children}
-                        </main>
-                        <Footer />
-                    </div>
-                    <ChatWidget />
+                    <LayoutWrapper>
+                        {children}
+                    </LayoutWrapper>
                 </SettingsProvider>
             </body>
         </html>
     )
 }
-
-
-

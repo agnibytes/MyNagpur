@@ -10,6 +10,7 @@ const swaggerUi = require('swagger-ui-express');
 // Custom modules
 const logger = require('./config/logger');
 const swaggerSpec = require('./config/swagger');
+const performanceTracker = require('./middleware/performanceTracker');
 
 // Load environment variables first
 dotenv.config();
@@ -29,6 +30,8 @@ const paymentRoutes = require('./routes/payments');
 const aiRoutes = require('./routes/ai');
 const documentRoutes = require('./routes/documents');
 const profileRoutes = require('./routes/profile');
+const statsRoutes = require('./routes/stats');
+const adminRoutes = require('./routes/admin');
 
 // Connect to database
 connectDB();
@@ -49,7 +52,7 @@ app.use(helmet({
 const corsOptions = {
     origin: isProduction
         ? process.env.FRONTEND_URL || 'https://majaumred.gov.in'
-        : ['http://localhost:3000', 'http://localhost:3001', 'http://127.0.0.1:3000'],
+        : ['http://localhost:3000', 'http://localhost:3001', 'http://127.0.0.1:3000', 'http://localhost:5173'],
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization']
@@ -59,9 +62,11 @@ app.use(cors(corsOptions));
 // ===================
 // Performance Middleware
 // ===================
+app.use(performanceTracker);
 
 // Compression
 app.use(compression());
+
 
 // Body parser with size limits
 app.use(express.json({ limit: '10mb' }));
@@ -99,6 +104,8 @@ app.use('/api/payments', paymentRoutes);
 app.use('/api/ai', aiRoutes);
 app.use('/api/documents', documentRoutes);
 app.use('/api/profile', profileRoutes);
+app.use('/api/stats', statsRoutes);
+app.use('/api/admin', adminRoutes);
 
 // ===================
 // Health Check Routes
