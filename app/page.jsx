@@ -500,6 +500,48 @@ export default function Home() {
 
                         {/* Interactive Ward Map */}
                         <InteractiveWardMap />
+
+                        {/* Tutorial Video Section */}
+                        <Paper sx={{ mt: 3, overflow: 'hidden', borderRadius: 0, boxShadow: 3, border: '1px solid #ddd' }}>
+                            <Box sx={{ bgcolor: '#FF9933', color: '#000', p: 2, borderLeft: '5px solid #1a4e8e', display: 'flex', alignItems: 'center', gap: 1 }}>
+                                <AutoAwesomeIcon />
+                                <Typography variant="h6" sx={{ fontWeight: 'bold' }}>Digital Portal Tutorial</Typography>
+                            </Box>
+                            <Box sx={{ p: 2, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                                <Typography variant="body2" sx={{ mb: 2, textAlign: 'center', color: '#555' }}>
+                                    Watch this short guide to learn how to use the Majha Nagpur portal efficiently.
+                                </Typography>
+                                <Box sx={{ 
+                                    width: '100%', 
+                                    maxWidth: '315px', 
+                                    aspectRatio: '9/16', 
+                                    bgcolor: '#000', 
+                                    borderRadius: 2, 
+                                    overflow: 'hidden',
+                                    boxShadow: 4
+                                }}>
+                                    <iframe
+                                        width="100%"
+                                        height="100%"
+                                        src="https://www.youtube.com/embed/oh0M8bH7itg"
+                                        title="Nagpur Smart City Tutorial"
+                                        frameBorder="0"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                        allowFullScreen
+                                    ></iframe>
+                                </Box>
+                                <Button 
+                                    component="a" 
+                                    href="https://youtube.com/shorts/oh0M8bH7itg" 
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    variant="outlined" 
+                                    sx={{ mt: 2, color: '#FF9933', borderColor: '#FF9933', fontWeight: 'bold' }}
+                                >
+                                    Watch on YouTube
+                                </Button>
+                            </Box>
+                        </Paper>
                     </Grid>
 
                     {/* Right Sidebar - Officials & News */}
