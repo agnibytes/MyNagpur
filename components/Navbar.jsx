@@ -295,6 +295,24 @@ export default function Navbar() {
                         {/* Vertical Divider */}
                         <Box sx={{ height: '30px', width: '1px', bgcolor: '#e0e0e0' }} />
 
+                        {/* G20 India Logo */}
+                        <Box sx={{
+                            height: '70px',
+                            display: 'flex',
+                            alignItems: 'center',
+                            transition: 'transform 0.2s',
+                            '&:hover': { transform: 'scale(1.05)' }
+                        }}>
+                            <img
+                                src="https://upload.wikimedia.org/wikipedia/en/thumb/5/52/G20_India_2023_logo.svg/1200px-G20_India_2023_logo.svg.png"
+                                alt="G20 India 2023 Logo"
+                                style={{ height: '100%', width: 'auto', objectFit: 'contain' }}
+                            />
+                        </Box>
+
+                        {/* Vertical Divider */}
+                        <Box sx={{ height: '30px', width: '1px', bgcolor: '#e0e0e0' }} />
+
                         {/* logo of nagpur nagar parishad */}
                         <Box sx={{
                             height: '78px',
@@ -305,7 +323,7 @@ export default function Navbar() {
                         }}>
                             <img
                                 src="/images/logo/nagpurnagarparishd.png"
-                                alt="G20 India 2023"
+                                alt="Nagpur Municipal Corporation Logo"
                                 style={{ height: '100%', width: 'auto', objectFit: 'contain' }}
                             />
                         </Box>
