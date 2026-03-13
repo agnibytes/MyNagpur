@@ -27,10 +27,12 @@ import VisibilityIcon from '@mui/icons-material/Visibility';
 import AssignmentIcon from '@mui/icons-material/Assignment';
 import NotificationsActiveIcon from '@mui/icons-material/NotificationsActive';
 
-// New AI Components
-import AiInsightsPanel from '../components/ai/AiInsightsPanel';
-import NagpurHeatmap from '../components/ai/NagpurHeatmap';
-import PredictionDashboard from '../components/ai/PredictionDashboard';
+import dynamic from 'next/dynamic';
+
+// New AI Components with dynamic import to prevent SSR issues
+const AiInsightsPanel = dynamic(() => import('../components/ai/AiInsightsPanel'), { ssr: false });
+const NagpurHeatmap = dynamic(() => import('../components/ai/NagpurHeatmap'), { ssr: false });
+const PredictionDashboard = dynamic(() => import('../components/ai/PredictionDashboard'), { ssr: false });
 
 export default function NagpurGovDashboard() {
     const [selectedWard, setSelectedWard] = useState('all');
