@@ -1,436 +1,138 @@
-# 📊 Majha Nagpur
-### National-Scale E-Governance Initiative for Urban India
+![Majha Nagpur Hero](/home/vinman/.gemini/antigravity/brain/67fadc72-5853-42a9-87ab-76f2340b53a0/majha_nagpur_banner_hero_1773384430012.png)
 
-[![License](https://img.shields.io/badge/License-View-blue.svg)](LICENSE)
-[![Status](https://img.shields.io/badge/Status-In%20Development-yellow.svg)]()
-[![Platform](https://img.shields.io/badge/Platform-Web%20%7C%20Mobile%20%7C%20API-green.svg)]()
+# 🏙️ Majha Nagpur: AI-Driven Urban Governance
 
----
-http://localhost:3001/admin-dashboard
+### Transforming Nagpur into a Data-Powered Smart City
 
-## 📑 Table of Contents
-- [Overview](#-overview)
-- [Scope of Report Card](#-scope-of-the-report-card-ward-wise)
-- [Service Domains](#service-domains)
-- [Platform Features](#-fully-functional-app--web-platform--key-features)
-- [Technology Stack](#-technology-stack)
-- [Getting Started](#-getting-started)
-- [Architecture](#-architecture-overview)
-- [Roadmap](#-roadmap)
-- [Contributing](#-contributing)
-- [Vision](#-vision)
-- [License](#-license)
-- [Contact & Support](#-contact--support)
+**Majha Nagpur** is a next-generation civic governance platform designed for the Nagpur Municipal Corporation (NMC). By integrating real-time urban datasets with cutting-edge AI, the platform empowers citizens and administrators to build a more transparent, efficient, and resilient city.
+
+[![Status](https://img.shields.io/badge/Status-Beta--Live-brightgreen.svg)]()
+[![Backend](https://img.shields.io/badge/Backend-FastAPI%20%26%20Python-blue.svg)]()
+[![Frontend](https://img.shields.io/badge/Frontend-Next.js%20%26%20React-orange.svg)]()
+[![AI](https://img.shields.io/badge/AI-Gemini%201.5%20Flash-red.svg)]()
 
 ---
 
-## 📌 Overview
+## 🌟 Vision
+To transition urban management from reactive complaint-handling to **proactive, data-backed governance**. Majha Nagpur provides a "Report Card" for every ward, ensuring public accountability and sustainable development.
 
-The **Majha Nagpur** is an official government-backed digital governance platform that provides a real-time, ward-wise performance dashboard of all civic services across Indian cities.
+## 🚀 Key Features
 
-### Key Highlights
-- ✅ **Real-time monitoring** of civic services at ward level
-- ✅ **Daily-updated** public accountability system
-- ✅ **Data-driven governance** for citizens, administrators, and policymakers
-- ✅ **Transparent** service delivery tracking
-- ✅ **AI-powered** predictive analytics
-- ✅ **Multi-language** support for inclusive access
+### 🧠 Smart City AI Analytics
+- **AI Urban Insights**: Powered by **Google Gemini AI**, providing deep analysis of city metrics, complaint patterns, and infrastructure health.
+- **Traffic Forecasting**: Predictive models estimating congestion levels at key junctions using historical data and ML pipelines.
+- **Pollution Heatmaps**: Real-time visualization of AQI and environmental metrics across the city's zones.
 
-**Impact**: Transforming complaint-based governance into performance-based accountability.
+### 🏛️ Official Governance Dashboard
+- **Ward-wise Performance**: Dynamic scores (0-100) for all 136+ wards based on service delivery.
+- **Priority Grievance Redressal**: AI-sorted complaint queues ensuring critical issues are addressed first.
+- **Resource Optimization**: Live tracking of water supply, sanitation hygiene, and street infrastructure health.
 
----
-
-## 🏙️ Scope of the Report Card (Ward-Wise)
-
-Each ward receives a **dynamic performance score (0–100)** across multiple service domains, updated in real-time.
-
-### Service Domains
-
-#### 💧 1. Water Supply & Drainage
-- Daily water availability (hours & pressure)
-- Pipeline leakage reports
-- Water quality test results (TDS, contamination)
-- Sewer overflow incidents
-- Average complaint resolution time
-
-#### 🧹 2. Sanitation & Solid Waste Management
-- Daily garbage collection status
-- Wet / dry / hazardous waste segregation
-- Street sweeping frequency
-- Public toilet cleanliness & availability
-- Swachh Bharat compliance indicators
-
-#### 🛣️ 3. Roads, Transport & Mobility
-- Pothole reporting and repair SLA
-- Road resurfacing schedules
-- Traffic signal uptime
-- Parking availability & violations
-- Footpath and pedestrian safety audits
-
-#### 💡 4. Electricity & Street Infrastructure
-- Functional street lights (%)
-- Average downtime of failed lights
-- Power outage frequency (where applicable)
-- Transformer and pole maintenance reports
-
-#### 🏘️ 5. Housing & Urban Development
-- Illegal construction alerts
-- Slum rehabilitation progress
-- Affordable housing scheme updates
-- Building plan approval timelines
-
-#### 🏥 6. Public Health & Environment
-- Government hospital & clinic availability
-- Ambulance response time
-- Air Quality Index (AQI) – ward level
-- Noise pollution levels
-- Mosquito / vector control drives
-
-#### 🛡️ 7. Public Safety & Disaster Readiness
-- CCTV coverage and uptime
-- Police response time
-- Identified crime black spots
-- Fire safety infrastructure
-- Disaster preparedness score (floods, heatwaves, earthquakes)
-
-#### 🗂️ 8. Citizen Grievance Redressal
-- Number of complaints raised
-- % resolved within SLA
-- Escalation status
-- Citizen feedback score after resolution
-- Repeat complaint analysis
+### 👤 Citizen Empowerment Portal
+- **One-Click Complaints**: Smart submission with photo/video support and automated routing.
+- **Live Tracking**: Transparency in the resolution lifecycle with SMS/Push alerts.
+- **Demo Access**: Simplified login for testing and developer demonstration.
 
 ---
 
-📱 Fully Functional App & Web Platform – Key Features
-👤 Citizen Interface
+## 🛠️ Technology Stack
 
-• Aadhaar-optional login (mobile OTP based)
-• Multi-language support (Hindi, English, regional languages)
-• Ward auto-detection via GPS or PIN code
-## 📱 Fully Functional App & Web Platform – Key Features
-
-### 👤 Citizen Interface
-- Aadhaar-optional login (mobile OTP based)
-- Multi-language support (Hindi, English, regional languages)
-- Ward auto-detection via GPS or PIN code
-- One-click complaint submission (photo/video/audio)
-- Live complaint tracking with timelines
-- Push notifications for updates
-- Citizen satisfaction rating system
-
-### 🧾 Complaint Lifecycle Management
-- Auto-routing to relevant department
-- Time-bound Service Level Agreements (SLAs)
-- Automatic escalation to senior officials
-- Tamper-proof complaint logs
-- Public visibility of anonymized complaints
-
-### 🧠 Smart Analytics & AI Layer
-- Predictive maintenance alerts
-- Heatmaps of recurring issues
-- Ward performance trend analysis
-- Department-wise efficiency ranking
-- Seasonal risk prediction (monsoon, heatwaves)
-
-### 🏛️ Government & Administrative Dashboard
-- Real-time ward performance overview
-- Officer-wise workload tracking
-- SLA breach alerts
-- Budget utilization vs output mapping
-- Inter-department coordination view
-
-### 👨‍👩‍👧 Youth & Volunteer Participation
-- Verified youth volunteer program
-- On-ground data validation
-- Community audits
-- Civic engagement score for volunteers
-- Internship & certificate integration
-
-### 🔐 Data Governance & Security
-- Hosted on Government Cloud (MeghRaj)
-- Compliance with Digital Personal Data Protection Act (DPDP)
-- Role-based access control
-- Audit trails for all edits
-- Open Data APIs for public researchers
-
-### 🌐 Transparency & Public Accountability
-- All non-personal data is publicly accessible
-- Ward rankings published weekly
-- Department scorecards released monthly
-- Historical performance archive
-- Election-period code of conduct integration
-
-### 🗳️ Democratic Impact
-- Performance-based governance culture
-- Data-driven voting decisions
-- No room for false or vague promises
-- Objective comparison across wards and cities
-- Strengthening of local democracy
-
----
-## 🌟 Long-Term National Benefits
-
-- ✅ Improved urban service delivery
-- ✅ Reduced corruption through visibility
-- ✅ Faster grievance resolution
-- ✅ Citizen-centric governance
-- ✅ Youth engagement in nation-building
-- ✅ Replicable model for Smart Cities & AMRUT missions
+| Layer | Technology |
+|---|---|
+| **Frontend** | [Next.js 14](https://nextjs.org/), [React](https://reactjs.org/), [MUI](https://mui.com/) |
+| **AI Backend** | [FastAPI](https://fastapi.tiangolo.com/), [Python 3.10+](https://www.python.org/) |
+| **Generative AI**| [Google Gemini 1.5 Flash](https://aistudio.google.com/) |
+| **Databases** | [MongoDB Atlas](https://www.mongodb.com/cloud/atlas), [PostgreSQL](https://www.postgresql.org/) |
+| **Visualization**| [Leaflet.js](https://leafletjs.org/) (Maps), [Chart.js](https://www.chartjs.org/) |
+| **DevOps** | [Docker](https://www.docker.com/), [Docker Compose](https://docs.docker.com/compose/) |
 
 ---
 
-## 💻 Technology Stack
-
-### Frontend
-- **Web**: React.js / Next.js
-- **Mobile**: React Native / Flutter
-- **UI Framework**: Material-UI / Ant Design
-- **Maps**: Google Maps API / MapMyIndia
-
-### Backend
-- **Framework**: Node.js (Express) / Django / FastAPI
-- **API**: RESTful / GraphQL
-- **Real-time**: WebSockets / Server-Sent Events
-
-### Database
-- **Primary**: PostgreSQL / MongoDB
-- **Cache**: Redis
-- **Search**: Elasticsearch
-
-### Cloud & Infrastructure
-- **Hosting**: MeghRaj (Government Cloud)
-- **Storage**: AWS S3 / Azure Blob Storage
-- **CDN**: CloudFront / Azure CDN
-
-### AI/ML & Analytics
-- **Framework**: TensorFlow / PyTorch
-- **Analytics**: Apache Spark / Power BI
-- **Visualization**: D3.js / Chart.js
-
-### Security & Compliance
-- **Authentication**: OAuth 2.0 / JWT
-- **Encryption**: AES-256
-- **Compliance**: DPDP Act, ISO 27001
-
----
-
-## 🚀 Getting Started
+## ⚙️ Getting Started
 
 ### Prerequisites
+- **Node.js**: v18.0+ 
+- **Docker**: Latest version (for Backend services)
+- **Git**
+
+### 📦 Installation
+
+#### 1. Clone the Repository
 ```bash
-# Node.js (v18 or higher)
-node --version
-
-# Python (v3.9 or higher)
-python --version
-
-# PostgreSQL (v14 or higher)
-psql --version
+git clone https://github.com/agnibytes/MyNagpur.git
+cd MyNagpur
 ```
 
-### Installation
-
+#### 2. Frontend Setup (Next.js)
 ```bash
-# Clone the repository
-git clone https://github.com/Pusparaj99op/Goverment_Project--Live_Civil_Report.git
-
-# Navigate to project directory
-cd Goverment_Project--Live_Civil_Report
-
-# Install dependencies (example for Node.js backend)
+# Install dependencies
 npm install
 
-# Set up environment variables
+# Setup environment variables
 cp .env.example .env
+# Edit .env and add your MONGODB_URI and JWT_SECRET
 
-# Configure database
-npm run db:setup
-
-# Run migrations
-npm run migrate
-
-# Start development server
+# Run in development mode
 npm run dev
 ```
 
-### Configuration
+#### 3. AI Backend Setup (Docker)
+The backend services (FastAPI, Redis, PostgreSQL) are containerized for easy deployment.
+```bash
+cd majha-nagpur-backend
 
-Create a `.env` file with the following variables:
-```env
-DATABASE_URL=postgresql://user:password@localhost:5432/city_report_card
-REDIS_URL=redis://localhost:6379
-JWT_SECRET=your_secret_key
-MAPS_API_KEY=your_maps_api_key
-SMS_GATEWAY_KEY=your_sms_key
+# Setup environment variables in docker-compose.yml or a .env file
+# Ensure GEMINI_API_KEY is provided
+
+# Build and start services
+docker-compose up --build
 ```
 
 ---
 
-## 🏗️ Architecture Overview
+## 📊 Dashboard Preview
 
-```
-┌─────────────────────────────────────────────────┐
-│           Citizen & Admin Interface             │
-│  (Web App, Mobile App, Admin Dashboard)        │
-└──────────────────┬──────────────────────────────┘
-                   │
-┌──────────────────▼──────────────────────────────┐
-│            API Gateway & Load Balancer          │
-└──────────────────┬──────────────────────────────┘
-                   │
-┌──────────────────▼──────────────────────────────┐
-│         Microservices Layer                     │
-│  ┌──────────┐ ┌──────────┐ ┌──────────┐        │
-│  │Complaint │ │Analytics │ │Notifica- │        │
-│  │ Service  │ │ Service  │ │tion Svc  │  ...   │
-│  └──────────┘ └──────────┘ └──────────┘        │
-└──────────────────┬──────────────────────────────┘
-                   │
-┌──────────────────▼──────────────────────────────┐
-│     Data Layer (PostgreSQL, Redis, S3)          │
-└─────────────────────────────────────────────────┘
-```
+````carousel
+![Full Dashboard](file:///home/vinman/.gemini/antigravity/brain/67fadc72-5853-42a9-87ab-76f2340b53a0/nagpur_gov_dashboard_full_1773382202251.png)
+<!-- slide -->
+![AI Analytics Section](file:///home/vinman/.gemini/antigravity/brain/67fadc72-5853-42a9-87ab-76f2340b53a0/ai_analytics_section_1773382807035.png)
+<!-- slide -->
+![Ward Complaints](file:///home/vinman/.gemini/antigravity/brain/67fadc72-5853-42a9-87ab-76f2340b53a0/nagpur_dashboard_complaints_1773379902115.png)
+````
 
 ---
 
-## 🗓️ Roadmap
-
-### Phase 1: Foundation (Months 1-3)
-- [x] Project conceptualization and documentation
-- [ ] Core platform architecture design
-- [ ] Database schema development
-- [ ] Basic citizen portal (web)
-- [ ] Admin dashboard prototype
-
-### Phase 2: Core Development (Months 4-8)
-- [ ] Mobile application development
-- [ ] Complaint management system
-- [ ] Multi-language support integration
-- [ ] SMS/Email notification system
-- [ ] Ward scoring algorithm implementation
-
-### Phase 3: Advanced Features (Months 9-12)
-- [ ] AI/ML predictive analytics
-- [ ] Real-time dashboards
-- [ ] GIS integration for heatmaps
-- [ ] Volunteer management system
-- [ ] Open Data API development
-
-### Phase 4: Pilot & Scale (Months 13-18)
-- [ ] Pilot launch in 2-3 cities
-- [ ] Feedback collection and iteration
-- [ ] Security audits and compliance
-- [ ] National-scale deployment
-- [ ] Integration with Smart Cities Mission
+## 🗺️ Project Structure
+```text
+.
+├── app/                    # Next.js App Router (Frontend)
+├── components/             # Reusable UI Components
+├── majha-nagpur-backend/  # Python AI Backend (FastAPI)
+│   ├── app/                # API Routes & Logic
+│   ├── data/               # Datasets & ML Models
+│   └── docker-compose.yml  # Service Orchestration
+├── server/                 # Node.js Support Server (Legacy/Admin)
+└── public/                 # Static Assets
+```
 
 ---
 
 ## 🤝 Contributing
-
-We welcome contributions from developers, designers, and domain experts!
-
-### How to Contribute
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
+We welcome contributions to help make Nagpur a smarter city!
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
-
-### Contribution Guidelines
-- Follow the code style and conventions
-- Write clear commit messages
-- Add tests for new features
-- Update documentation as needed
-- Ensure all tests pass before submitting PR
-
-### Code of Conduct
-Please read our [Code of Conduct](CODE_OF_CONDUCT.md) before contributing.
-
----
-
-## 🚀 Vision
-
-**Transforming Indian Urban Governance**
-
-| From | To |
-|------|-----|
-| Complaint-based governance | Performance-based governance |
-| Opaque systems | Radical transparency |
-| Passive citizens | Active stakeholders |
-| Manual tracking | AI-driven insights |
-| Delayed responses | Real-time accountability |
-
----
-
-## 📄 License
-
-This project is licensed under the terms specified in the [LICENSE](LICENSE) file.
-
----
-
-## 📞 Contact & Support
-
-### Project Maintainers
-- **GitHub**: [@Pusparaj99op](https://github.com/Pusparaj99op)
-- **Repository**: [Goverment_Project--Live_Civil_Report](https://github.com/Pusparaj99op/Goverment_Project--Live_Civil_Report)
-
-### Support Channels
-- 📧 **Email**: [Create an issue for support](https://github.com/Pusparaj99op/Goverment_Project--Live_Civil_Report/issues)
-- 💬 **Discussions**: [GitHub Discussions](https://github.com/Pusparaj99op/Goverment_Project--Live_Civil_Report/discussions)
-- 🐛 **Bug Reports**: [Issue Tracker](https://github.com/Pusparaj99op/Goverment_Project--Live_Civil_Report/issues)
-
-### For Government Agencies
-For partnership, pilot programs, or deployment inquiries, please create a detailed issue in the repository.
-
----
-
-## 🔐 Administrative Dashboards
-
-These dashboards are for **internal use only** and are not linked from the main website navigation.
-
-### Nagpur Government Dashboard
-**URL**: `/nagpur-gov-dashboard`
-
-A comprehensive dashboard for Nagpur Municipal Corporation officials featuring:
-- 📊 Ward-wise performance overview with scores for all 13 wards
-- 📈 Real-time statistics (citizens, complaints, revenue)
-- 🚨 Complaint management panel with priority tracking
-- 📋 Service delivery metrics (water, sanitation, lighting, roads)
-- 📰 Recent activities feed
-- 📥 Export reports functionality
-
-### Admin/Developer Dashboard
-**URL**: `/admin-dashboard`
-
-A system monitoring and maintenance dashboard for developers featuring:
-- 🖥️ System health monitoring (CPU, Memory, Disk, Network)
-- 👥 User statistics by role (citizens, officials, admins)
-- 🗄️ Database statistics (collections, documents, sizes)
-- 🔌 API performance metrics and endpoint health
-- 📝 Error logs viewer with resolution status
-- ⚡ Quick actions (clear cache, trigger backup, view logs)
-- 🔧 Environment information (Node.js, MongoDB versions)
-
----
-
-## 🙏 Acknowledgments
-
-This initiative aligns with:
-- 🇮🇳 **Smart Cities Mission** (Ministry of Housing and Urban Affairs)
-- 🧹 **Swachh Bharat Abhiyan**
-- 💧 **AMRUT Mission** (Atal Mission for Rejuvenation and Urban Transformation)
-- 🌐 **Digital India Programme**
-- 📊 **National e-Governance Plan (NeGP)**
 
 ---
 
 <div align="center">
 
-**Built with ❤️ for India's Urban Future**
+**Built with ❤️ for Indian Urban Innovation**
 
 *Empowering Citizens • Transforming Governance • Building Transparency*
 
-⭐ Star this repo if you believe in transparent governance!
+⭐ Star us on GitHub!
 
 </div>

@@ -12,3 +12,4 @@ geopandas
 shapely
 python-dotenv
 httpx
+google-generativeai
