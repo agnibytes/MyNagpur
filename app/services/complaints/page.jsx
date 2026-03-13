@@ -88,6 +88,16 @@ export default function ComplaintsPage() {
         return { level: 'medium', score, color: '#1976d2' };
     };
 
+    // Dynamic API URL for submission
+    const getApiBaseUrl = () => {
+        if (typeof window === 'undefined') return 'http://localhost:5000';
+        const hostname = window.location.hostname;
+        if (hostname !== 'localhost' && hostname !== '127.0.0.1') {
+            return window.location.origin;
+        }
+        return 'http://localhost:5000';
+    };
+
     const handleSubmit = async () => {
         if (!formData.type || !formData.description || !formData.address) return;
 
@@ -96,20 +106,50 @@ export default function ComplaintsPage() {
 
         const aiPriority = calculateAIPriority();
 
-        // Simulate API call
-        setTimeout(() => {
-            setComplaintData({
-                complaintNumber: `GRV-${new Date().getMonth() + 1}${new Date().getFullYear()}-${String(Math.floor(Math.random() * 99999)).padStart(5, '0')}`,
-                ...formData,
-                aiPriority,
-                department: getDepartment(formData.type),
-                slaDeadline: getSlaDeadline(aiPriority.level),
-                createdAt: new Date().toISOString()
+        try {
+            const apiPayload = {
+                type: formData.type,
+                subType: formData.subType || null,
+                description: formData.description,
+                address: formData.address,
+                landmark: formData.landmark || null,
+                ward: formData.ward,
+                ai_priority: aiPriority
+            };
+
+            const userId = user?.user_id || 1;
+
+            const res = await fetch(`${getApiBaseUrl()}/api/complaints/?user_id=${userId}`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(apiPayload)
             });
-            setSubmitting(false);
-            setSubmitSuccess(true);
-            setActiveStep(2);
-        }, 2500);
+
+            const data = await res.json();
+
+            if (res.ok) {
+                 setComplaintData({
+                     complaintNumber: `GRV-${data.data.request_id}`,
+                     ...formData,
+                     aiPriority,
+                     department: getDepartment(formData.type),
+                     slaDeadline: getSlaDeadline(aiPriority.level),
+                     createdAt: data.data.timestamp
+                 });
+                 setSubmitSuccess(true);
+                 setActiveStep(2);
+            } else {
+                 console.error("Submission failed:", data);
+                 alert("Failed to register complaint. Please try again.");
+                 setActiveStep(0);
+            }
+        } catch (error) {
+             console.error("Network error during submission:", error);
+             alert("Network error. Please try again.");
+             setActiveStep(0);
+        } finally {
+             setSubmitting(false);
+        }
     };
 
     const getDepartment = (type) => {
@@ -312,14 +352,24 @@ export default function ComplaintsPage() {
                                     </Grid>
 
                                     <Box sx={{ mt: 3 }}>
+                                        {user?.access === 'read-only' && (
+                                            <Alert severity="warning" sx={{ mb: 2 }}>
+                                                Demo users cannot submit official complaints. Exploring view-only mode.
+                                            </Alert>
+                                        )}
                                         <Button
                                             variant="contained"
                                             fullWidth
                                             onClick={handleSubmit}
-                                            disabled={!formData.type || !formData.description || !formData.address}
-                                            sx={{ bgcolor: '#c62828', fontWeight: 'bold', py: 1.5 }}
+                                            disabled={!formData.type || !formData.description || !formData.address || user?.access === 'read-only'}
+                                            sx={{ 
+                                                bgcolor: user?.access === 'read-only' ? '#ccc' : '#c62828', 
+                                                fontWeight: 'bold', 
+                                                py: 1.5,
+                                                color: user?.access === 'read-only' ? '#666' : '#fff'
+                                            }}
                                         >
-                                            Submit Complaint
+                                            {user?.access === 'read-only' ? 'View Only Demo Mode' : 'Submit Complaint'}
                                         </Button>
                                     </Box>
                                 </Box>

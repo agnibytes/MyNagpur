@@ -47,11 +47,25 @@ export default function GovernmentLoginPage() {
                 name: 'Government Official',
                 token: 'govt_token_' + Date.now()
             }));
+            // Clear any demo mode flag
+            localStorage.removeItem('userMode');
             router.push('/government/dashboard');
         } else {
             setError('Invalid credentials. Access is restricted to authorized government officials only.');
         }
         setLoading(false);
+    };
+
+    const handleDemoLogin = () => {
+        localStorage.setItem('govtUserInfo', JSON.stringify({
+            email: 'demo_admin@nagpurnp.gov.in',
+            role: 'government_official',
+            name: 'Demo Admin',
+            access: 'read-only',
+            token: 'demo_token_' + Date.now()
+        }));
+        localStorage.setItem('userMode', 'demo');
+        router.push('/government/dashboard');
     };
 
     return (
@@ -183,11 +197,28 @@ export default function GovernmentLoginPage() {
                                         bgcolor: '#1a4e8e',
                                         fontWeight: 'bold',
                                         fontSize: '1rem',
-                                        '&:hover': { bgcolor: '#0d2e5a' }
+                                        '&:hover': { bgcolor: '#0d2e5a' },
+                                        mb: 2
                                     }}
                                 >
                                     <LockIcon sx={{ mr: 1 }} />
                                     {loading ? 'Authenticating...' : 'Secure Login / सुरक्षित लॉगिन'}
+                                </Button>
+
+                                <Button
+                                    fullWidth
+                                    variant="contained"
+                                    onClick={handleDemoLogin}
+                                    sx={{
+                                        py: 1.5,
+                                        bgcolor: '#FF9933',
+                                        color: '#000',
+                                        fontWeight: 'bold',
+                                        fontSize: '1rem',
+                                        '&:hover': { bgcolor: '#e68a00' }
+                                    }}
+                                >
+                                    🚀 Try Live Demo
                                 </Button>
                             </Box>
 

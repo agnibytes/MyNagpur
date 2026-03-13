@@ -208,8 +208,8 @@ export default function Home() {
                         <Grid item xs={12} md={5}>
                             <Box sx={{ mb: 2, display: 'flex', justifyContent: 'center', width: '100%' }}>
                                 <img
-                                    src="/images/arts/homeart.png"
-                                    alt="Home Art"
+                                    src="/images/arts/homeart_heritage.png"
+                                    alt="Nagpur Heritage & Progress"
                                     style={{
                                         maxWidth: '100%',
                                         height: 'auto',

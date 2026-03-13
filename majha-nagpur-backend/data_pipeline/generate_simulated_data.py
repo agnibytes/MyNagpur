@@ -3,132 +3,174 @@ import os
 import random
 from datetime import datetime, timedelta
 
-def get_random_date():
+def get_random_date(days_back=30):
     now = datetime.now()
-    return (now - timedelta(days=random.randint(0, 30), hours=random.randint(0, 24))).isoformat()
+    return (now - timedelta(days=random.randint(0, days_back), hours=random.randint(0, 24), minutes=random.randint(0, 60))).isoformat()
 
-def generate_data():
-    service_categories = [
-        "grievance_redressal",
-        "water_and_drainage",
-        "sanitation_services",
-        "roads_and_transport",
-        "street_lighting",
-        "health_services",
-        "property_tax",
-        "building_permissions",
-        "birth_death_certificates",
-        "trade_license",
-        "water_tax_payment",
-        "public_safety"
-    ]
-    statuses = ["pending", "in_progress", "resolved"]
+def generate_city_scale_data():
+    WARDS = 13
     
-    # 1. Service Requests
-    service_requests = []
-    for i in range(1, 421):
-        ward = random.randint(1, 13)
-        # Introduce bias for Ward 8 (Sanitation) & Ward 12 (Roads)
-        if random.random() < 0.25:
-            ward = 8
-            cat = "sanitation_services"
-        elif random.random() < 0.15:
+    # --- 1. Citizen Complaints (50,000 records) ---
+    print("Generating 50,000 Citizen Complaints...")
+    categories = ["Garbage Overflow", "Potholes", "Water Leak", "Street Light Issue", "Illegal Parking", "Stray Animals"]
+    locations = ["Dharampeth", "Sitabuldi", "Manewada", "Sadar", "Mahal", "Itwari", "Wardhman Nagar", "Khamla"]
+    statuses = ["Pending", "In Progress", "Resolved", "Resolved"]
+    
+    citizen_complaints = []
+    for i in range(1, 50001):
+        # Hotspot generation: Ward 12 has more Garbage and Water issues
+        ward = random.randint(1, WARDS)
+        loc = random.choice(locations)
+        cat = random.choice(categories)
+        
+        if random.random() < 0.15:
             ward = 12
-            cat = "roads_and_transport"
-        elif random.random() < 0.1:
-            ward = 5
-            cat = "street_lighting"
-        else:
-            cat = random.choice(service_categories)
+            loc = "Dharampeth"
+            cat = random.choice(["Garbage Overflow", "Water Leak"])
             
-        service_requests.append({
-            "request_id": 2000 + i,
-            "service_type": cat,
-            "user_id": random.randint(1, 1000),
+        citizen_complaints.append({
+            "complaint_id": f"CMP_{200000+i}",
+            "location": loc,
             "ward": ward,
+            "category": cat,
+            "timestamp": get_random_date(60),
             "latitude": 21.1458 + random.uniform(-0.06, 0.06),
             "longitude": 79.0882 + random.uniform(-0.06, 0.06),
-            "timestamp": get_random_date(),
             "status": random.choice(statuses)
         })
 
-    # 2. Traffic Sensors
-    traffic_sensors = [
-        {"sensor_id": "TRF_21", "location": "Sitabuldi Junction", "ward": 8, "vehicle_count": random.randint(300, 450), "average_speed": random.randint(10, 20), "timestamp": datetime.now().isoformat()},
-        {"sensor_id": "TRF_17", "location": "Wardha Road", "ward": 10, "vehicle_count": random.randint(250, 400), "average_speed": random.randint(15, 30), "timestamp": datetime.now().isoformat()}
+    # --- 2. Traffic Sensors (100 intersections, 500 readings each = 50,000 records) ---
+    print("Generating Traffic Sensor Data...")
+    traffic_sensors = []
+    for i in range(1, 101):
+        loc = random.choice(locations)
+        for _ in range(500):
+            # Simulate Sitabuldi Chowk congestion
+            if loc == "Sitabuldi" and random.random() < 0.3:
+                count = random.randint(120, 200)
+                speed = random.randint(5, 18)  # Congested
+            else:
+                count = random.randint(20, 100)
+                speed = random.randint(20, 60)
+                
+            traffic_sensors.append({
+                "intersection_id": f"TRF_{i:03d}",
+                "location": loc,
+                "vehicle_count": count,
+                "avg_speed": speed,
+                "congestion_score": round(float(count) / max(float(speed), 1.0), 2),
+                "timestamp": get_random_date(7)
+            })
+
+    # --- 3. Air Pollution (AQI) Sensors (20 stations, 1000 readings = 20,000 records) ---
+    print("Generating Air Pollution Data...")
+    aqi_sensors = []
+    for i in range(1, 21):
+        loc = random.choice(locations)
+        for _ in range(1000):
+            # Simulate MIHAN / Industrial high pollution
+            is_industrial = (loc in ["MIDC", "MIHAN", "Sitabuldi"])
+            base_aqi = random.randint(110, 170) if is_industrial else random.randint(60, 120)
+            
+            aqi_sensors.append({
+                "station_id": f"AQI_{i:02d}",
+                "location": loc,
+                "AQI": base_aqi,
+                "PM2_5": int(float(base_aqi) * random.uniform(0.4, 0.6)),
+                "PM10": int(float(base_aqi) * random.uniform(0.7, 0.9)),
+                "NO2": random.randint(10, 50),
+                "CO": round(float(random.uniform(0.1, 2.0)), 2),
+                "timestamp": get_random_date(14)
+            })
+
+    # --- 4. Smart Waste Bins (1000 bins) ---
+    print("Generating Smart Waste Bin Data...")
+    waste_bins = []
+    for i in range(1, 1001):
+        loc = random.choice(locations)
+        # Hotspot Dharampeth has fuller bins
+        fill_level = random.randint(70, 100) if loc == "Dharampeth" and random.random() < 0.4 else random.randint(10, 80)
+        waste_bins.append({
+            "bin_id": f"BIN_{i:04d}",
+            "location": loc,
+            "fill_level": f"{fill_level}%",
+            "needs_pickup": fill_level > 80,
+            "last_collection": get_random_date(2)
+        })
+
+    # --- 5. Water Monitoring Sensors (500 pipelines) ---
+    print("Generating Water Monitoring Data...")
+    water_sensors = []
+    for i in range(1, 501):
+        loc = random.choice(locations)
+        # Manewada has more leaks
+        is_leak = (loc == "Manewada" and random.random() < 0.2)
+        pressure = random.randint(30, 45) if is_leak else random.randint(50, 70)
+        leak_prob = round(random.uniform(0.6, 0.95), 2) if is_leak else round(random.uniform(0.01, 0.2), 2)
+        
+        water_sensors.append({
+            "pipeline_id": f"PIPE_{i:04d}",
+            "zone": loc,
+            "pressure_psi": pressure,
+            "flow_rate_lps": random.randint(100, 500) if not is_leak else random.randint(50, 90),
+            "leak_probability": leak_prob,
+            "timestamp": get_random_date(1)
+        })
+
+    # --- 6. Energy Grid Sensors (50 substations) ---
+    print("Generating Energy Grid Data...")
+    energy_sensors = []
+    for i in range(1, 51):
+        load = random.randint(40, 95)
+        energy_sensors.append({
+            "station_id": f"SUB_{i:02d}",
+            "zone": random.choice(locations),
+            "power_consumption_mw": random.randint(10, 50),
+            "voltage_kv": random.choice([11, 33, 132]),
+            "load_percentage": f"{load}%",
+            "overload_risk": load > 85,
+            "timestamp": get_random_date(1)
+        })
+
+    # --- 7. Analytics Engine Output (Example Insights) ---
+    print("Generating AI Insights...")
+    ai_insights = [
+        "AQI increased 17% near MIHAN industrial zone between 8 AM and 11 AM. 24-hr forecast: Unhealthy.",
+        "High waste accumulation detected in Dharampeth (85% bins > 80% full). Recommend additional garbage truck deployment.",
+        "Severe traffic congestion at Sitabuldi Chowk (Avg speed 12 km/h). Deploying traffic officers recommended.",
+        "High leak probability (0.82) detected in Manewada Sector 4 water pipeline. Inspection required.",
+        "Ward 12 shows a 45% increase in combined Garbage and Water complaints over the last 72 hours."
     ]
-
-    # 3. AQI Sensors
-    aqi_sensors = [
-        {"sensor_id": "AQI_08", "ward": 8, "AQI": random.randint(140, 165), "PM2_5": random.randint(70, 90), "PM10": random.randint(110, 130), "timestamp": datetime.now().isoformat()},
-        {"sensor_id": "AQI_12", "ward": 12, "AQI": random.randint(120, 140), "PM2_5": random.randint(60, 80), "PM10": random.randint(90, 110), "timestamp": datetime.now().isoformat()}
-    ]
-
-    # Analytics Aggregation
-    ward_8_sanitation = len([r for r in service_requests if r['ward'] == 8 and r['service_type'] == 'sanitation_services'])
-    ward_12_roads = len([r for r in service_requests if r['ward'] == 12 and r['service_type'] == 'roads_and_transport'])
-
-    analytics = {
-        "service_usage_distribution": {
-            "results": [
-                { "service": "Water & Drainage", "usage_percent": 35 },
-                { "service": "Sanitation Services", "usage_percent": 28 },
-                { "service": "Roads & Transport", "usage_percent": 15 },
-                { "service": "Street Lighting", "usage_percent": 10 },
-                { "service": "Health Services", "usage_percent": 7 },
-                { "service": "Other Services", "usage_percent": 5 }
-            ]
-        },
-        "ward_problem_analysis": {
-            "results": [
-                {"ward": 8, "top_issue": "Sanitation complaints", "count": ward_8_sanitation},
-                {"ward": 12, "top_issue": "Road damage reports", "count": ward_12_roads}
-            ]
-        },
-        "traffic_congestion_prediction": {
-            "model": "RandomForestRegressor",
-            "example_predictions": [
-                {"location": "Sitabuldi Junction", "time": "18:00", "congestion_level": "High"},
-                {"location": "Wardha Road", "time": "18:00", "congestion_level": "Medium"}
-            ]
-        },
-        "pollution_forecast": {
-            "model": "Prophet",
-            "example_predictions": [
-                {"ward": 8, "forecast_time": (datetime.now() + timedelta(hours=2)).isoformat(), "predicted_AQI": 162, "risk_level": "Unhealthy"}
-            ]
-        },
-        "ai_generated_insights": [
-             "Sanitation complaints increasing rapidly in Ward 8",
-             "Traffic congestion predicted near Sitabuldi between 5PM and 7PM",
-             "Air pollution expected to exceed AQI 160 tonight in Ward 8",
-             "Street lighting issues rising in Ward 5"
-        ]
-    }
 
     dataset = {
-        "project_name": "MajhaNagpur Civic Services Data Simulator",
-        "city_context": {"city": "Nagpur", "wards": 13},
-        "datasets": {
-            "service_requests": service_requests,
-            "traffic_sensors": traffic_sensors,
-            "air_quality_sensors": aqi_sensors
+        "project_name": "MajhaNagpur Smart City Data Simulation",
+        "total_records": len(citizen_complaints) + len(traffic_sensors) + len(aqi_sensors) + len(waste_bins) + len(water_sensors) + len(energy_sensors),
+        "data_sources": {
+            "citizen_complaints": citizen_complaints,
+            "iot_traffic_sensors": traffic_sensors,
+            "iot_air_pollution": aqi_sensors,
+            "iot_smart_waste_bins": waste_bins,
+            "iot_water_monitoring": water_sensors,
+            "iot_energy_grid": energy_sensors
         },
-        "analytics": analytics,
-        "dashboard_metrics": {
-            "total_service_requests": len(service_requests),
-            "pending_requests": len([r for r in service_requests if r['status'] == 'pending']),
-            "in_progress": len([r for r in service_requests if r['status'] == 'in_progress']),
-            "resolved_requests": len([r for r in service_requests if r['status'] == 'resolved'])
+        "ai_analytics_output": {
+            "critical_insights": ai_insights,
+            "congestion_hotspots": ["Sitabuldi", "Sadar"],
+            "pollution_hotspots": ["MIHAN", "Sitabuldi"],
+            "maintenance_priorities": {
+                "waste_collection": "Dharampeth",
+                "water_pipeline": "Manewada"
+            }
         }
     }
 
     file_path = os.path.join(os.path.dirname(__file__), 'synthetic_nagpur_data.json')
+    print(f"Writing {dataset['total_records']} records to JSON...")
     with open(file_path, "w") as f:
         json.dump(dataset, f, indent=2)
     
-    print("Civic Services Synthetic dataset successfully generated at data_pipeline/synthetic_nagpur_data.json")
+    print(f"Successfully generated massive city-scale dataset ({dataset['total_records']} records)")
+    print(f"Saved to: {file_path}")
 
 if __name__ == "__main__":
-    generate_data()
-
+    generate_city_scale_data()

@@ -32,12 +32,42 @@ export default function Dashboard() {
     const [loading, setLoading] = useState(true);
     const router = useRouter();
 
+    const [complaints, setComplaints] = useState([]);
+
     useEffect(() => {
+        const fetchComplaints = async (userId) => {
+            try {
+                // Determine base URL dynamically
+                let baseUrl = 'http://localhost:5000';
+                if (typeof window !== 'undefined') {
+                    const hostname = window.location.hostname;
+                    if (hostname !== 'localhost' && hostname !== '127.0.0.1') {
+                        baseUrl = window.location.origin;
+                    }
+                }
+
+                const res = await fetch(`${baseUrl}/api/complaints/user/${userId}`);
+                const data = await res.json();
+                if (data.status === 'success') {
+                    setComplaints(data.data.slice(0, 5)); // Just show recent 5 in dashboard
+                }
+            } catch (err) {
+                console.error("Failed to fetch complaints:", err);
+            }
+        };
+
         const storedUser = localStorage.getItem('userInfo');
-        if (!storedUser) {
+        const userMode = localStorage.getItem('userMode');
+
+        if (!storedUser && userMode !== 'demo') {
             router.push('/auth/login');
         } else {
-            setUser(JSON.parse(storedUser));
+            const parsedUser = storedUser ? JSON.parse(storedUser) : {
+                user_id: 'demo_user', name: 'Demo User', role: 'viewer', ward: 'All'
+            };
+            setUser(parsedUser);
+            // In demo mode, still fetch generic complaints or show predefined
+            fetchComplaints(parsedUser.user_id || 1);
             setLoading(false);
         }
     }, [router]);
@@ -51,11 +81,20 @@ export default function Dashboard() {
         );
     }
 
-    const applications = [
-        { id: 'APP/2026/001', type: 'Trade License Renewal', date: '10 Jan 2026', status: 'In Process', progress: 60 },
-        { id: 'APP/2026/045', type: 'Building Permission', date: '05 Jan 2026', status: 'Approved', progress: 100 },
-        { id: 'APP/2026/089', type: 'Water Connection', date: '12 Jan 2026', status: 'Pending Review', progress: 30 },
-    ];
+    const applications = complaints.map(c => ({
+        id: `GRV-${c.request_id}`,
+        type: c.service_type.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase()),
+        date: new Date(c.timestamp).toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' }),
+        status: c.status === 'resolved' ? 'Approved' : c.status === 'in_progress' ? 'In Process' : 'Pending Review',
+        progress: c.status === 'resolved' ? 100 : c.status === 'in_progress' ? 60 : 30
+    }));
+
+    if (applications.length === 0) {
+        applications.push(
+            { id: 'APP/2026/001', type: 'Trade License Renewal', date: '10 Jan 2026', status: 'In Process', progress: 60 },
+            { id: 'APP/2026/045', type: 'Building Permission', date: '05 Jan 2026', status: 'Approved', progress: 100 }
+        );
+    }
 
     const payments = [
         { id: 'TXN88291', type: 'Property Tax', amount: '₹ 2,400', date: '12 Dec 2025', status: 'Success' },
@@ -139,9 +178,9 @@ export default function Dashboard() {
                                 </Box>
                                 <Chip
                                     icon={<VerifiedIcon sx={{ color: '#fff !important' }} />}
-                                    label="Verified"
+                                    label={user?.access === 'read-only' ? 'DEMO MODE ACTIVE' : 'Verified'}
                                     size="small"
-                                    sx={{ bgcolor: '#138808', color: '#fff', fontWeight: 'bold' }}
+                                    sx={{ bgcolor: user?.access === 'read-only' ? '#d32f2f' : '#138808', color: '#fff', fontWeight: 'bold' }}
                                 />
                             </Box>
                         </Grid>
@@ -264,16 +303,17 @@ export default function Dashboard() {
                                     variant="contained"
                                     fullWidth
                                     startIcon={<EditIcon />}
+                                    disabled={user?.access === 'read-only'}
                                     sx={{
-                                        bgcolor: '#1a4e8e',
-                                        color: '#fff',
+                                        bgcolor: user?.access === 'read-only' ? '#ccc' : '#1a4e8e',
+                                        color: user?.access === 'read-only' ? '#666' : '#fff',
                                         fontWeight: 'bold',
                                         '&:hover': {
-                                            bgcolor: '#0d2e5a'
+                                            bgcolor: user?.access === 'read-only' ? '#ccc' : '#0d2e5a'
                                         }
                                     }}
                                 >
-                                    Edit Profile
+                                    {user?.access === 'read-only' ? 'View Only' : 'Edit Profile'}
                                 </Button>
                             </CardContent>
                         </Paper>
@@ -293,6 +333,7 @@ export default function Dashboard() {
                                                 href={action.href}
                                                 variant="outlined"
                                                 fullWidth
+                                                disabled={user?.access === 'read-only'}
                                                 sx={{
                                                     display: 'flex',
                                                     flexDirection: 'column',
@@ -301,7 +342,8 @@ export default function Dashboard() {
                                                     color: action.color,
                                                     borderColor: '#eee',
                                                     borderRadius: 0,
-                                                    '&:hover': { bgcolor: '#f5f5f5', borderColor: action.color }
+                                                    '&:hover': { bgcolor: '#f5f5f5', borderColor: action.color },
+                                                    ...(user?.access === 'read-only' && { opacity: 0.6 })
                                                 }}
                                             >
                                                 <Box sx={{ mb: 0.5 }}>{action.icon}</Box>

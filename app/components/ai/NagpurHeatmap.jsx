@@ -18,63 +18,51 @@ const wardCoordinates = {
     "Manewada": [21.1044, 79.0963]
 };
 
-export default function NagpurHeatmap() {
-  const [data, setData] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    async function loadData() {
-      const resp = await getLivePollution();
-      setData(resp.data || []);
-      setLoading(false);
-    }
-    loadData();
-  }, []);
-
+export default function NagpurHeatmap({ hotspots = [], loading = false, title = "Nagpur Pollution Risk Map" }) {
   const getAqiColor = (aqi) => {
     if (aqi < 50) return '#4caf50'; // Green
-    if (aqi < 150) return '#ffeb3b'; // Yellow
-    if (aqi < 250) return '#ff9800'; // Orange
+    if (aqi <= 100) return '#ffeb3b'; // Yellow
+    if (aqi <= 150) return '#ff9800'; // Orange
     return '#f44336'; // Red
   };
 
-  if (loading) return <Box sx={{ display: 'flex', justifyContent: 'center', p: 4 }}><CircularProgress /></Box>;
+  if (loading) return <Box sx={{ display: 'flex', justifyContent: 'center', p: 4, height: '100%', alignItems: 'center' }}><CircularProgress /></Box>;
 
   return (
-    <Paper sx={{ p: 2, height: '400px', display: 'flex', flexDirection: 'column' }} elevation={3}>
-      <Typography variant="h6" gutterBottom sx={{ fontWeight: 600 }}>
-        🌡️ Nagpur Pollution Risk Map
-      </Typography>
-      <Box sx={{ flexGrow: 1, borderRadius: 2, overflow: 'hidden', position: 'relative' }}>
+    <Box sx={{ flexGrow: 1, borderRadius: 2, overflow: 'hidden', position: 'relative', height: '100%', minHeight: 400 }}>
         <MapContainer center={center} zoom={13} style={{ height: '100%', width: '100%' }}>
           <TileLayer
-            url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
+            url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
             attribution='&copy; <a href="https://carto.com/">CARTO</a>'
           />
-          {data.map((item, idx) => {
-            const coords = wardCoordinates[item.ward];
+          {hotspots.map((item, idx) => {
+            const coords = item.lat && item.lon ? [item.lat, item.lon] : wardCoordinates[item.name];
             if (!coords) return null;
+            
             return (
               <CircleMarker
                 key={idx}
                 center={coords}
-                radius={Math.min(item.AQI / 4, 30)}
-                fillColor={getAqiColor(item.AQI)}
-                color={getAqiColor(item.AQI)}
-                weight={1}
-                opacity={0.8}
-                fillOpacity={0.6}
+                radius={12}
+                fillColor={getAqiColor(item.aqi || 0)}
+                color="#fff"
+                weight={2}
+                opacity={1}
+                fillOpacity={0.8}
               >
                 <Popup>
-                  <strong>{item.ward}</strong><br/>
-                  AQI: {item.AQI} ({item.status})<br/>
-                  PM2.5: {item.PM2_5}
+                  <Box sx={{ p: 0.5 }}>
+                    <Typography variant="subtitle2" sx={{ fontWeight: 'bold', mb: 0.5 }}>{item.name}</Typography>
+                    <Typography variant="caption" display="block">AQI: <strong>{item.aqi || 'N/A'}</strong></Typography>
+                    <Typography variant="caption" display="block">Status: <span style={{ color: getAqiColor(item.aqi || 0), fontWeight: 'bold' }}>{item.status || 'Unknown'}</span></Typography>
+                    {item.pollutant && <Typography variant="caption" display="block">Primary Pollutant: {item.pollutant}</Typography>}
+                    {item.lastUpdate && <Typography variant="caption" display="block" sx={{ mt: 0.5, opacity: 0.8 }}>Updated: {item.lastUpdate}</Typography>}
+                  </Box>
                 </Popup>
               </CircleMarker>
             );
           })}
         </MapContainer>
-      </Box>
-    </Paper>
+    </Box>
   );
 }

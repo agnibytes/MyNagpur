@@ -27,8 +27,7 @@ export default function LoginPage() {
     const [loading, setLoading] = useState(false);
     const router = useRouter();
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
+    const performLogin = async (loginEmail, loginPassword) => {
         setLoading(true);
         setError('');
 
@@ -36,7 +35,7 @@ export default function LoginPage() {
             const res = await fetch(`${getApiBaseUrl()}/api/auth/login`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ email, password }),
+                body: JSON.stringify({ email: loginEmail, password: loginPassword }),
             });
 
             const data = await res.json();
@@ -53,6 +52,17 @@ export default function LoginPage() {
         } finally {
             setLoading(false);
         }
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        await performLogin(email, password);
+    };
+
+    const handleDemoLogin = async (demoEmail, demoPassword) => {
+        setEmail(demoEmail);
+        setPassword(demoPassword);
+        await performLogin(demoEmail, demoPassword);
     };
 
     return (
@@ -227,27 +237,41 @@ export default function LoginPage() {
                                             {loading ? 'Signing in...' : 'Sign In / साइन इन करा'}
                                         </Button>
 
-                                        {/* Demo Admin Login */}
-                                        <Button
-                                            fullWidth
-                                            variant="outlined"
-                                            onClick={() => {
-                                                setEmail('admin@nagpur.gov.in');
-                                                setPassword('admin123');
-                                            }}
-                                            sx={{
-                                                mt: 2,
-                                                py: 1.5,
-                                                borderColor: '#FF9933',
-                                                color: '#FF9933',
-                                                fontWeight: 'bold',
-                                                borderRadius: 0,
-                                                '&:hover': { bgcolor: 'rgba(255,153,51,0.1)', borderColor: '#FF9933' }
-                                            }}
-                                        >
-                                            <PersonIcon sx={{ mr: 1 }} />
-                                            Demo Admin Login
-                                        </Button>
+                                        {/* Demo Mode Action */}
+                                        <Box sx={{ mt: 2 }}>
+                                            <Button
+                                                fullWidth
+                                                variant="contained"
+                                                onClick={() => {
+                                                    localStorage.setItem('userMode', 'demo');
+                                                    localStorage.setItem('userInfo', JSON.stringify({
+                                                        user_id: 'demo_user',
+                                                        name: 'Demo User',
+                                                        role: 'viewer',
+                                                        city: 'Nagpur',
+                                                        access: 'read-only',
+                                                        ward: 'All',
+                                                        token: 'demo_token_123456'
+                                                    }));
+                                                    router.push('/dashboard');
+                                                    window.location.href = '/dashboard';
+                                                }}
+                                                sx={{
+                                                    py: 1.8,
+                                                    bgcolor: '#0288d1', // Blue accent
+                                                    color: '#fff',
+                                                    fontWeight: '900',
+                                                    fontSize: '1.1rem',
+                                                    borderRadius: 1,
+                                                    boxShadow: '0 4px 14px 0 rgba(2, 136, 209, 0.39)',
+                                                    textTransform: 'none',
+                                                    '&:hover': { bgcolor: '#01579b', transform: 'translateY(-2px)' },
+                                                    transition: 'all 0.2s'
+                                                }}
+                                            >
+                                                🚀 Try Live Demo
+                                            </Button>
+                                        </Box>
 
                                         <Divider sx={{ my: 3 }}>
                                             <Typography variant="caption" sx={{ color: '#999' }}>OR</Typography>

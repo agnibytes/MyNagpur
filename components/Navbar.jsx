@@ -70,15 +70,24 @@ export default function Navbar() {
 
     useEffect(() => {
         const storedUser = localStorage.getItem('userInfo');
-        if (storedUser) {
-            setUser(JSON.parse(storedUser));
+        const storedGovtUser = localStorage.getItem('govtUserInfo');
+        const userMode = localStorage.getItem('userMode');
+        
+        if (storedGovtUser) {
+            setUser({ ...JSON.parse(storedGovtUser), isDemo: userMode === 'demo' });
+        } else if (storedUser) {
+            setUser({ ...JSON.parse(storedUser), isDemo: userMode === 'demo' });
+        } else if (userMode === 'demo') {
+            setUser({ name: 'Demo User', isDemo: true });
         }
     }, []);
 
     const handleLogout = () => {
         localStorage.removeItem('userInfo');
+        localStorage.removeItem('govtUserInfo');
+        localStorage.removeItem('userMode');
         setUser(null);
-        router.push('/auth/login');
+        router.push('/');
     };
 
     const handleOpenNavMenu = (event) => {
@@ -403,8 +412,13 @@ export default function Navbar() {
 
                             {user ? (
                                 <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                                    {user.isDemo && (
+                                        <Box sx={{ bgcolor: '#d32f2f', color: '#fff', px: 1, py: 0.3, borderRadius: 1, mr: 2, fontSize: '0.75rem', fontWeight: 'bold' }}>
+                                            DEMO USER
+                                        </Box>
+                                    )}
                                     <Typography variant="body2" sx={{ color: '#FF9933', fontWeight: 'bold', mr: 2, display: { xs: 'none', md: 'block' } }}>
-                                        {user.name}
+                                        {user.name || user.email || 'Admin'}
                                     </Typography>
                                     <Button sx={{ color: '#fff', textTransform: 'none', bgcolor: '#b71c1c', '&:hover': { bgcolor: '#aa1919' }, borderRadius: 0 }} size="small" onClick={handleLogout}>
                                         {getTranslation(language, 'logout')}

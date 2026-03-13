@@ -9,7 +9,6 @@ const ChatWidget = dynamic(() => import('../components/ChatWidget'), { ssr: fals
 
 // Pages where we don't want the main navbar/footer
 const noNavbarRoutes = [
-    '/government',
     '/admin',
     '/admin-dashboard',
     '/command-center'
