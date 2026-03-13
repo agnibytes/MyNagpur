@@ -165,10 +165,10 @@ export default function ServicesPage() {
                                     <img src="/emblem_new.png" alt="Government Emblem" style={{ height: 60, filter: 'drop-shadow(2px 2px 4px rgba(0,0,0,0.3))' }} />
                                     <Box>
                                         <Typography variant="caption" sx={{ color: '#FF9933', fontWeight: 'bold', letterSpacing: 1 }}>
-                                            UMRED NAGAR PARISHAD
+                                            NAGPUR MUNICIPAL CORPORATION
                                         </Typography>
                                         <Typography variant="caption" sx={{ display: 'block', opacity: 0.8 }}>
-                                            उमरेड नगरपरिषद | District Nagpur
+                                            नागपूर महानगरपालिका | Government of Maharashtra
                                         </Typography>
                                     </Box>
                                 </Box>
@@ -196,8 +196,8 @@ export default function ServicesPage() {
                             </Grid>
                             <Grid item xs={12} md={4} sx={{ display: 'flex', justifyContent: 'center' }}>
                                 <img
-                                    src="/images/arts/service.png"
-                                    alt="Service Art"
+                                    src="/images/arts/service_nagpur.png"
+                                    alt="Nagpur Services"
                                     style={{
                                         maxWidth: '100%',
                                         height: 'auto',
