@@ -608,7 +608,7 @@ export default function AdminDashboard() {
             {/* Footer */}
             <Box sx={{ bgcolor: '#0a0a0a', borderTop: '1px solid #333', color: '#666', py: 2, mt: 4, textAlign: 'center' }}>
                 <Typography variant="body2">
-                    Admin Dashboard v1.1.0 | Majha Umred Project | Developer Access Only
+                    Admin Dashboard v1.1.0 | Majha Nagpur Project | Developer Access Only
                 </Typography>
                 {/* Notification Snackbar */}
                 <Snackbar

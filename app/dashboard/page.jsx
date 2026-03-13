@@ -104,7 +104,7 @@ export default function Dashboard() {
                                         Citizen Dashboard
                                     </Typography>
                                     <Typography variant="body2" sx={{ opacity: 0.8 }}>
-                                        नागरिक डॅशबोर्ड | Umred Nagar Parishad
+                                        नागरिक डॅशबोर्ड | Nagpur Municipal Corporation
                                     </Typography>
                                 </Box>
                             </Box>
@@ -509,7 +509,7 @@ export default function Dashboard() {
                                     <strong>Office:</strong> 07116-222XXX
                                 </Typography>
                                 <Typography variant="body2" sx={{ mb: 2 }}>
-                                    <strong>Email:</strong> helpdesk@umrednp.gov.in
+                                    <strong>Email:</strong> helpdesk@nagpurnp.gov.in
                                 </Typography>
                                 <Button
                                     component={Link}

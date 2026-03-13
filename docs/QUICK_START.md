@@ -1,4 +1,4 @@
-# 🚀 Quick Start Guide - Majha Umred Portal
+# 🚀 Quick Start Guide - Majha Nagpur Portal
 
 ## Table of Contents
 - [Prerequisites](#prerequisites)
@@ -96,7 +96,7 @@ cp .env.example .env
 | Variable | Description | Example |
 |----------|-------------|---------|
 | `JWT_SECRET` | Secret key for JWT tokens (min 32 chars) | `your_secure_random_string_here` |
-| `MONGODB_URI` | MongoDB connection string | `mongodb://localhost:27017/maja_umred_db` |
+| `MONGODB_URI` | MongoDB connection string | `mongodb://localhost:27017/maja_nagpur_db` |
 
 ### Optional Variables
 

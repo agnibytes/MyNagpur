@@ -51,7 +51,7 @@ app.use(helmet({
 // CORS configuration
 const corsOptions = {
     origin: isProduction
-        ? process.env.FRONTEND_URL || 'https://majaumred.gov.in'
+        ? process.env.FRONTEND_URL || 'https://majanagpur.gov.in'
         : ['http://localhost:3000', 'http://localhost:3001', 'http://127.0.0.1:3000', 'http://localhost:5173'],
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
@@ -86,7 +86,7 @@ app.use(morgan(
 // ===================
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec, {
     customCss: '.swagger-ui .topbar { display: none }',
-    customSiteTitle: 'Majha Umred API Documentation'
+    customSiteTitle: 'Majha Nagpur API Documentation'
 }));
 app.get('/api-docs.json', (req, res) => {
     res.setHeader('Content-Type', 'application/json');
@@ -115,7 +115,7 @@ app.use('/api/admin', adminRoutes);
 app.get('/', (req, res) => {
     res.json({
         status: 'running',
-        message: 'Majha Umred API Server',
+        message: 'Majha Nagpur API Server',
         version: '2.1.0',
         environment: process.env.NODE_ENV || 'development',
         endpoints: {
@@ -191,7 +191,7 @@ const serverPort = PORT;
 app.listen(serverPort, () => {
     console.log('');
     console.log('='.repeat(50));
-    console.log('🚀 Majha Umred Server Started Successfully');
+    console.log('🚀 Majha Nagpur Server Started Successfully');
     console.log('='.repeat(50));
     console.log(`📡 Environment: ${process.env.NODE_ENV || 'development'}`);
     console.log(`🌐 Server: http://localhost:${serverPort}`);

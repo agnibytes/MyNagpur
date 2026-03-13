@@ -165,7 +165,7 @@ export default function SmartRecoveryPage() {
                 <Container maxWidth="lg">
                     <Button
                         component={Link}
-                        href="/umred-gov-dashboard"
+                        href="/nagpur-gov-dashboard"
                         startIcon={<ArrowBackIcon />}
                         sx={{ color: '#fff', mb: 2 }}
                     >

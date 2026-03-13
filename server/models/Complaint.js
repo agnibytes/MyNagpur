@@ -37,7 +37,9 @@ const complaintSchema = new mongoose.Schema({
         landmark: String,
         lat: Number,
         lng: Number,
-        ward: { type: String, required: true }
+        ward: { type: String, required: true },
+        ward_number: { type: Number },
+        zone: { type: String }
     },
     status: {
         type: String,
@@ -97,7 +99,7 @@ const complaintSchema = new mongoose.Schema({
 });
 
 // Auto-generate complaint number
-complaintSchema.pre('save', async function (next) {
+complaintSchema.pre('save', async function () {
     if (!this.complaintNumber) {
         const count = await mongoose.model('Complaint').countDocuments();
         const date = new Date();
@@ -105,11 +107,10 @@ complaintSchema.pre('save', async function (next) {
         this.complaintNumber = `GRV-${monthYear}-${String(count + 1).padStart(5, '0')}`;
     }
     this.updatedAt = new Date();
-    next();
 });
 
 // Set SLA based on priority
-complaintSchema.pre('save', function (next) {
+complaintSchema.pre('save', function () {
     if (!this.slaDeadline) {
         const slaDays = {
             'critical': 1,
@@ -120,11 +121,10 @@ complaintSchema.pre('save', function (next) {
         const days = slaDays[this.priority] || 7;
         this.slaDeadline = new Date(Date.now() + days * 24 * 60 * 60 * 1000);
     }
-    next();
 });
 
 // Auto-assign department based on type
-complaintSchema.pre('save', function (next) {
+complaintSchema.pre('save', function () {
     if (!this.department || this.department === 'general') {
         const deptMapping = {
             'road': 'roads',
@@ -138,7 +138,6 @@ complaintSchema.pre('save', function (next) {
         };
         this.department = deptMapping[this.type] || 'general';
     }
-    next();
 });
 
 const Complaint = mongoose.model('Complaint', complaintSchema);

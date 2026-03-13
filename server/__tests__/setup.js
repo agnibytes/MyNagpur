@@ -6,7 +6,7 @@
 // Set test environment variables
 process.env.NODE_ENV = 'test';
 process.env.JWT_SECRET = 'test_jwt_secret_key_for_testing_only_1234567890';
-process.env.MONGODB_URI = 'mongodb://localhost:27017/maja_umred_test';
+process.env.MONGODB_URI = 'mongodb://localhost:27017/maja_nagpur_test';
 process.env.PORT = 5001;
 
 // Increase timeout for async operations

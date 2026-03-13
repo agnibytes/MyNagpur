@@ -98,11 +98,11 @@ export default function InteractiveWardMap() {
             {/* Header */}
             <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2, borderBottom: '2px solid #FF9933', pb: 1 }}>
                 <Typography variant="h6" sx={{ fontWeight: 'bold', color: '#000080', display: 'flex', alignItems: 'center', gap: 1 }}>
-                    <MapIcon /> Ward Map - Umred
+                    <MapIcon /> Ward Map - Nagpur
                 </Typography>
                 <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
                     <Typography variant="caption" sx={{ color: '#666', mr: 1 }}>
-                        13 Administrative Wards
+                        136 Administrative Wards
                     </Typography>
                     {/* Zoom Controls */}
                     <Tooltip title="Zoom In"><IconButton size="small" onClick={handleZoomIn} sx={{ bgcolor: '#e8f4fc', '&:hover': { bgcolor: '#1a4e8e', color: '#fff' } }}><ZoomInIcon fontSize="small" /></IconButton></Tooltip>

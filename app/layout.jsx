@@ -3,8 +3,8 @@ import { SettingsProvider } from '../contexts/SettingsContext'
 import LayoutWrapper from './LayoutWrapper'
 
 export const metadata = {
-    title: 'Majha Umred - National E-Governance Platform',
-    description: 'Ward-wise performance dashboard for Umred',
+    title: 'Majha Nagpur - National E-Governance Platform',
+    description: 'Ward-wise performance dashboard for Nagpur',
 }
 
 export default function RootLayout({ children }) {

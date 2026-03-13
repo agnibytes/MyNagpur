@@ -24,7 +24,7 @@ import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
 const mockTaxData = {
     propertyTax: {
         propertyId: 'PROP/UMR/2024/00142',
-        address: 'Ward 4, Near Bus Stand, Umred',
+        address: 'Ward 4, Near Bus Stand, Nagpur',
         propertyType: 'Residential',
         area: '1200 sq.ft',
         assessedValue: 850000,
@@ -59,7 +59,7 @@ const mockTaxData = {
     },
     tradeLicense: {
         licenseNo: 'TL/UMR/2024/00056',
-        businessName: 'Umred General Store',
+        businessName: 'Nagpur General Store',
         category: 'Retail - Grocery',
         address: 'Shop No. 12, Main Bazaar, Ward 3',
         validFrom: '01 Apr 2025',

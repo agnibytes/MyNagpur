@@ -129,10 +129,10 @@ export default function Home() {
                                 </Box>
 
                                 <Typography variant="h2" sx={{ fontWeight: 'bold', mb: 1, fontSize: { xs: '2rem', md: '3.5rem' }, fontFamily: 'Merriweather, serif', textShadow: '2px 2px 4px rgba(0,0,0,0.3)' }}>
-                                    माझा उमरेड
+                                    माझा नागपूर
                                 </Typography>
                                 <Typography variant="h4" sx={{ fontWeight: 'bold', mb: 2, fontSize: { xs: '1.2rem', md: '1.8rem' }, color: '#fff' }}>
-                                    Umred Nagar Parishad
+                                    Nagpur Municipal Corporation
                                 </Typography>
 
                                 <Box sx={{ bgcolor: 'rgba(255,255,255,0.1)', p: 2, borderRadius: 1, borderLeft: '4px solid #FF9933', mb: 3 }}>
@@ -239,7 +239,7 @@ export default function Home() {
             <Box sx={{ bgcolor: '#2e2e2e', color: '#fff', py: 0.5, overflow: 'hidden', whiteSpace: 'nowrap', borderBottom: '2px solid #FF9933' }}>
                 <Box sx={{ display: 'inline-flex', alignItems: 'center', animation: 'marquee 30s linear infinite', paddingLeft: '100%' }}>
                     <CampaignIcon fontSize="small" sx={{ mr: 1, color: '#FF9933' }} />
-                    <Typography variant="body2" sx={{ mr: 4 }}>Welcome to Majha Umred E-Governance Portal</Typography>
+                    <Typography variant="body2" sx={{ mr: 4 }}>Welcome to Majha Nagpur E-Governance Portal</Typography>
 
                     <WaterDropIcon fontSize="small" sx={{ mr: 1, color: '#4fc3f7' }} />
                     <Typography variant="body2" sx={{ mr: 4 }}>Ward No. 4 Water Supply maintenance on 16th Jan</Typography>
@@ -276,11 +276,11 @@ export default function Home() {
                                 <Box sx={{ p: 3 }}>
                                     <Box sx={{ bgcolor: '#fff8e1', p: 2, borderLeft: '4px solid #FF9933', mb: 2 }}>
                                         <Typography variant="body1" sx={{ fontStyle: 'italic', fontWeight: 600, color: '#333' }}>
-                                            "स्वच्छ, सक्षम आणि नागरिक-केंद्रित उमरेड"
+                                            "स्वच्छ, सक्षम आणि नागरिक-केंद्रित नागपूर"
                                         </Typography>
                                     </Box>
                                     <Typography variant="body2" sx={{ lineHeight: 1.8, color: '#555' }}>
-                                        To transform Umred into a <strong>model township</strong> that exemplifies sustainable urban development,
+                                        To transform Nagpur into a <strong>model township</strong> that exemplifies sustainable urban development,
                                         digital governance, and citizen empowerment with 100% digital service delivery by 2030.
                                     </Typography>
                                     <Box sx={{ mt: 2 }}>
@@ -311,7 +311,7 @@ export default function Home() {
                                         {[
                                             'Efficient and transparent civic services',
                                             'Clean drinking water to every household',
-                                            'Hygienic sanitation across all 13 wards',
+                                            'Hygienic sanitation across all 136 wards',
                                             'Digital literacy and e-governance promotion',
                                         ].map((item, i) => (
                                             <ListItem key={i} sx={{ px: 0, py: 0.3 }}>
@@ -527,7 +527,7 @@ export default function Home() {
                                         </Box>
 
                                         <Typography variant="h6" sx={{ fontWeight: 'bold', color: '#000080' }}>
-                                            नगराध्यक्ष - उमरेड नगरपरिषद
+                                            नगराध्यक्ष - नागपूर महानगरपालिका
                                         </Typography>
 
                                         <Typography variant="subtitle1" sx={{ fontWeight: 'bold', color: '#FF9933', mb: 1 }}>
@@ -535,7 +535,7 @@ export default function Home() {
                                         </Typography>
 
                                         <Typography variant="body2" sx={{ fontStyle: 'italic', mb: 2, color: '#555' }}>
-                                            "उमरेडच्या प्रगतीसाठी कटिबद्ध !"
+                                            "नागपूरच्या प्रगतीसाठी कटिबद्ध !"
                                         </Typography>
 
                                         <Divider sx={{ my: 1 }} />

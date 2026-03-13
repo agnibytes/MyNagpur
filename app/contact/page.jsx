@@ -36,7 +36,7 @@ export default function ContactPage() {
             icon: <LocationOnIcon sx={{ fontSize: 40, color: '#FF9933' }} />,
             title: 'Office Address',
             titleHi: 'कार्यालय पत्ता',
-            content: 'Umred Nagar Parishad Office,\nMain Road, Umred - 441203\nDistrict Nagpur, Maharashtra'
+            content: 'Nagpur Municipal Corporation Office,\nMain Road, Nagpur - 441203\nDistrict Nagpur, Maharashtra'
         },
         {
             icon: <PhoneIcon sx={{ fontSize: 40, color: '#138808' }} />,
@@ -48,7 +48,7 @@ export default function ContactPage() {
             icon: <EmailIcon sx={{ fontSize: 40, color: '#1a4e8e' }} />,
             title: 'Email Address',
             titleHi: 'ईमेल पत्ता',
-            content: 'contact@umrednp.gov.in\nhelpdesk@umrednp.gov.in\ngrievance@umrednp.gov.in'
+            content: 'contact@nagpurnp.gov.in\nhelpdesk@nagpurnp.gov.in\ngrievance@nagpurnp.gov.in'
         },
         {
             icon: <AccessTimeIcon sx={{ fontSize: 40, color: '#b71c1c' }} />,
@@ -70,7 +70,7 @@ export default function ContactPage() {
         { text: 'Track Application', href: '/dashboard' },
         { text: 'Download Forms', href: '/under-construction' },
         { text: 'RTI Information', href: '/under-construction' },
-        { text: 'About Umred NP', href: '/about' },
+        { text: 'About Nagpur NP', href: '/about' },
     ];
 
     return (
@@ -121,7 +121,7 @@ export default function ContactPage() {
                                 <Box sx={{ bgcolor: 'rgba(255,255,255,0.3)', p: 2, borderRadius: 1, borderLeft: '4px solid #1a4e8e', maxWidth: 700 }}>
                                     <Typography variant="body1" sx={{ lineHeight: 1.8 }}>
                                         We are here to help you. Reach out to us for any queries, grievances, or feedback.
-                                        Our team is committed to serving the citizens of Umred.
+                                        Our team is committed to serving the citizens of Nagpur.
                                     </Typography>
                                 </Box>
 
@@ -288,7 +288,7 @@ export default function ContactPage() {
                             </Box>
                             <Box sx={{ position: 'relative', height: 300 }}>
                                 <iframe
-                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29723.69097394957!2d79.31!3d20.85!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a2b0bba3f3b9c9d%3A0x5f4e9e9e9e9e9e9e!2sUmred%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1234567890"
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29723.69097394957!2d79.31!3d20.85!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a2b0bba3f3b9c9d%3A0x5f4e9e9e9e9e9e9e!2sNagpur%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1234567890"
                                     width="100%"
                                     height="300"
                                     style={{ border: 0 }}
@@ -312,10 +312,10 @@ export default function ContactPage() {
                                 }}>
                                     <LocationOnIcon sx={{ fontSize: 60, color: '#1a4e8e', mb: 2 }} />
                                     <Typography variant="h6" sx={{ color: '#1a4e8e', fontWeight: 'bold' }}>
-                                        Umred Nagar Parishad
+                                        Nagpur Municipal Corporation
                                     </Typography>
                                     <Typography variant="body2" sx={{ color: '#666' }}>
-                                        Umred, District Nagpur, Maharashtra 441203
+                                        Nagpur, District Nagpur, Maharashtra 441203
                                     </Typography>
                                 </Box>
                             </Box>

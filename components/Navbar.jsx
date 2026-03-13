@@ -250,10 +250,10 @@ export default function Navbar() {
                         </Box>
                         <Box sx={{ display: 'flex', flexDirection: 'column' }}>
                             <Typography variant="h5" sx={{ fontWeight: 700, color: '#000', lineHeight: 1.1, fontSize: { xs: '1.4rem', md: '1.8rem' } }}>
-                                माझा उमरेड
+                                माझा नागपूर
                             </Typography>
                             <Typography variant="h6" sx={{ fontWeight: 600, color: '#1a4e8e', lineHeight: 1.1, textTransform: 'uppercase', fontSize: { xs: '1rem', md: '1.2rem' } }}>
-                                Majha Umred
+                                Majha Nagpur
                             </Typography>
                             <Typography variant="body2" sx={{ color: '#555', fontWeight: 500, fontSize: '0.85rem' }}>
                                 Government of Maharashtra
@@ -286,7 +286,7 @@ export default function Navbar() {
                         {/* Vertical Divider */}
                         <Box sx={{ height: '30px', width: '1px', bgcolor: '#e0e0e0' }} />
 
-                        {/* logo of umred nagar parishad */}
+                        {/* logo of nagpur nagar parishad */}
                         <Box sx={{
                             height: '78px',
                             display: 'flex',
@@ -295,7 +295,7 @@ export default function Navbar() {
                             '&:hover': { transform: 'scale(1.05)' }
                         }}>
                             <img
-                                src="/images/logo/umrednagarparishd.png"
+                                src="/images/logo/nagpurnagarparishd.png"
                                 alt="G20 India 2023"
                                 style={{ height: '100%', width: 'auto', objectFit: 'contain' }}
                             />

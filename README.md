@@ -1,4 +1,4 @@
-# 📊 Majha Umred
+# 📊 Majha Nagpur
 ### National-Scale E-Governance Initiative for Urban India
 
 [![License](https://img.shields.io/badge/License-View-blue.svg)](LICENSE)
@@ -26,7 +26,7 @@ http://localhost:3001/admin-dashboard
 
 ## 📌 Overview
 
-The **Majha Umred** is an official government-backed digital governance platform that provides a real-time, ward-wise performance dashboard of all civic services across Indian cities.
+The **Majha Nagpur** is an official government-backed digital governance platform that provides a real-time, ward-wise performance dashboard of all civic services across Indian cities.
 
 ### Key Highlights
 - ✅ **Real-time monitoring** of civic services at ward level
@@ -389,10 +389,10 @@ For partnership, pilot programs, or deployment inquiries, please create a detail
 
 These dashboards are for **internal use only** and are not linked from the main website navigation.
 
-### Umred Government Dashboard
-**URL**: `/umred-gov-dashboard`
+### Nagpur Government Dashboard
+**URL**: `/nagpur-gov-dashboard`
 
-A comprehensive dashboard for Umred Nagar Parishad officials featuring:
+A comprehensive dashboard for Nagpur Municipal Corporation officials featuring:
 - 📊 Ward-wise performance overview with scores for all 13 wards
 - 📈 Real-time statistics (citizens, complaints, revenue)
 - 🚨 Complaint management panel with priority tracking

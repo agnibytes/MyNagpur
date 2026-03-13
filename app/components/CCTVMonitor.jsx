@@ -12,7 +12,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
 
-// Mock CCTV camera data for Umred
+// Mock CCTV camera data for Nagpur
 const cctvCameras = [
     { id: 1, name: 'Main Chowk', location: 'Ward 6 - Central Market', status: 'online', ward: 6 },
     { id: 2, name: 'Bus Stand', location: 'Ward 6 - Bus Terminal', status: 'online', ward: 6 },

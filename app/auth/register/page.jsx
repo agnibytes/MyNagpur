@@ -159,7 +159,7 @@ export default function RegisterPage() {
                                 </Typography>
 
                                 <Typography variant="body1" sx={{ mb: 4, lineHeight: 1.8, opacity: 0.9 }}>
-                                    Register to access all e-Governance services of Umred Nagar Parishad.
+                                    Register to access all e-Governance services of Nagpur Municipal Corporation.
                                     Once registered, you can file complaints, pay taxes, and track applications online.
                                 </Typography>
 
@@ -469,7 +469,7 @@ export default function RegisterPage() {
             <Box sx={{ bgcolor: '#138808', py: 1.5 }}>
                 <Container maxWidth="lg">
                     <Typography variant="body2" sx={{ color: '#fff', textAlign: 'center' }}>
-                        Government of Maharashtra | महाराष्ट्र शासन | © {new Date().getFullYear()} Umred Nagar Parishad
+                        Government of Maharashtra | महाराष्ट्र शासन | © {new Date().getFullYear()} Nagpur Municipal Corporation
                     </Typography>
                 </Container>
             </Box>

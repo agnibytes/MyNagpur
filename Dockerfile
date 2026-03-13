@@ -1,5 +1,5 @@
 # ================================
-# Majha Umred - Production Dockerfile
+# Majha Nagpur - Production Dockerfile
 # Multi-stage build for optimized image
 # ================================
 

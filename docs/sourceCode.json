@@ -1,9 +1,9 @@
 {
     "project": {
-        "name": "Majha Umred - AI-Driven Smart City",
+        "name": "Majha Nagpur - AI-Driven Smart City",
         "version": "2.0.0",
         "codename": "UMRED-NEXUS",
-        "description": "National-Scale AI-Powered E-Governance & Smart City Initiative - Complete digital transformation of Umred Nagar Parishad with autonomous systems, predictive analytics, and centralized intelligent management for District Nagpur, Maharashtra",
+        "description": "National-Scale AI-Powered E-Governance & Smart City Initiative - Complete digital transformation of Nagpur Municipal Corporation with autonomous systems, predictive analytics, and centralized intelligent management for District Nagpur, Maharashtra",
         "author": "Pusparaj99op",
         "repository": "https://github.com/Pusparaj99op/Goverment_Project--Live_Civil_Report.git",
         "license": "SEE LICENSE IN LICENSE",
@@ -15,7 +15,7 @@
         ]
     },
     "smartCityVision": {
-        "mission": "Transform Umred into India's first fully AI-integrated Tier-3 Smart City with autonomous governance, predictive civic management, and sustainable urban development",
+        "mission": "Transform Nagpur into India's first fully AI-integrated Tier-3 Smart City with autonomous governance, predictive civic management, and sustainable urban development",
         "pillars": [
             "AI-First Governance",
             "Zero-Touch Service Delivery",
@@ -309,7 +309,7 @@
                         "Automated payment"
                     ],
                     "sensors": "Ultrasonic + Camera hybrid",
-                    "app": "Integrated in Umred Citizen App"
+                    "app": "Integrated in Nagpur Citizen App"
                 }
             },
             "dashboardMetrics": {
@@ -345,7 +345,7 @@
         },
         "c-v2xNetwork": {
             "description": "Cellular Vehicle-to-Everything communication network",
-            "coverage": "100% of Umred urban area",
+            "coverage": "100% of Nagpur urban area",
             "technology": "5G NR C-V2X (Rel-16)",
             "useCases": [
                 "Vehicle-to-Vehicle (V2V) collision avoidance",
@@ -656,7 +656,7 @@
         "description": "Unified AI-powered city operations center for real-time monitoring and autonomous management",
         "infrastructure": {
             "physicalCenter": {
-                "location": "Umred Nagar Parishad HQ",
+                "location": "Nagpur Municipal Corporation HQ",
                 "size": "5000 sq ft",
                 "features": [
                     "Video wall (4x6 matrix, 4K per screen)",
@@ -747,7 +747,7 @@
         "serviceDeliveryPlatform": {
             "omniChannelAccess": {
                 "channels": [
-                    "Web portal (majhaumred.gov.in)",
+                    "Web portal (majhanagpur.gov.in)",
                     "Mobile app (iOS + Android)",
                     "WhatsApp bot",
                     "Telegram bot",
@@ -946,7 +946,7 @@
             },
             "onPremise": {
                 "purpose": "Sensitive data + Edge processing",
-                "location": "Umred Nagar Parishad Data Center",
+                "location": "Nagpur Municipal Corporation Data Center",
                 "specs": {
                     "servers": "10x Dell PowerEdge R750",
                     "storage": "500TB NetApp AFF",
@@ -1278,7 +1278,7 @@
                     "path": "server/config/db.js",
                     "lines": 15,
                     "exports": "connectDB",
-                    "description": "MongoDB connection using Mongoose, connects to localhost:27017/maja_umred_db by default",
+                    "description": "MongoDB connection using Mongoose, connects to localhost:27017/maja_nagpur_db by default",
                     "dependencies": [
                         "mongoose"
                     ]
@@ -1342,7 +1342,7 @@
                     "path": "app/about/page.jsx",
                     "route": "/about",
                     "lines": 426,
-                    "description": "About Umred Nagar Parishad with history, vision, and milestones"
+                    "description": "About Nagpur Municipal Corporation with history, vision, and milestones"
                 },
                 {
                     "path": "app/contact/page.jsx",
@@ -1364,8 +1364,8 @@
                     "requiresAuth": true
                 },
                 {
-                    "path": "app/umred-gov-dashboard/page.jsx",
-                    "route": "/umred-gov-dashboard",
+                    "path": "app/nagpur-gov-dashboard/page.jsx",
+                    "route": "/nagpur-gov-dashboard",
                     "lines": 388,
                     "description": "Government officials dashboard with ward-wise performance"
                 },
@@ -1500,9 +1500,9 @@
         ],
         "internal": [
             {
-                "path": "/umred-gov-dashboard",
+                "path": "/nagpur-gov-dashboard",
                 "name": "Government Dashboard",
-                "component": "app/umred-gov-dashboard/page.jsx"
+                "component": "app/nagpur-gov-dashboard/page.jsx"
             },
             {
                 "path": "/admin-dashboard",

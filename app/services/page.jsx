@@ -183,7 +183,7 @@ export default function ServicesPage() {
                                 <Box sx={{ bgcolor: 'rgba(255,255,255,0.1)', p: 2, borderRadius: 1, borderLeft: '4px solid #FF9933', maxWidth: 700 }}>
                                     <Typography variant="body1" sx={{ lineHeight: 1.8 }}>
                                         Access all municipal services online. From filing grievances to paying taxes,
-                                        all services are available 24x7 for citizens of Umred.
+                                        all services are available 24x7 for citizens of Nagpur.
                                     </Typography>
                                 </Box>
 
@@ -359,7 +359,7 @@ export default function ServicesPage() {
                             <Grid item xs={12} md={4}>
                                 <Box sx={{ textAlign: 'center', p: 2, bgcolor: '#fff8e1', borderRadius: 1 }}>
                                     <Typography variant="body1" sx={{ fontWeight: 'bold', color: '#e65100', mb: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 0.5 }}><EmailIcon fontSize="small" /> Email Support</Typography>
-                                    <Typography variant="h6" sx={{ color: '#000080' }}>helpdesk@umrednp.gov.in</Typography>
+                                    <Typography variant="h6" sx={{ color: '#000080' }}>helpdesk@nagpurnp.gov.in</Typography>
                                     <Typography variant="caption" sx={{ color: '#666' }}>Response within 24 hours</Typography>
                                 </Box>
                             </Grid>

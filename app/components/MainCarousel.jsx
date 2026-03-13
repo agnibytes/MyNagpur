@@ -7,9 +7,9 @@ import CircleIcon from '@mui/icons-material/Circle';
 
 const slides = [
     {
-        image: '/images/karandla.png',
-        title: 'Umred Karhandla Wildlife Sanctuary',
-        subtitle: 'Experience the beauty of nature right at your doorstep.'
+        image: '/images/nagpur_hero.png',
+        title: 'Nagpur: The Tiger Capital of India',
+        subtitle: 'Experience the heartbeat of Maharashtra in the heart of the country.'
     },
     {
         image: '/images/arts/Gemini_Generated_Image_25rzf925rzf925rz.png',

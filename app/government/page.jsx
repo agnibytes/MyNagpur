@@ -30,8 +30,8 @@ export default function GovernmentLoginPage() {
 
         // Check credentials against env values (in production, this would be server-side)
         const validCredentials = [
-            { email: 'govtadmin@umrednp.gov.in', password: 'Gov@Umred2026!' },
-            { email: 'superadmin@umrednp.gov.in', password: 'Super@Admin2026!' }
+            { email: 'govtadmin@nagpurnp.gov.in', password: 'Gov@Nagpur2026!' },
+            { email: 'superadmin@nagpurnp.gov.in', password: 'Super@Admin2026!' }
         ];
 
         const isValid = validCredentials.some(
@@ -113,7 +113,7 @@ export default function GovernmentLoginPage() {
                                 Government Portal Login
                             </Typography>
                             <Typography variant="body2" sx={{ color: '#333' }}>
-                                सरकारी पोर्टल लॉगिन | Umred Nagar Parishad
+                                सरकारी पोर्टल लॉगिन | Nagpur Municipal Corporation
                             </Typography>
                         </Box>
 
@@ -138,7 +138,7 @@ export default function GovernmentLoginPage() {
                                     type="email"
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
-                                    placeholder="example@umrednp.gov.in"
+                                    placeholder="example@nagpurnp.gov.in"
                                     sx={{ mb: 2 }}
                                     InputProps={{
                                         startAdornment: (
@@ -196,7 +196,7 @@ export default function GovernmentLoginPage() {
                             <Box sx={{ textAlign: 'center' }}>
                                 <Typography variant="caption" sx={{ color: '#666' }}>
                                     Forgot password? Contact IT Department<br />
-                                    📞 07116-222XXX | 📧 it@umrednp.gov.in
+                                    📞 07116-222XXX | 📧 it@nagpurnp.gov.in
                                 </Typography>
                             </Box>
                         </Box>
@@ -204,7 +204,7 @@ export default function GovernmentLoginPage() {
                         {/* Footer */}
                         <Box sx={{ bgcolor: '#1a4e8e', p: 2, textAlign: 'center' }}>
                             <Typography variant="caption" sx={{ color: '#fff' }}>
-                                © 2026 Umred Nagar Parishad | Government of Maharashtra
+                                © 2026 Nagpur Municipal Corporation | Government of Maharashtra
                             </Typography>
                         </Box>
                     </Paper>

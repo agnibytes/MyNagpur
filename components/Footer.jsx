@@ -15,7 +15,7 @@ export default function Footer() {
                             Information
                         </Typography>
                         <Box display="flex" flexDirection="column" gap={1}>
-                            <Link href="#" color="inherit" underline="hover">About Majha Umred</Link>
+                            <Link href="#" color="inherit" underline="hover">About Majha Nagpur</Link>
                             <Link href="#" color="inherit" underline="hover">Ward Statistics</Link>
                             <Link href="#" color="inherit" underline="hover">Performance Reports</Link>
                             <Link href="#" color="inherit" underline="hover">Citizens Charter</Link>
@@ -48,13 +48,13 @@ export default function Footer() {
                             Contact Us
                         </Typography>
                         <Typography variant="body2" paragraph>
-                            Umred Municipal Council,<br />
-                            Umred, Dist. Nagpur - 441203,<br />
+                            Nagpur Municipal Corporation,<br />
+                            Nagpur, Dist. Nagpur - 441203,<br />
                             Maharashtra, India.
                         </Typography>
                         <Typography variant="body2">
                             Toll Free: 1800-XXX-XXXX<br />
-                            Email: contact@majaumred.gov.in
+                            Email: contact@majanagpur.gov.in
                         </Typography>
                     </Grid>
                 </Grid>
@@ -119,7 +119,7 @@ export default function Footer() {
             <Box sx={{ bgcolor: '#000', py: 3, textAlign: 'center', borderTop: '1px solid #333' }}>
                 <Container maxWidth="lg">
                     <Typography variant="body2" sx={{ mb: 1 }}>
-                        Website Content Managed by <strong>Majha Umred Administration</strong>.
+                        Website Content Managed by <strong>Majha Nagpur Administration</strong>.
                     </Typography>
                     <Typography variant="caption" display="block" color="grey.500">
                         Designed, Developed and Hosted by <span style={{ color: '#fff' }}>National Informatics Centre (NIC)</span>. <br />

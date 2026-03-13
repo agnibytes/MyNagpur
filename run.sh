@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "🚀 Starting Majha Umred Government Portal..."
+echo "🚀 Starting Majha Nagpur Government Portal..."
 echo "================================================"
 
 # Check if MongoDB is running

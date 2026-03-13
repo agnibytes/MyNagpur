@@ -100,7 +100,7 @@ export default function DownloadReceiptPage() {
                         </Paper>
                         <Paper sx={{ overflow: 'hidden', borderRadius: 0, boxShadow: 3 }}>
                             <Box sx={{ bgcolor: '#1a4e8e', p: 2, color: '#fff' }}><Typography variant="h6" sx={{ fontWeight: 'bold' }}>📞 Support</Typography></Box>
-                            <Box sx={{ p: 2 }}><Typography variant="body2" sx={{ mb: 1 }}><strong>Helpline:</strong> 1800-XXX-XXXX</Typography><Typography variant="body2"><strong>Email:</strong> receipts@umrednp.gov.in</Typography></Box>
+                            <Box sx={{ p: 2 }}><Typography variant="body2" sx={{ mb: 1 }}><strong>Helpline:</strong> 1800-XXX-XXXX</Typography><Typography variant="body2"><strong>Email:</strong> receipts@nagpurnp.gov.in</Typography></Box>
                         </Paper>
                     </Grid>
                 </Grid>

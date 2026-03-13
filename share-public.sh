@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "🌐 Creating Public Link for Majha Umred Portal"
+echo "🌐 Creating Public Link for Majha Nagpur Portal"
 echo "=============================================="
 echo ""
 

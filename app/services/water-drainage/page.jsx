@@ -140,7 +140,7 @@ export default function WaterDrainagePage() {
                         <WaterDropIcon sx={{ fontSize: 40 }} />
                         <Box>
                             <Typography variant="h4" sx={{ fontWeight: 'bold' }}>Water & Drainage Services</Typography>
-                            <Typography variant="body2" sx={{ opacity: 0.8 }}>पाणी व निचरा सेवा | Umred Nagar Parishad</Typography>
+                            <Typography variant="body2" sx={{ opacity: 0.8 }}>पाणी व निचरा सेवा | Nagpur Municipal Corporation</Typography>
                         </Box>
                     </Box>
                 </Container>

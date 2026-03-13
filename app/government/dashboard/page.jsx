@@ -24,7 +24,7 @@ import SettingsIcon from '@mui/icons-material/Settings';
 
 // Dynamic imports for client-side only components
 const CCTVMonitor = dynamic(() => import('../../components/CCTVMonitor'), { ssr: false });
-const UmredInfrastructureMap = dynamic(() => import('../../components/UmredInfrastructureMap'), { ssr: false });
+const NagpurInfrastructureMap = dynamic(() => import('../../components/NagpurInfrastructureMap'), { ssr: false });
 
 export default function GovernmentDashboard() {
     const [user, setUser] = useState(null);
@@ -65,7 +65,7 @@ export default function GovernmentDashboard() {
     // Updated quick actions with government-specific links
     const quickActions = [
         { label: 'View All Complaints', href: '/government/complaints', color: '#f57c00', icon: <ReportProblemIcon /> },
-        { label: 'Ward Performance', href: '/umred-gov-dashboard', color: '#1565c0', icon: <DashboardIcon /> },
+        { label: 'Ward Performance', href: '/nagpur-gov-dashboard', color: '#1565c0', icon: <DashboardIcon /> },
         { label: 'Citizen Database', href: '/government/citizens', color: '#388e3c', icon: <PersonSearchIcon /> },
         { label: 'Reports & Analytics', href: '/government/reports', color: '#7b1fa2', icon: <AnalyticsIcon /> },
     ];
@@ -94,7 +94,7 @@ export default function GovernmentDashboard() {
                             <AccountBalanceIcon sx={{ fontSize: 40 }} />
                             <Box>
                                 <Typography variant="h5" sx={{ fontWeight: 'bold' }}>Government Portal</Typography>
-                                <Typography variant="caption" sx={{ opacity: 0.8 }}>Umred Nagar Parishad</Typography>
+                                <Typography variant="caption" sx={{ opacity: 0.8 }}>Nagpur Municipal Corporation</Typography>
                             </Box>
                         </Box>
                         <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
@@ -253,7 +253,7 @@ export default function GovernmentDashboard() {
                         )}
                         {activeTab === 1 && (
                             <Box id="map">
-                                <UmredInfrastructureMap />
+                                <NagpurInfrastructureMap />
                             </Box>
                         )}
                     </Box>
@@ -288,7 +288,7 @@ export default function GovernmentDashboard() {
             {/* Footer */}
             <Box sx={{ bgcolor: '#1a4e8e', color: '#fff', py: 2, textAlign: 'center' }}>
                 <Typography variant="body2">
-                    © 2026 Umred Nagar Parishad | Government Dashboard | For Official Use Only
+                    © 2026 Nagpur Municipal Corporation | Government Dashboard | For Official Use Only
                 </Typography>
             </Box>
         </Box>

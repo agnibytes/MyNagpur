@@ -268,7 +268,7 @@ export default function UnderConstruction() {
                                         <PhoneIcon fontSize="small" /> <strong>Toll Free:</strong> 1800-XXX-XXXX
                                     </Typography>
                                     <Typography variant="body2" sx={{ mb: 1, display: 'flex', alignItems: 'center', gap: 0.5 }}>
-                                        <EmailIcon fontSize="small" /> <strong>Email:</strong> helpdesk@umrednp.gov.in
+                                        <EmailIcon fontSize="small" /> <strong>Email:</strong> helpdesk@nagpurnp.gov.in
                                     </Typography>
                                     <Typography variant="body2" sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
                                         <ScheduleIcon fontSize="small" /> <strong>Hours:</strong> Mon-Sat, 10AM - 5PM
@@ -284,7 +284,7 @@ export default function UnderConstruction() {
             <Box sx={{ bgcolor: '#1a4e8e', py: 1.5 }}>
                 <Container maxWidth="lg">
                     <Typography variant="body2" sx={{ color: '#fff', textAlign: 'center' }}>
-                        © {new Date().getFullYear()} Umred Nagar Parishad | उमरेड नगरपरिषद | All Rights Reserved
+                        © {new Date().getFullYear()} Nagpur Municipal Corporation | उमरेड नगरपरिषद | All Rights Reserved
                     </Typography>
                 </Container>
             </Box>

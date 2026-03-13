@@ -37,7 +37,7 @@ export default function WaterBillPage() {
     const sampleBillData = {
         consumerId: 'WTR/UMR/2024/001',
         consumerName: '',
-        address: 'Ward 4, Umred',
+        address: 'Ward 4, Nagpur',
         connectionType: 'Domestic',
         meterNo: 'MTR-45678',
         billMonth: 'January 2026',
@@ -338,7 +338,7 @@ export default function WaterBillPage() {
                                     <strong>Emergency:</strong> 1800-XXX-XXXX
                                 </Typography>
                                 <Typography variant="body2" sx={{ mb: 1 }}>
-                                    <strong>Complaints:</strong> water@umrednp.gov.in
+                                    <strong>Complaints:</strong> water@nagpurnp.gov.in
                                 </Typography>
                                 <Typography variant="body2">
                                     <strong>Office:</strong> Mon-Sat, 10AM-5PM

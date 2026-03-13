@@ -17,43 +17,34 @@ import ElectricBoltIcon from '@mui/icons-material/ElectricBolt';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import LayersIcon from '@mui/icons-material/Layers';
 
-// Umred center coordinates
-const UMRED_CENTER = [20.8490, 79.3296];
+// Nagpur center coordinates
+const NAGPUR_CENTER = [21.1458, 79.0882];
 
-// Infrastructure data for Umred
+// Infrastructure data for Nagpur
 const infrastructureData = {
     // Important locations/landmarks
     locations: [
-        { id: 1, name: 'Nagar Parishad Office', type: 'government', lat: 20.8495, lng: 79.3290, ward: 10 },
-        { id: 2, name: 'Civil Hospital', type: 'hospital', lat: 20.8510, lng: 79.3310, ward: 6 },
-        { id: 3, name: 'Railway Station', type: 'transport', lat: 20.8420, lng: 79.3350, ward: 13 },
-        { id: 4, name: 'Bus Stand', type: 'transport', lat: 20.8480, lng: 79.3280, ward: 6 },
-        { id: 5, name: 'High School', type: 'education', lat: 20.8530, lng: 79.3250, ward: 3 },
-        { id: 6, name: 'Central Market', type: 'commercial', lat: 20.8485, lng: 79.3305, ward: 6 },
-        { id: 7, name: 'Water Treatment Plant', type: 'utility', lat: 20.8400, lng: 79.3400, ward: 13 },
-        { id: 8, name: 'Police Station', type: 'government', lat: 20.8500, lng: 79.3260, ward: 7 },
+        { id: 1, name: 'Nagpur Municipal Corporation', type: 'government', lat: 21.1575, lng: 79.0821, ward: 1 },
+        { id: 2, name: 'GMC Hospital', type: 'hospital', lat: 21.1390, lng: 79.0960, ward: 25 },
+        { id: 3, name: 'Nagpur Railway Station', type: 'transport', lat: 21.1524, lng: 79.0881, ward: 10 },
+        { id: 4, name: 'Sitabuldi Interchange', type: 'transport', lat: 21.1470, lng: 79.0815, ward: 5 },
+        { id: 5, name: 'Laxminarayan Institute', type: 'education', lat: 21.1350, lng: 79.0650, ward: 42 },
+        { id: 6, name: 'Dharampeth Market', type: 'commercial', lat: 21.1420, lng: 79.0680, ward: 8 },
+        { id: 7, name: 'Ambazari Water Works', type: 'utility', lat: 21.1300, lng: 79.0450, ward: 55 },
+        { id: 8, name: 'Zero Mile Stone', type: 'government', lat: 21.1480, lng: 79.0805, ward: 1 },
     ],
 
     // Street light locations
     streetLights: [
-        { id: 1, lat: 20.8495, lng: 79.3285, status: 'active', ward: 10 },
-        { id: 2, lat: 20.8490, lng: 79.3295, status: 'active', ward: 6 },
-        { id: 3, lat: 20.8485, lng: 79.3305, status: 'inactive', ward: 6 },
-        { id: 4, lat: 20.8480, lng: 79.3315, status: 'active', ward: 6 },
-        { id: 5, lat: 20.8475, lng: 79.3325, status: 'active', ward: 6 },
-        { id: 6, lat: 20.8510, lng: 79.3280, status: 'active', ward: 7 },
-        { id: 7, lat: 20.8520, lng: 79.3270, status: 'maintenance', ward: 3 },
-        { id: 8, lat: 20.8505, lng: 79.3300, status: 'active', ward: 6 },
-        { id: 9, lat: 20.8460, lng: 79.3340, status: 'active', ward: 13 },
-        { id: 10, lat: 20.8440, lng: 79.3360, status: 'inactive', ward: 13 },
+        { id: 1, lat: 21.1458, lng: 79.0882, status: 'active', ward: 10 },
+        { id: 2, lat: 21.1470, lng: 79.0815, status: 'active', ward: 5 },
+        { id: 3, lat: 21.1524, lng: 79.0881, status: 'inactive', ward: 10 },
+        { id: 4, lat: 21.1575, lng: 79.0821, status: 'active', ward: 1 },
     ],
 
     // Water pipe network (line coordinates)
     waterPipes: [
-        { id: 1, coords: [[20.8400, 79.3400], [20.8450, 79.3380], [20.8500, 79.3350]], type: 'main', ward: '13-6' },
-        { id: 2, coords: [[20.8500, 79.3350], [20.8510, 79.3310], [20.8495, 79.3280]], type: 'main', ward: '6-10' },
-        { id: 3, coords: [[20.8495, 79.3280], [20.8520, 79.3260], [20.8540, 79.3240]], type: 'secondary', ward: '10-3' },
-        { id: 4, coords: [[20.8450, 79.3380], [20.8430, 79.3350], [20.8420, 79.3340]], type: 'secondary', ward: '13' },
+        { id: 1, coords: [[21.1300, 79.0450], [21.1400, 79.0600], [21.1458, 79.0882]], type: 'main', ward: '55-10' },
     ],
 
     // Electric lines network
@@ -83,7 +74,7 @@ const locationStyles = {
     utility: { color: '#0288d1', icon: '🏭' },
 };
 
-export default function UmredInfrastructureMap({ compact = false }) {
+export default function NagpurInfrastructureMap({ compact = false }) {
     const mapRef = useRef(null);
     const mapInstanceRef = useRef(null);
     const [mapReady, setMapReady] = useState(false);
@@ -110,7 +101,7 @@ export default function UmredInfrastructureMap({ compact = false }) {
 
             // Create map
             const map = L.map(mapRef.current, {
-                center: UMRED_CENTER,
+                center: NAGPUR_CENTER,
                 zoom: 15,
                 zoomControl: false,
             });
@@ -243,7 +234,7 @@ export default function UmredInfrastructureMap({ compact = false }) {
     const handleZoomIn = () => mapInstanceRef.current?.zoomIn();
     const handleZoomOut = () => mapInstanceRef.current?.zoomOut();
     const handleReset = () => {
-        mapInstanceRef.current?.setView(UMRED_CENTER, 15);
+        mapInstanceRef.current?.setView(NAGPUR_CENTER, 15);
     };
 
     const layerConfig = [
@@ -276,7 +267,7 @@ export default function UmredInfrastructureMap({ compact = false }) {
                 <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
                     <MapIcon sx={{ color: '#1a4e8e' }} />
                     <Typography variant="h6" sx={{ fontWeight: 'bold', color: '#1a4e8e' }}>
-                        Umred Infrastructure Map
+                        Nagpur Infrastructure Map
                     </Typography>
                 </Box>
                 <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>

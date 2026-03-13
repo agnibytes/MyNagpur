@@ -31,8 +31,8 @@ export default function AdminLoginPage() {
 
         // Check credentials against env values
         const validCredentials = [
-            { email: 'sysadmin@umrednp.gov.in', password: 'Admin@System2026!', role: 'system_admin' },
-            { email: 'superadmin@umrednp.gov.in', password: 'Super@Admin2026!', role: 'super_admin' }
+            { email: 'sysadmin@nagpurnp.gov.in', password: 'Admin@System2026!', role: 'system_admin' },
+            { email: 'superadmin@nagpurnp.gov.in', password: 'Super@Admin2026!', role: 'super_admin' }
         ];
 
         const validUser = validCredentials.find(
@@ -121,7 +121,7 @@ export default function AdminLoginPage() {
                                 Admin Panel Login
                             </Typography>
                             <Typography variant="body2" sx={{ color: '#888' }}>
-                                System Administration | Umred Nagar Parishad
+                                System Administration | Nagpur Municipal Corporation
                             </Typography>
                             <Chip
                                 label="SECURE"
@@ -153,7 +153,7 @@ export default function AdminLoginPage() {
                                     type="email"
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
-                                    placeholder="admin@umrednp.gov.in"
+                                    placeholder="admin@nagpurnp.gov.in"
                                     sx={{
                                         mb: 2,
                                         '& .MuiOutlinedInput-root': {

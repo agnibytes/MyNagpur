@@ -1,4 +1,4 @@
-# 🖥️ Majha Umred - Server Requirements & Configuration Guide
+# 🖥️ Majha Nagpur - Server Requirements & Configuration Guide
 
 > **Complete Documentation for Server Setup, AI Integration, and Cloud Deployment**
 
@@ -22,7 +22,7 @@
 
 ## Project Overview
 
-**Majha Umred** is a National-Scale E-Governance Initiative providing real-time, ward-wise performance dashboards for civic services. The platform serves citizens, administrators, and government officials with complaint management, service tracking, and AI-powered analytics.
+**Majha Nagpur** is a National-Scale E-Governance Initiative providing real-time, ward-wise performance dashboards for civic services. The platform serves citizens, administrators, and government officials with complaint management, service tracking, and AI-powered analytics.
 
 ### Key Components
 | Component | Technology | Purpose |
@@ -138,9 +138,9 @@ FRONTEND_URL=https://your-domain.com
 # ===========================
 # DATABASE CONFIG
 # ===========================
-MONGODB_URI=mongodb://localhost:27017/maja_umred_db
+MONGODB_URI=mongodb://localhost:27017/maja_nagpur_db
 # For Production (replica set):
-# MONGODB_URI=mongodb://user:password@host1:27017,host2:27017,host3:27017/maja_umred_db?replicaSet=rs0
+# MONGODB_URI=mongodb://user:password@host1:27017,host2:27017,host3:27017/maja_nagpur_db?replicaSet=rs0
 
 # ===========================
 # REDIS CONFIG
@@ -161,7 +161,7 @@ JWT_EXPIRE=30d
 AWS_ACCESS_KEY_ID=your-aws-access-key
 AWS_SECRET_ACCESS_KEY=your-aws-secret-key
 AWS_REGION=ap-south-1
-AWS_S3_BUCKET=majha-umred-assets
+AWS_S3_BUCKET=majha-nagpur-assets
 
 # ===========================
 # AZURE BLOB CONFIG (Alternative to S3)
@@ -334,7 +334,7 @@ npm install
 npm run build
 
 # 9. Start with PM2
-pm2 start npm --name "majha-umred" -- run start
+pm2 start npm --name "majha-nagpur" -- run start
 pm2 save
 pm2 startup
 ```
@@ -342,7 +342,7 @@ pm2 startup
 #### Nginx Configuration
 
 ```nginx
-# /etc/nginx/sites-available/majha-umred
+# /etc/nginx/sites-available/majha-nagpur
 server {
     listen 80;
     server_name your-domain.gov.in;
@@ -470,41 +470,41 @@ curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 az login
 
 # Create Resource Group
-az group create --name majha-umred-rg --location centralindia
+az group create --name majha-nagpur-rg --location centralindia
 
 # Create App Service Plan
 az appservice plan create \
-    --name majha-umred-plan \
-    --resource-group majha-umred-rg \
+    --name majha-nagpur-plan \
+    --resource-group majha-nagpur-rg \
     --sku P2V3 \
     --is-linux
 
 # Create Web App
 az webapp create \
-    --name majha-umred-web \
-    --resource-group majha-umred-rg \
-    --plan majha-umred-plan \
+    --name majha-nagpur-web \
+    --resource-group majha-nagpur-rg \
+    --plan majha-nagpur-plan \
     --runtime "NODE:18-lts"
 
 # Create Cosmos DB (MongoDB)
 az cosmosdb create \
-    --name majha-umred-db \
-    --resource-group majha-umred-rg \
+    --name majha-nagpur-db \
+    --resource-group majha-nagpur-rg \
     --kind MongoDB \
     --server-version 6.0
 
 # Create Redis Cache
 az redis create \
-    --name majha-umred-cache \
-    --resource-group majha-umred-rg \
+    --name majha-nagpur-cache \
+    --resource-group majha-nagpur-rg \
     --location centralindia \
     --sku Premium \
     --vm-size P1
 
 # Deploy from GitHub
 az webapp deployment source config \
-    --name majha-umred-web \
-    --resource-group majha-umred-rg \
+    --name majha-nagpur-web \
+    --resource-group majha-nagpur-rg \
     --repo-url https://github.com/Pusparaj99op/Goverment_Project--Live_Civil_Report.git \
     --branch main
 ```
@@ -615,12 +615,12 @@ provider "aws" {
 
 # ECS Cluster
 resource "aws_ecs_cluster" "main" {
-  name = "majha-umred-cluster"
+  name = "majha-nagpur-cluster"
 }
 
 # DocumentDB Cluster
 resource "aws_docdb_cluster" "main" {
-  cluster_identifier      = "majha-umred-db"
+  cluster_identifier      = "majha-nagpur-db"
   engine                 = "docdb"
   master_username        = var.db_username
   master_password        = var.db_password
@@ -631,7 +631,7 @@ resource "aws_docdb_cluster" "main" {
 
 # ElastiCache Redis
 resource "aws_elasticache_cluster" "main" {
-  cluster_id           = "majha-umred-cache"
+  cluster_id           = "majha-nagpur-cache"
   engine               = "redis"
   node_type            = "cache.r6g.large"
   num_cache_nodes      = 1
@@ -641,7 +641,7 @@ resource "aws_elasticache_cluster" "main" {
 
 # S3 Bucket
 resource "aws_s3_bucket" "assets" {
-  bucket = "majha-umred-assets"
+  bucket = "majha-nagpur-assets"
 }
 ```
 
@@ -652,22 +652,22 @@ resource "aws_s3_bucket" "assets" {
 aws configure
 
 # Create ECR Repository
-aws ecr create-repository --repository-name majha-umred-frontend
-aws ecr create-repository --repository-name majha-umred-backend
+aws ecr create-repository --repository-name majha-nagpur-frontend
+aws ecr create-repository --repository-name majha-nagpur-backend
 
 # Build and Push Docker Images
-docker build -t majha-umred-frontend -f Dockerfile.frontend .
-docker tag majha-umred-frontend:latest $AWS_ACCOUNT.dkr.ecr.ap-south-1.amazonaws.com/majha-umred-frontend:latest
-docker push $AWS_ACCOUNT.dkr.ecr.ap-south-1.amazonaws.com/majha-umred-frontend:latest
+docker build -t majha-nagpur-frontend -f Dockerfile.frontend .
+docker tag majha-nagpur-frontend:latest $AWS_ACCOUNT.dkr.ecr.ap-south-1.amazonaws.com/majha-nagpur-frontend:latest
+docker push $AWS_ACCOUNT.dkr.ecr.ap-south-1.amazonaws.com/majha-nagpur-frontend:latest
 
 # Create ECS Task Definition
 aws ecs register-task-definition --cli-input-json file://task-definition.json
 
 # Create ECS Service
 aws ecs create-service \
-    --cluster majha-umred-cluster \
-    --service-name majha-umred-service \
-    --task-definition majha-umred-task \
+    --cluster majha-nagpur-cluster \
+    --service-name majha-nagpur-service \
+    --task-definition majha-nagpur-task \
     --desired-count 2 \
     --launch-type FARGATE \
     --network-configuration "awsvpcConfiguration={subnets=[subnet-xxx],securityGroups=[sg-xxx],assignPublicIp=ENABLED}"
@@ -793,4 +793,4 @@ app.get('/ready', async (req, res) => {
 
 > **Document Version**: 1.0
 > **Created**: January 2026
-> **Author**: Majha Umred Development Team
+> **Author**: Majha Nagpur Development Team

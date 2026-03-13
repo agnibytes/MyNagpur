@@ -12,7 +12,7 @@ export const translations = {
         logout: 'Logout',
         search: 'Search...',
         government: 'Government of Maharashtra',
-        majhaUmred: 'Majha Umred',
+        majhaNagpur: 'Majha Nagpur',
         governmentOfMaharashtra: 'Government of Maharashtra',
     },
     hindi: {
@@ -28,7 +28,7 @@ export const translations = {
         logout: 'लॉगआउट',
         search: 'खोजें...',
         government: 'महाराष्ट्र सरकार',
-        majhaUmred: 'माझा उमरेड',
+        majhaNagpur: 'माझा उमरेड',
         governmentOfMaharashtra: 'महाराष्ट्र सरकार',
     },
     marathi: {
@@ -44,7 +44,7 @@ export const translations = {
         logout: 'लॉगआउट',
         search: 'शोधा...',
         government: 'महाराष्ट्र शासन',
-        majhaUmred: 'माझा उमरेड',
+        majhaNagpur: 'माझा उमरेड',
         governmentOfMaharashtra: 'महाराष्ट्र शासन',
     },
     varhadi: {
@@ -60,7 +60,7 @@ export const translations = {
         logout: 'लॉगआउट',
         search: 'शोधा...',
         government: 'महाराष्ट्र सरकार',
-        majhaUmred: 'माझा उमरेड',
+        majhaNagpur: 'माझा उमरेड',
         governmentOfMaharashtra: 'महाराष्ट्र सरकार',
     },
 };

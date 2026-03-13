@@ -8,12 +8,12 @@ const options = {
     definition: {
         openapi: '3.0.0',
         info: {
-            title: 'Majha Umred API',
+            title: 'Majha Nagpur API',
             version: '2.1.0',
             description: 'National-Scale E-Governance Platform for Urban India - API Documentation',
             contact: {
-                name: 'Majha Umred Support',
-                email: 'contact@umrednp.gov.in',
+                name: 'Majha Nagpur Support',
+                email: 'contact@nagpurnp.gov.in',
             },
             license: {
                 name: 'Government of Maharashtra',
@@ -25,7 +25,7 @@ const options = {
                 description: 'Development server',
             },
             {
-                url: 'https://api.majaumred.gov.in',
+                url: 'https://api.majanagpur.gov.in',
                 description: 'Production server',
             },
         ],

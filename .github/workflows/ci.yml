@@ -73,7 +73,7 @@ jobs:
         env:
           NODE_ENV: test
           JWT_SECRET: test_jwt_secret_for_ci_pipeline_1234567890
-          MONGODB_URI: mongodb://localhost:27017/maja_umred_test
+          MONGODB_URI: mongodb://localhost:27017/maja_nagpur_test
 
       - name: Upload coverage report
         uses: codecov/codecov-action@v3

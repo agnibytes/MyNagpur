@@ -38,7 +38,7 @@ export default function PropertyTaxPage() {
     const sampleTaxData = {
         propertyId: 'PROP/UMR/2024/001',
         ownerName: '',
-        address: 'Ward 4, Near Bus Stand, Umred',
+        address: 'Ward 4, Near Bus Stand, Nagpur',
         propertyType: 'Residential',
         area: '1200 sq.ft',
         assessmentYear: '2025-26',
@@ -336,7 +336,7 @@ export default function PropertyTaxPage() {
                                     <strong>Toll Free:</strong> 1800-XXX-XXXX
                                 </Typography>
                                 <Typography variant="body2" sx={{ mb: 1 }}>
-                                    <strong>Email:</strong> tax@umrednp.gov.in
+                                    <strong>Email:</strong> tax@nagpurnp.gov.in
                                 </Typography>
                                 <Typography variant="body2">
                                     <strong>Office:</strong> Mon-Sat, 10AM-5PM

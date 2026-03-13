@@ -108,7 +108,7 @@ export default function LoginPage() {
                                 </Typography>
 
                                 <Typography variant="body1" sx={{ mb: 4, lineHeight: 1.8, opacity: 0.9 }}>
-                                    Welcome to the official e-Governance portal of Umred Nagar Parishad.
+                                    Welcome to the official e-Governance portal of Nagpur Municipal Corporation.
                                     Access all municipal services, file grievances, pay taxes, and track applications online.
                                 </Typography>
 
@@ -270,7 +270,7 @@ export default function LoginPage() {
             <Box sx={{ bgcolor: '#138808', py: 1.5 }}>
                 <Container maxWidth="lg">
                     <Typography variant="body2" sx={{ color: '#fff', textAlign: 'center' }}>
-                        Government of Maharashtra | महाराष्ट्र शासन | © {new Date().getFullYear()} Umred Nagar Parishad
+                        Government of Maharashtra | महाराष्ट्र शासन | © {new Date().getFullYear()} Nagpur Municipal Corporation
                     </Typography>
                 </Container>
             </Box>

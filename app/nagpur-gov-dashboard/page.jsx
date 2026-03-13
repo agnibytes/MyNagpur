@@ -27,7 +27,7 @@ import VisibilityIcon from '@mui/icons-material/Visibility';
 import AssignmentIcon from '@mui/icons-material/Assignment';
 import NotificationsActiveIcon from '@mui/icons-material/NotificationsActive';
 
-export default function UmredGovDashboard() {
+export default function NagpurGovDashboard() {
     const [selectedWard, setSelectedWard] = useState('all');
     const [tabValue, setTabValue] = useState(0);
 
@@ -121,10 +121,10 @@ export default function UmredGovDashboard() {
                             <LocationCityIcon sx={{ fontSize: 40 }} />
                             <Box>
                                 <Typography variant="h5" sx={{ fontWeight: 'bold' }}>
-                                    Umred Nagar Parishad - Government Dashboard
+                                    Nagpur Municipal Corporation - Government Dashboard
                                 </Typography>
                                 <Typography variant="body2" sx={{ opacity: 0.8 }}>
-                                    उमरेड नगर परिषद | Administrative Control Panel
+                                    नागपूर महानगरपालिका | Administrative Control Panel
                                 </Typography>
                             </Box>
                         </Box>
@@ -206,7 +206,7 @@ export default function UmredGovDashboard() {
                                         sx={{ bgcolor: '#fff', borderRadius: 0 }}
                                     >
                                         <MenuItem value="all">All Wards</MenuItem>
-                                        {[...Array(13)].map((_, i) => (
+                                        {[...Array(136)].map((_, i) => (
                                             <MenuItem key={i + 1} value={i + 1}>Ward {i + 1}</MenuItem>
                                         ))}
                                     </Select>
@@ -379,7 +379,7 @@ export default function UmredGovDashboard() {
             {/* Footer */}
             <Box sx={{ bgcolor: '#1a4e8e', color: '#fff', py: 2, mt: 4, textAlign: 'center' }}>
                 <Typography variant="body2">
-                    © 2026 Umred Nagar Parishad | Government Dashboard | For Official Use Only
+                    © 2026 Nagpur Municipal Corporation | Government Dashboard | For Official Use Only
                 </Typography>
             </Box>
         </Box>

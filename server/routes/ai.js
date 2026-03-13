@@ -40,9 +40,9 @@ const responses = {
         mr: "🔍 **तुमचा अर्ज ट्रॅक करा**\n\nतुम्ही येथे तुमच्या अर्जाची स्थिती पाहू शकता:\n/services/track-application\n\nसध्याची स्थिती पाहण्यासाठी तुमचा अर्ज क्रमांक टाका."
     },
     contact: {
-        en: "📞 **Contact Information**\n\n• Office: Umred Nagar Parishad, Main Road, Umred\n• Phone: 07118-XXXXXX\n• Toll-Free: 1800-XXX-XXXX\n• Email: contact@umrednp.gov.in\n• Hours: Mon-Sat, 10AM - 5PM",
-        hi: "📞 **संपर्क जानकारी**\n\n• कार्यालय: उमरेड नगर परिषद, मुख्य मार्ग, उमरेड\n• फोन: 07118-XXXXXX\n• टोल-फ्री: 1800-XXX-XXXX\n• ईमेल: contact@umrednp.gov.in\n• समय: सोम-शनि, सुबह 10 - शाम 5",
-        mr: "📞 **संपर्क माहिती**\n\n• कार्यालय: उमरेड नगर परिषद, मुख्य रस्ता, उमरेड\n• फोन: 07118-XXXXXX\n• टोल-फ्री: 1800-XXX-XXXX\n• ईमेल: contact@umrednp.gov.in\n• वेळ: सोम-शनि, सकाळी 10 - संध्याकाळी 5"
+        en: "📞 **Contact Information**\n\n• Office: Nagpur Municipal Corporation, Main Road, Nagpur\n• Phone: 07118-XXXXXX\n• Toll-Free: 1800-XXX-XXXX\n• Email: contact@nagpurnp.gov.in\n• Hours: Mon-Sat, 10AM - 5PM",
+        hi: "📞 **संपर्क जानकारी**\n\n• कार्यालय: उमरेड नगर परिषद, मुख्य मार्ग, उमरेड\n• फोन: 07118-XXXXXX\n• टोल-फ्री: 1800-XXX-XXXX\n• ईमेल: contact@nagpurnp.gov.in\n• समय: सोम-शनि, सुबह 10 - शाम 5",
+        mr: "📞 **संपर्क माहिती**\n\n• कार्यालय: उमरेड नगर परिषद, मुख्य रस्ता, उमरेड\n• फोन: 07118-XXXXXX\n• टोल-फ्री: 1800-XXX-XXXX\n• ईमेल: contact@nagpurnp.gov.in\n• वेळ: सोम-शनि, सकाळी 10 - संध्याकाळी 5"
     },
     fallback: {
         en: "I'm not sure I understood that. You can ask me about:\n• Services we offer\n• Property Tax\n• Water Bill\n• Filing Complaints\n• Certificates\n• Track Application\n• Contact Information\n\nOr type 'help' for more options.",

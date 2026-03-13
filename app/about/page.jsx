@@ -52,12 +52,12 @@ export default function AboutPage() {
 
     // Milestones
     const milestones = [
-        { year: '1950', event: 'Umred Municipal Council Established' },
+        { year: '1950', event: 'Nagpur Municipal Corporation Established' },
         { year: '1980', event: 'Expansion to 9 Wards' },
         { year: '2005', event: 'Computerization of Records' },
         { year: '2015', event: 'Swachh Bharat Abhiyan Adoption' },
         { year: '2020', event: 'E-Governance Portal Launch' },
-        { year: '2026', event: 'Smart City Integration & Majha Umred Platform' },
+        { year: '2026', event: 'Smart City Integration & Majha Nagpur Platform' },
     ];
 
     return (
@@ -93,7 +93,7 @@ export default function AboutPage() {
                             उमरेड नगरपरिषद
                         </Typography>
                         <Typography variant="h4" sx={{ fontWeight: 'bold', mb: 2, fontSize: { xs: '1.3rem', md: '1.8rem' } }}>
-                            Umred Nagar Parishad
+                            Nagpur Municipal Corporation
                         </Typography>
                         <Typography variant="h6" sx={{ color: '#FF9933', mb: 1 }}>
                             जिल्हा नागपूर, महाराष्ट्र राज्य
@@ -123,20 +123,20 @@ export default function AboutPage() {
                         <Paper sx={{ mb: 4, overflow: 'hidden', borderRadius: 0, boxShadow: 3, border: '1px solid #ddd' }}>
                             <Box sx={{ bgcolor: '#1a4e8e', color: '#fff', p: 2, borderLeft: '5px solid #FF9933', display: 'flex', alignItems: 'center', gap: 1 }}>
                                 <AccountBalanceIcon />
-                                <Typography variant="h6" sx={{ fontWeight: 'bold' }}>About Umred Nagar Parishad</Typography>
+                                <Typography variant="h6" sx={{ fontWeight: 'bold' }}>About Nagpur Municipal Corporation</Typography>
                             </Box>
                             <Box sx={{ p: 3 }}>
                                 <Typography variant="body1" paragraph sx={{ lineHeight: 1.8, textAlign: 'justify' }}>
-                                    <strong>उमरेड नगरपरिषद</strong> (Umred Municipal Council) is the governing body responsible for the civic administration of Umred town in Nagpur district, Maharashtra. Established in 1950, the council has been at the forefront of urban development and citizen welfare for over seven decades.
+                                    <strong>उमरेड नगरपरिषद</strong> (Nagpur Municipal Corporation) is the governing body responsible for the civic administration of Nagpur town in Nagpur district, Maharashtra. Established in 1950, the council has been at the forefront of urban development and citizen welfare for over seven decades.
                                 </Typography>
                                 <Typography variant="body1" paragraph sx={{ lineHeight: 1.8, textAlign: 'justify' }}>
-                                    Located approximately 50 kilometers east of Nagpur, Umred is renowned for its proximity to the famous <strong>Umred Karhandla Wildlife Sanctuary</strong>, making it a unique blend of urban governance and ecological preservation. The town serves as a vital agricultural hub and connects several rural communities to essential urban services.
+                                    Located approximately 50 kilometers east of Nagpur, Nagpur is renowned for its proximity to the famous <strong>Nagpur Karhandla Wildlife Sanctuary</strong>, making it a unique blend of urban governance and ecological preservation. The town serves as a vital agricultural hub and connects several rural communities to essential urban services.
                                 </Typography>
                                 <Typography variant="body1" paragraph sx={{ lineHeight: 1.8, textAlign: 'justify' }}>
                                     The Nagar Parishad administers <strong>13 wards</strong>, serving a population of over 52,000 citizens. Our dedicated team of officials and elected representatives work tirelessly to ensure efficient delivery of civic services including water supply, sanitation, street lighting, road maintenance, and public health initiatives.
                                 </Typography>
                                 <Typography variant="body1" sx={{ lineHeight: 1.8, textAlign: 'justify' }}>
-                                    Under the leadership of the current administration, we have embraced digital governance through the <strong>"Majha Umred"</strong> platform, enabling real-time complaint tracking, ward performance monitoring, and transparent administration aligned with the vision of Digital India.
+                                    Under the leadership of the current administration, we have embraced digital governance through the <strong>"Majha Nagpur"</strong> platform, enabling real-time complaint tracking, ward performance monitoring, and transparent administration aligned with the vision of Digital India.
                                 </Typography>
                             </Box>
                         </Paper>
@@ -157,7 +157,7 @@ export default function AboutPage() {
                                             </Typography>
                                         </Box>
                                         <Typography variant="body1" sx={{ lineHeight: 1.8, textAlign: 'justify' }}>
-                                            To transform Umred into a <strong>model township</strong> that exemplifies sustainable urban development, digital governance, and citizen empowerment. We envision a city where every citizen has access to efficient civic services, clean environment, and equal opportunities for growth and prosperity.
+                                            To transform Nagpur into a <strong>model township</strong> that exemplifies sustainable urban development, digital governance, and citizen empowerment. We envision a city where every citizen has access to efficient civic services, clean environment, and equal opportunities for growth and prosperity.
                                         </Typography>
                                         <Box sx={{ mt: 2 }}>
                                             <Typography variant="body2" sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 1 }}>
@@ -312,7 +312,7 @@ export default function AboutPage() {
                                     </Box>
 
                                     <Typography variant="body2" sx={{ fontStyle: 'italic', color: '#555', mb: 2, px: 2 }}>
-                                        "उमरेडच्या प्रगतीसाठी कटिबद्ध ! - Committed to the Progress of Umred"
+                                        "उमरेडच्या प्रगतीसाठी कटिबद्ध ! - Committed to the Progress of Nagpur"
                                     </Typography>
 
                                     <Divider sx={{ my: 2 }} />
@@ -376,8 +376,8 @@ export default function AboutPage() {
                             <Box sx={{ p: 2 }}>
                                 <Typography variant="body2" sx={{ mb: 2 }}>
                                     <strong>Address:</strong><br />
-                                    Umred Nagar Parishad Office,<br />
-                                    Main Road, Umred - 441203<br />
+                                    Nagpur Municipal Corporation Office,<br />
+                                    Main Road, Nagpur - 441203<br />
                                     District Nagpur, Maharashtra
                                 </Typography>
                                 <Divider sx={{ my: 1.5 }} />
@@ -385,7 +385,7 @@ export default function AboutPage() {
                                     <PhoneIcon fontSize="small" /> <strong>Phone:</strong> 07116-222XXX
                                 </Typography>
                                 <Typography variant="body2" sx={{ mb: 1, display: 'flex', alignItems: 'center', gap: 0.5 }}>
-                                    <EmailIcon fontSize="small" /> <strong>Email:</strong> umrednp@gov.in
+                                    <EmailIcon fontSize="small" /> <strong>Email:</strong> nagpurnp@gov.in
                                 </Typography>
                                 <Typography variant="body2" sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
                                     <ScheduleIcon fontSize="small" /> <strong>Office Hours:</strong> Mon-Sat, 10:00 AM - 5:00 PM
