@@ -10,7 +10,13 @@ echo "======================================================"
 echo ""
 echo "🐳 1/2: Starting AI Backend Services..."
 cd majha-nagpur-backend
-docker compose up -d
+if command -v docker-compose &> /dev/null; then
+    docker-compose up -d
+elif docker help compose &> /dev/null; then
+    docker compose up -d
+else
+    echo "⚠️  Warning: Docker Compose not found. AI Backend services might not start."
+fi
 cd ..
 
 echo ""
