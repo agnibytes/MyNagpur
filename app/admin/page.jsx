@@ -226,6 +226,27 @@ export default function AdminLoginPage() {
                                     <AdminPanelSettingsIcon sx={{ mr: 1 }} />
                                     {loading ? 'Authenticating...' : 'Access Admin Panel'}
                                 </Button>
+
+                                {/* Demo System Admin Login */}
+                                <Button
+                                    fullWidth
+                                    variant="outlined"
+                                    onClick={() => {
+                                        setEmail('sysadmin@nagpurnp.gov.in');
+                                        setPassword('Admin@System2026!');
+                                    }}
+                                    sx={{
+                                        mt: 2,
+                                        py: 1.5,
+                                        borderColor: '#138808',
+                                        color: '#138808',
+                                        fontWeight: 'bold',
+                                        '&:hover': { bgcolor: 'rgba(19,136,8,0.1)', borderColor: '#138808' }
+                                    }}
+                                >
+                                    <TerminalIcon sx={{ mr: 1 }} />
+                                    Demo System Admin Login
+                                </Button>
                             </Box>
 
                             <Divider sx={{ my: 3, borderColor: '#333' }} />

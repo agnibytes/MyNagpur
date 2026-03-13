@@ -227,6 +227,28 @@ export default function LoginPage() {
                                             {loading ? 'Signing in...' : 'Sign In / साइन इन करा'}
                                         </Button>
 
+                                        {/* Demo Admin Login */}
+                                        <Button
+                                            fullWidth
+                                            variant="outlined"
+                                            onClick={() => {
+                                                setEmail('admin@nagpur.gov.in');
+                                                setPassword('admin123');
+                                            }}
+                                            sx={{
+                                                mt: 2,
+                                                py: 1.5,
+                                                borderColor: '#FF9933',
+                                                color: '#FF9933',
+                                                fontWeight: 'bold',
+                                                borderRadius: 0,
+                                                '&:hover': { bgcolor: 'rgba(255,153,51,0.1)', borderColor: '#FF9933' }
+                                            }}
+                                        >
+                                            <PersonIcon sx={{ mr: 1 }} />
+                                            Demo Admin Login
+                                        </Button>
+
                                         <Divider sx={{ my: 3 }}>
                                             <Typography variant="caption" sx={{ color: '#999' }}>OR</Typography>
                                         </Divider>
