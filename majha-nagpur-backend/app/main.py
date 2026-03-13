@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from datetime import datetime
 
-from app.routes import traffic, pollution, predictions, insights
+from app.routes import traffic, pollution, predictions, insights, mock_data
 
 app = FastAPI(
     title="MajhaNagpur Smart City AI Backend",
@@ -24,6 +24,7 @@ app.include_router(traffic.router, prefix="/api/traffic", tags=["Traffic"])
 app.include_router(pollution.router, prefix="/api/pollution", tags=["Pollution"])
 app.include_router(predictions.router, prefix="/api/predictions", tags=["Predictions"])
 app.include_router(insights.router, prefix="/api/insights", tags=["Insights"])
+app.include_router(mock_data.router, prefix="/api/mock-data", tags=["Mock Data"])
 
 @app.get("/")
 def read_root():
