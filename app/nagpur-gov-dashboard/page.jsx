@@ -27,6 +27,11 @@ import VisibilityIcon from '@mui/icons-material/Visibility';
 import AssignmentIcon from '@mui/icons-material/Assignment';
 import NotificationsActiveIcon from '@mui/icons-material/NotificationsActive';
 
+// New AI Components
+import AiInsightsPanel from '../components/ai/AiInsightsPanel';
+import NagpurHeatmap from '../components/ai/NagpurHeatmap';
+import PredictionDashboard from '../components/ai/PredictionDashboard';
+
 export default function NagpurGovDashboard() {
     const [selectedWard, setSelectedWard] = useState('all');
     const [tabValue, setTabValue] = useState(0);
@@ -186,6 +191,29 @@ export default function NagpurGovDashboard() {
                     </Grid>
                 </Container>
             </Box>
+
+            {/* Smart City AI Analytics Section */}
+            <Container maxWidth="xl" sx={{ pt: 3, pb: 1 }}>
+                <Typography variant="h5" sx={{ fontWeight: 'bold', mb: 2, color: '#1a4e8e', display: 'flex', alignItems: 'center', gap: 1 }}>
+                    <LightbulbIcon sx={{ color: '#FF9933' }}/> Smart City AI Analytics
+                </Typography>
+                <Grid container spacing={3}>
+                    {/* Insights Panel (1/3 width) */}
+                    <Grid item xs={12} lg={4}>
+                        <AiInsightsPanel />
+                    </Grid>
+                    
+                    {/* Prediction Dashboard (1/3 width) */}
+                    <Grid item xs={12} lg={4}>
+                        <PredictionDashboard />
+                    </Grid>
+                    
+                    {/* Heatmap (1/3 width) */}
+                    <Grid item xs={12} lg={4}>
+                        <NagpurHeatmap />
+                    </Grid>
+                </Grid>
+            </Container>
 
             {/* Main Content */}
             <Container maxWidth="xl" sx={{ py: 3 }}>
